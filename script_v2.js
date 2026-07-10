@@ -245,12 +245,26 @@ function onScanSuccess(decodedText, decodedResult) {
 
 function cleanAuthorName(authorStr) {
     if (!authorStr) return "";
-    // カンマで分割し、前後の空白を除去
     let parts = authorStr.split(',').map(p => p.trim());
-    // 「数字とハイフン（またはチルダ）」だけで構成されているパーツ（生没年など）を除外
-    parts = parts.filter(p => !/^[\d\-〜]+$/.test(p));
-    // 日本語の書籍名に倣ってスペースなしで結合する
-    return parts.join('').trim();
+    parts = parts.filter(p => !/^[\d\-?]+$/.test(p));
+    parts = parts.map(p => p.replace(/[\/／\s]*(著|編|訳|原作|作画|原案)$/, '').trim());
+    return parts.join(', ').trim();
+}
+
+function getAmazonCoverUrl(isbn13) {
+    if (!isbn13) return '';
+    let asin = isbn13;
+    if (isbn13.startsWith('978') && isbn13.length === 13) {
+        const base = isbn13.substring(3, 12);
+        let sum = 0;
+        for (let i = 0; i < 9; i++) {
+            sum += parseInt(base[i]) * (10 - i);
+        }
+        const check = 11 - (sum % 11);
+        const checkDigit = check === 10 ? 'X' : (check === 11 ? '0' : check.toString());
+        asin = base + checkDigit;
+    }
+    return `https://images-na.ssl-images-amazon.com/images/P/${asin}.09.LZZZZZZZ.jpg`;
 }
 
 function showConfirmDetails(title, author, isbn, publisher, year, officialDescription = "") {
@@ -479,14 +493,15 @@ function renderBooks(books) {
         const summary = book.Gemini_Summary || "（要約未生成）";
         const rec = book.Gemini_Recommendation ? `<div class="book-rec">💡 ${book.Gemini_Recommendation}</div>` : '';
         
-        // 書影のURL。精度の高いOpenBDをメインにし、失敗したらGoogle Books APIにフォールバック
+        // 書影のURL。精度の高いAmazon(ASIN)をメインにし、失敗したらOpenBDにフォールバック
+        const amazonUrl = getAmazonCoverUrl(book.ISBN13);
         const openbdUrl = `https://cover.openbd.jp/${book.ISBN13}.jpg`;
-        const googleBooksUrl = `https://books.google.com/books/content?vid=ISBN${book.ISBN13}&printsec=frontcover&img=1&zoom=1`;
         
         // どちらも失敗した場合は非表示にする
-        const fallbackScript = `this.onerror=null; this.src='${googleBooksUrl}'; this.onerror=function(){this.style.display='none';}`;
-        const coverUrl = book.ISBN13 ? openbdUrl : 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
-        const imgTag = book.ISBN13 ? `<img src="${openbdUrl}" alt="書影" style="width: 100%; height: 100%; object-fit: cover; box-shadow: 0 4px 6px rgba(0,0,0,0.3); position: relative; z-index: 1; background: #1e293b;" onerror="${fallbackScript}">` : '';
+        const fallbackScript = `this.onerror=null; this.src='${openbdUrl}'; this.onerror=function(){this.style.display='none';}`;
+        const coverUrl = book.ISBN13 ? amazonUrl : 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+        // 背景色を透明にすることで、Amazonの1x1透明GIFが返ってきた場合でも下のテキストが見えるようにする
+        const imgTag = book.ISBN13 ? `<img src="${amazonUrl}" alt="書影" style="width: 100%; height: 100%; object-fit: cover; box-shadow: 0 4px 6px rgba(0,0,0,0.3); position: relative; z-index: 1; background: transparent;" onerror="${fallbackScript}">` : '';
 
         // 書影を表示するためのフレックスレイアウトを追加
         card.style.display = 'flex';
