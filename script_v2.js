@@ -462,17 +462,29 @@ function renderBooks(books) {
             tagsHtml += `<span class="tag">${book.Gemini_Genre}</span>`;
         }
         if (book.Status) {
-            tagsHtml += `<span class="tag" style="background: rgba(56, 189, 248, 0.2); color: #7dd3fc;">${book.Status}</span>`;
+            let displayStatus = book.Status;
+            if (displayStatus === '読書中') displayStatus = 'いま読んでる';
+            
+            let bg = 'rgba(56, 189, 248, 0.2)';
+            let color = '#7dd3fc';
+            if (displayStatus === '読み終わった') { bg = 'rgba(52, 211, 153, 0.2)'; color = '#6ee7b7'; }      // 緑系
+            else if (displayStatus === 'いま読んでる') { bg = 'rgba(56, 189, 248, 0.2)'; color = '#7dd3fc'; } // 青系
+            else if (displayStatus === '積読') { bg = 'rgba(251, 191, 36, 0.2)'; color = '#fcd34d'; }        // 黄系
+            else if (displayStatus === '読みたい') { bg = 'rgba(192, 132, 252, 0.2)'; color = '#d8b4fe'; }    // 紫系
+            else if (displayStatus === '手放した') { bg = 'rgba(156, 163, 175, 0.2)'; color = '#d1d5db'; }    // 灰系
+            
+            tagsHtml += `<span class="tag" style="background: ${bg}; color: ${color};">${displayStatus}</span>`;
         }
 
         const summary = book.Gemini_Summary || "（要約未生成）";
         const rec = book.Gemini_Recommendation ? `<div class="book-rec">💡 ${book.Gemini_Recommendation}</div>` : '';
         
-        // 書影のURL。精度の高いOpenBDをメインにし、失敗したらNDLにフォールバック。それでもダメなら非表示にして下のテキストを見せる
+        // 書影のURL。精度の高いOpenBDをメインにし、失敗したらGoogle Books APIにフォールバック
         const openbdUrl = `https://cover.openbd.jp/${book.ISBN13}.jpg`;
-        const ndlUrl = `https://ndlsearch.ndl.go.jp/thumbnail/${book.ISBN13}.jpg`;
+        const googleBooksUrl = `https://books.google.com/books/content?vid=ISBN${book.ISBN13}&printsec=frontcover&img=1&zoom=1`;
         
-        const fallbackScript = `this.onerror=null; this.src='${ndlUrl}'; this.onerror=function(){this.style.display='none';}`;
+        // どちらも失敗した場合は非表示にする
+        const fallbackScript = `this.onerror=null; this.src='${googleBooksUrl}'; this.onerror=function(){this.style.display='none';}`;
         const coverUrl = book.ISBN13 ? openbdUrl : 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
         const imgTag = book.ISBN13 ? `<img src="${openbdUrl}" alt="書影" style="width: 100%; height: 100%; object-fit: cover; box-shadow: 0 4px 6px rgba(0,0,0,0.3); position: relative; z-index: 1; background: #1e293b;" onerror="${fallbackScript}">` : '';
 
@@ -611,7 +623,9 @@ function openDetailModal(book, coverUrl, summary, rec) {
     document.getElementById('detailPublisher').innerText = pubInfo.join(' / ');
     
     document.getElementById('detailType').innerText = book.Type ? `[${book.Type}]` : '';
-    document.getElementById('detailStatus').value = book.Status || '積読';
+    let currentStatus = book.Status || '積読';
+    if (currentStatus === '読書中') currentStatus = 'いま読んでる';
+    document.getElementById('detailStatus').value = currentStatus;
     
     document.getElementById('detailSummary').innerText = summary;
     document.getElementById('detailRec').innerHTML = rec;
