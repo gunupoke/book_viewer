@@ -179,26 +179,47 @@ function onScanSuccess(decodedText, decodedResult) {
                 if (title) {
                     showConfirmDetails(title, author, decodedText, publisher, year, officialDescription);
                 } else {
-                    // OpenBDで見つからなかった場合のみGoogle Books API（クリーンアップ機能つき）
-                    fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn:${decodedText}`)
-                        .then(res => res.json())
-                        .then(gData => {
-                            if (gData.items && gData.items.length > 0) {
-                                title = gData.items[0].volumeInfo.title;
-                                const authors = gData.items[0].volumeInfo.authors;
-                                if (authors) author = authors.join(', ');
-                                let pub = gData.items[0].volumeInfo.publisher || "";
-                                let pubDate = gData.items[0].volumeInfo.publishedDate || "";
-                                let yr = pubDate.length >= 4 ? pubDate.substring(0, 4) : "";
-                                showConfirmDetails(title, author, decodedText, pub, yr);
+                    // OpenBDで見つからなかった場合、国立国会図書館(NDL)APIを試す
+                    fetch(`https://ndlsearch.ndl.go.jp/api/opensearch?isbn=${decodedText}`)
+                        .then(res => res.text())
+                        .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
+                        .then(xml => {
+                            const items = xml.querySelectorAll("item");
+                            if (items.length > 0) {
+                                const item = items[0];
+                                title = item.querySelector("title") ? item.querySelector("title").textContent : "";
+                                author = item.querySelector("author") ? item.querySelector("author").textContent : (item.querySelector("creator") ? item.querySelector("creator").textContent : "");
+                                publisher = item.querySelector("publisher") ? item.querySelector("publisher").textContent : "";
+                                const issued = item.getElementsByTagName("dcterms:issued").length > 0 ? item.getElementsByTagName("dcterms:issued")[0].textContent : "";
+                                if (issued && issued.length >= 4) year = issued.substring(0, 4);
+                                showConfirmDetails(title, author, decodedText, publisher, year);
                             } else {
-                                document.getElementById('confirmLoading').style.display = 'none';
-                                document.getElementById('scanResult').innerText = "エラー: 本の情報が見つかりませんでした (ISBN: " + decodedText + ")";
+                                // NDLでも見つからない場合のみGoogle Books API（クリーンアップ機能つき）
+                                fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn:${decodedText}`)
+                                    .then(res => res.json())
+                                    .then(gData => {
+                                        if (gData.items && gData.items.length > 0) {
+                                            title = gData.items[0].volumeInfo.title;
+                                            const authors = gData.items[0].volumeInfo.authors;
+                                            if (authors) author = authors.join(', ');
+                                            publisher = gData.items[0].volumeInfo.publisher || "";
+                                            let pubDate = gData.items[0].volumeInfo.publishedDate || "";
+                                            if (pubDate.length >= 4) year = pubDate.substring(0, 4);
+                                            showConfirmDetails(title, author, decodedText, publisher, year);
+                                        } else {
+                                            document.getElementById('confirmLoading').style.display = 'none';
+                                            document.getElementById('scanResult').innerText = "エラー: 本の情報が見つかりませんでした (ISBN: " + decodedText + ")";
+                                        }
+                                    })
+                                    .catch(err => {
+                                        document.getElementById('confirmLoading').style.display = 'none';
+                                        document.getElementById('scanResult').innerText = "Google Books取得エラー: " + err;
+                                    });
                             }
                         })
                         .catch(err => {
                             document.getElementById('confirmLoading').style.display = 'none';
-                            document.getElementById('scanResult').innerText = "本情報の取得エラー: " + err;
+                            document.getElementById('scanResult').innerText = "NDL取得エラー: " + err;
                         });
                 }
             })
