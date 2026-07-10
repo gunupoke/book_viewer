@@ -183,37 +183,52 @@ function onScanSuccess(decodedText, decodedResult) {
                     fetch(`https://ci.nii.ac.jp/books/opensearch/search?isbn=${decodedText}&format=json`)
                         .then(res => res.json())
                         .then(ciniiData => {
-                            if (ciniiData["@graph"] && ciniiData["@graph"][0] && ciniiData["@graph"][0].items && ciniiData["@graph"][0].items.length > 0) {
-                                const item = ciniiData["@graph"][0].items[0];
-                                title = item.title || "";
-                                author = item["dc:creator"] || "";
-                                publisher = (item["dc:publisher"] && item["dc:publisher"].length > 0) ? item["dc:publisher"][0] : "";
-                                const pubDate = item["dc:date"] || "";
-                                if (pubDate.length >= 4) year = pubDate.substring(0, 4);
-                                showConfirmDetails(title, author, decodedText, publisher, year);
-                            } else {
-                                // CiNiiでも見つからない場合のみGoogle Books API（クリーンアップ機能つき）
-                                fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn:${decodedText}`)
-                                    .then(res => res.json())
-                                    .then(gData => {
-                                        if (gData.items && gData.items.length > 0) {
-                                            title = gData.items[0].volumeInfo.title;
-                                            const authors = gData.items[0].volumeInfo.authors;
-                                            if (authors) author = authors.join(', ');
-                                            publisher = gData.items[0].volumeInfo.publisher || "";
-                                            let pubDate = gData.items[0].volumeInfo.publishedDate || "";
-                                            if (pubDate.length >= 4) year = pubDate.substring(0, 4);
-                                            showConfirmDetails(title, author, decodedText, publisher, year);
-                                        } else {
-                                            document.getElementById('confirmLoading').style.display = 'none';
-                                            document.getElementById('scanResult').innerText = "エラー: 本の情報が見つかりませんでした (ISBN: " + decodedText + ")";
+                            let graph = ciniiData["@graph"];
+                            if (graph && !Array.isArray(graph)) graph = [graph];
+                            
+                            if (graph) {
+                                const channel = graph.find(g => g.items);
+                                if (channel) {
+                                    let items = channel.items;
+                                    if (items && !Array.isArray(items)) items = [items];
+                                    
+                                    if (items && items.length > 0) {
+                                        const item = items[0];
+                                        title = item.title || "";
+                                        author = item["dc:creator"] || "";
+                                        publisher = "";
+                                        if (item["dc:publisher"]) {
+                                            publisher = Array.isArray(item["dc:publisher"]) ? item["dc:publisher"][0] : item["dc:publisher"];
                                         }
-                                    })
-                                    .catch(err => {
-                                        document.getElementById('confirmLoading').style.display = 'none';
-                                        document.getElementById('scanResult').innerText = "Google Books取得エラー: " + err;
-                                    });
+                                        const pubDate = item["dc:date"] || "";
+                                        if (pubDate.length >= 4) year = pubDate.substring(0, 4);
+                                        showConfirmDetails(title, author, decodedText, publisher, year);
+                                        return; // 成功したのでここで終了
+                                    }
+                                }
                             }
+                            
+                            // CiNiiでも見つからない場合のみGoogle Books API（クリーンアップ機能つき）
+                            fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn:${decodedText}`)
+                                .then(res => res.json())
+                                .then(gData => {
+                                    if (gData.items && gData.items.length > 0) {
+                                        title = gData.items[0].volumeInfo.title;
+                                        const authors = gData.items[0].volumeInfo.authors;
+                                        if (authors) author = authors.join(', ');
+                                        publisher = gData.items[0].volumeInfo.publisher || "";
+                                        let pubDate = gData.items[0].volumeInfo.publishedDate || "";
+                                        if (pubDate.length >= 4) year = pubDate.substring(0, 4);
+                                        showConfirmDetails(title, author, decodedText, publisher, year);
+                                    } else {
+                                        document.getElementById('confirmLoading').style.display = 'none';
+                                        document.getElementById('scanResult').innerText = "エラー: 本の情報が見つかりませんでした (ISBN: " + decodedText + ") ※全DB検索済";
+                                    }
+                                })
+                                .catch(err => {
+                                    document.getElementById('confirmLoading').style.display = 'none';
+                                    document.getElementById('scanResult').innerText = "Google Books取得エラー: " + err;
+                                });
                         })
                         .catch(err => {
                             document.getElementById('confirmLoading').style.display = 'none';
