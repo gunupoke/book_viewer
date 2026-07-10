@@ -179,22 +179,20 @@ function onScanSuccess(decodedText, decodedResult) {
                 if (title) {
                     showConfirmDetails(title, author, decodedText, publisher, year, officialDescription);
                 } else {
-                    // OpenBDで見つからなかった場合、国立国会図書館(NDL)APIを試す
-                    fetch(`https://ndlsearch.ndl.go.jp/api/opensearch?isbn=${decodedText}`)
-                        .then(res => res.text())
-                        .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
-                        .then(xml => {
-                            const items = xml.querySelectorAll("item");
-                            if (items.length > 0) {
-                                const item = items[0];
-                                title = item.querySelector("title") ? item.querySelector("title").textContent : "";
-                                author = item.querySelector("author") ? item.querySelector("author").textContent : (item.querySelector("creator") ? item.querySelector("creator").textContent : "");
-                                publisher = item.querySelector("publisher") ? item.querySelector("publisher").textContent : "";
-                                const issued = item.getElementsByTagName("dcterms:issued").length > 0 ? item.getElementsByTagName("dcterms:issued")[0].textContent : "";
-                                if (issued && issued.length >= 4) year = issued.substring(0, 4);
+                    // OpenBDで見つからなかった場合、CiNii Books API（大学図書館等のDB）を試す
+                    fetch(`https://ci.nii.ac.jp/books/opensearch/search?isbn=${decodedText}&format=json`)
+                        .then(res => res.json())
+                        .then(ciniiData => {
+                            if (ciniiData["@graph"] && ciniiData["@graph"][0] && ciniiData["@graph"][0].items && ciniiData["@graph"][0].items.length > 0) {
+                                const item = ciniiData["@graph"][0].items[0];
+                                title = item.title || "";
+                                author = item["dc:creator"] || "";
+                                publisher = (item["dc:publisher"] && item["dc:publisher"].length > 0) ? item["dc:publisher"][0] : "";
+                                const pubDate = item["dc:date"] || "";
+                                if (pubDate.length >= 4) year = pubDate.substring(0, 4);
                                 showConfirmDetails(title, author, decodedText, publisher, year);
                             } else {
-                                // NDLでも見つからない場合のみGoogle Books API（クリーンアップ機能つき）
+                                // CiNiiでも見つからない場合のみGoogle Books API（クリーンアップ機能つき）
                                 fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn:${decodedText}`)
                                     .then(res => res.json())
                                     .then(gData => {
@@ -219,7 +217,7 @@ function onScanSuccess(decodedText, decodedResult) {
                         })
                         .catch(err => {
                             document.getElementById('confirmLoading').style.display = 'none';
-                            document.getElementById('scanResult').innerText = "NDL取得エラー: " + err;
+                            document.getElementById('scanResult').innerText = "CiNii取得エラー: " + err;
                         });
                 }
             })
