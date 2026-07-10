@@ -161,7 +161,7 @@ function onScanSuccess(decodedText, decodedResult) {
                         author = data[0].summary.author;
                         publisher = data[0].summary.publisher || "";
                         let pubdate = data[0].summary.pubdate || "";
-                        if (pubdate.length >= 4) year = pubdate.substring(0, 4);
+                        year = normalizeDate(pubdate);
                     }
                     
                     // 公式のあらすじを取得 (onix.CollateralDetail.TextContent)
@@ -201,7 +201,7 @@ function onScanSuccess(decodedText, decodedResult) {
                                             publisher = Array.isArray(item["dc:publisher"]) ? item["dc:publisher"][0] : item["dc:publisher"];
                                         }
                                         const pubDate = item["dc:date"] || "";
-                                        if (pubDate.length >= 4) year = pubDate.substring(0, 4);
+                                        year = normalizeDate(pubDate);
                                         showConfirmDetails(title, author, decodedText, publisher, year);
                                         return; // 成功したのでここで終了
                                     }
@@ -218,7 +218,7 @@ function onScanSuccess(decodedText, decodedResult) {
                                         if (authors) author = authors.join(', ');
                                         publisher = gData.items[0].volumeInfo.publisher || "";
                                         let pubDate = gData.items[0].volumeInfo.publishedDate || "";
-                                        if (pubDate.length >= 4) year = pubDate.substring(0, 4);
+                                        year = normalizeDate(pubDate);
                                         showConfirmDetails(title, author, decodedText, publisher, year);
                                     } else {
                                         document.getElementById('confirmLoading').style.display = 'none';
@@ -249,6 +249,18 @@ function cleanAuthorName(authorStr) {
     parts = parts.filter(p => !/^[\d\-?]+$/.test(p));
     parts = parts.map(p => p.replace(/[\/／\s]*(著|編|訳|原作|作画|原案)$/, '').trim());
     return parts.join(', ').trim();
+}
+
+function normalizeDate(dateStr) {
+    if (!dateStr) return "";
+    let s = dateStr.replace(/[^\d\-]/g, '');
+    if (/^\d{8}$/.test(s)) {
+        return `${s.substring(0,4)}-${s.substring(4,6)}-${s.substring(6,8)}`;
+    }
+    if (/^\d{6}$/.test(s)) {
+        return `${s.substring(0,4)}-${s.substring(4,6)}`;
+    }
+    return s;
 }
 
 function getAmazonCoverUrl(isbn13) {
@@ -499,9 +511,10 @@ function renderBooks(books) {
         
         // どちらも失敗した場合は非表示にする
         const fallbackScript = `this.onerror=null; this.src='${openbdUrl}'; this.onerror=function(){this.style.display='none';}`;
+        const onloadScript = `if(this.naturalWidth <= 1) { this.onload=null; this.src='${openbdUrl}'; }`;
         const coverUrl = book.ISBN13 ? amazonUrl : 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
         // 背景色を透明にすることで、Amazonの1x1透明GIFが返ってきた場合でも下のテキストが見えるようにする
-        const imgTag = book.ISBN13 ? `<img src="${amazonUrl}" alt="書影" style="width: 100%; height: 100%; object-fit: cover; box-shadow: 0 4px 6px rgba(0,0,0,0.3); position: relative; z-index: 1; background: transparent;" onerror="${fallbackScript}">` : '';
+        const imgTag = book.ISBN13 ? `<img src="${amazonUrl}" alt="書影" style="width: 100%; height: 100%; object-fit: cover; box-shadow: 0 4px 6px rgba(0,0,0,0.3); position: relative; z-index: 1; background: transparent;" onload="${onloadScript}" onerror="${fallbackScript}">` : '';
 
         // 書影を表示するためのフレックスレイアウトを追加
         card.style.display = 'flex';
