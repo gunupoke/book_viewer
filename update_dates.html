@@ -11,25 +11,28 @@
         p { line-height: 1.6; }
         button { background: #38bdf8; color: #0f172a; border: none; padding: 10px 20px; font-weight: bold; cursor: pointer; border-radius: 4px; font-size: 1rem; }
         button:disabled { background: #64748b; cursor: not-allowed; }
-        textarea { width: 100%; height: 300px; margin-top: 15px; padding: 10px; background: #0f172a; color: #a7f3d0; border: 1px solid #334155; font-family: monospace; white-space: pre; }
         #progress { margin-top: 15px; color: #fbbf24; }
+        /* テーブルを非表示領域に作成してコピペ用にする */
+        #tableWrapper { position: absolute; left: -9999px; top: -9999px; }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
 </head>
 <body>
     <div class="container">
         <h1>過去データの発売日フルアップデートツール</h1>
-        <p>過去にスキャンして「年（4桁）」しか保存されていない本のデータを、APIから再取得して「年月日（YYYY-MM-DD）」に一括アップデートします。</p>
+        <p>過去にスキャンして「年」しか保存されていない本のデータを、APIから再取得して「年月日」に一括アップデートします。</p>
         
         <button id="startBtn">アップデート開始</button>
         <div id="progress"></div>
 
-        <div id="resultArea" style="display: none;">
-            <p style="color: #6ee7b7; font-weight: bold;">✅ 完了しました！以下のテキストをコピーし、Googleスプレッドシートの「A1」セルに貼り付けてください。</p>
-            <p style="color: #fbbf24; font-weight: bold; background: #451a03; padding: 10px; border-radius: 4px;">🎉 事前の設定変更は不要になりました！<br>（自動的に列が分かれ、さらにGoogleの勝手な日付変換バグを防ぐ特殊フォーマット（TSV形式）に改良しました！）</p>
-            <textarea id="csvOutput" readonly></textarea>
+        <div id="resultArea" style="display: none; margin-top: 20px;">
+            <p style="color: #6ee7b7; font-weight: bold;">✅ 完了しました！以下のボタンを押してデータをコピーし、Googleスプレッドシートの「A1」セルを選択してそのまま貼り付けてください。</p>
+            <p style="color: #fbbf24; font-weight: bold; background: #451a03; padding: 10px; border-radius: 4px;">🎉 コピーボタンを使えば、タイトルの改行や特殊な列名（Year_1など）にも完全対応し、ズレずに綺麗に貼り付けられます！</p>
+            <button id="copyBtn" style="background: #10b981; color: white; padding: 15px 30px; font-size: 1.2rem;">📋 データをクリップボードにコピー</button>
         </div>
     </div>
+
+    <div id="tableWrapper"></div>
 
     <script>
         function normalizeDate(dateStr) {
@@ -49,7 +52,7 @@
                 const dateObj = new Date(1905, m - 1, d);
                 const base = new Date(1899, 11, 30);
                 let diffDays = Math.round((dateObj - base) / 86400000);
-                diffDays += 1; // Google Sheets 1900年うるう年バグ補正
+                diffDays += 1;
                 return diffDays.toString();
             }
             return dateStr;
@@ -57,7 +60,6 @@
 
         async function fetchFullDate(isbn) {
             try {
-                // OpenBDから取得
                 const res = await fetch(`https://api.openbd.jp/v1/get?isbn=${isbn}`);
                 const data = await res.json();
                 if (data && data[0] && data[0].summary && data[0].summary.pubdate) {
@@ -66,7 +68,6 @@
             } catch (e) {}
 
             try {
-                // Google Booksから取得
                 const res = await fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`);
                 const data = await res.json();
                 if (data.items && data.items.length > 0 && data.items[0].volumeInfo && data.items[0].volumeInfo.publishedDate) {
@@ -74,7 +75,7 @@
                 }
             } catch (e) {}
             
-            return null; // 取得できなかった場合はnull
+            return null;
         }
 
         document.getElementById('startBtn').addEventListener('click', async () => {
@@ -88,7 +89,7 @@
             }
 
             btn.disabled = true;
-            progress.innerText = 'CSVデータを読み込んでいます...';
+            progress.innerText = 'データを読み込んでいます...';
 
             try {
                 const response = await fetch(sheetUrl + '&t=' + new Date().getTime());
@@ -99,44 +100,69 @@
                     skipEmptyLines: true,
                     complete: async function(results) {
                         const books = results.data;
+                        if (books.length === 0) {
+                            progress.innerText = 'データが空です。';
+                            return;
+                        }
+
+                        // ヘッダー名からYear列とISBN列を自動推測（_1 などが付いていても対応）
+                        const headers = Object.keys(books[0]);
+                        const yearKey = headers.find(k => k.toLowerCase().includes('year')) || headers.find(k => k.includes('出版年'));
+                        const isbnKey = headers.find(k => k.toLowerCase().includes('isbn'));
+                        const titleKey = headers.find(k => k.toLowerCase().includes('title')) || headers.find(k => k.includes('タイトル'));
+
                         let updatedCount = 0;
 
                         for (let i = 0; i < books.length; i++) {
                             const book = books[i];
-                            progress.innerText = `処理中... (${i + 1}/${books.length}): ${book.Title || book.ISBN13}`;
+                            const titleStr = titleKey ? book[titleKey] : `行 ${i+1}`;
+                            progress.innerText = `処理中... (${i + 1}/${books.length}): ${titleStr}`;
                             
-                            // 1905年バグの復元
-                            if (book.Year && book.Year.startsWith('1905')) {
-                                book.Year = uncorrupt1905(book.Year);
-                            }
+                            if (yearKey && isbnKey) {
+                                let yearVal = book[yearKey] || "";
+                                
+                                // 1905年バグの復元
+                                if (yearVal.startsWith('1905')) {
+                                    yearVal = uncorrupt1905(yearVal);
+                                }
 
-                            // 先頭にシングルクォートがあれば一旦外す
-                            let currentYear = book.Year ? book.Year.replace(/^'/, '') : "";
+                                let currentYear = yearVal.replace(/^'/, '');
 
-                            // 4桁以下ならAPIから取得を試みる
-                            if (book.ISBN13 && currentYear.length <= 4) {
-                                const fullDate = await fetchFullDate(book.ISBN13);
-                                if (fullDate && fullDate.length > 4) {
-                                    currentYear = fullDate;
-                                    updatedCount++;
+                                // 4桁以下ならAPIから取得を試みる
+                                if (book[isbnKey] && currentYear.length <= 4) {
+                                    const fullDate = await fetchFullDate(book[isbnKey]);
+                                    if (fullDate && fullDate.length > 4) {
+                                        currentYear = fullDate;
+                                        updatedCount++;
+                                    }
+                                }
+
+                                // スプレッドシートの日付変換バグを防ぐため、必ずシングルクォートをつける
+                                if (currentYear) {
+                                    book[yearKey] = "'" + currentYear;
                                 }
                             }
-
-                            // スプレッドシートの自動日付変換バグを防ぐため、必ず先頭にシングルクォートをつける
-                            if (currentYear) {
-                                book.Year = "'" + currentYear;
-                            }
                             
-                            // API負荷対策のウェイト
                             await new Promise(r => setTimeout(r, 500));
                         }
 
-                        // CSVではなくTSV（タブ区切り）にして出力。スプレッドシートへのコピペで自動で列が分かれる。
-                        const newCsv = Papa.unparse(books, { delimiter: "\t" });
+                        // HTMLのtableを生成（これにより改行やタブが含まれていてもコピペで絶対にズレない）
+                        let html = '<table id="exportTable">';
+                        html += '<tr>' + headers.map(h => `<th>${escapeHtml(h)}</th>`).join('') + '</tr>';
+                        for (const book of books) {
+                            html += '<tr>' + headers.map(h => {
+                                let val = book[h] || "";
+                                // セル内の改行を <br> に変換すると、スプレッドシートでも同じセル内での改行になる
+                                let safeVal = escapeHtml(val.toString()).replace(/\n/g, '<br>');
+                                return `<td>${safeVal}</td>`;
+                            }).join('') + '</tr>';
+                        }
+                        html += '</table>';
                         
+                        document.getElementById('tableWrapper').innerHTML = html;
+
                         progress.innerText = `処理完了！ ${updatedCount}冊の発売日をアップデートしました。`;
                         document.getElementById('resultArea').style.display = 'block';
-                        document.getElementById('csvOutput').value = newCsv;
                     }
                 });
             } catch (error) {
@@ -144,6 +170,25 @@
                 btn.disabled = false;
             }
         });
+
+        document.getElementById('copyBtn').addEventListener('click', () => {
+            const table = document.getElementById('exportTable');
+            const range = document.createRange();
+            range.selectNode(table);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            document.execCommand('copy');
+            window.getSelection().removeAllRanges();
+            alert('コピー完了！\nスプレッドシートのA1セルを選択して貼り付けてください。');
+        });
+
+        function escapeHtml(str) {
+            return str.replace(/&/g, '&amp;')
+                      .replace(/</g, '&lt;')
+                      .replace(/>/g, '&gt;')
+                      .replace(/"/g, '&quot;')
+                      .replace(/'/g, '&#039;');
+        }
     </script>
 </body>
 </html>
