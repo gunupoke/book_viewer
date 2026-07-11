@@ -64,7 +64,7 @@
         document.getElementById('startBtn').addEventListener('click', async () => {
             const btn = document.getElementById('startBtn');
             const progress = document.getElementById('progress');
-            const sheetUrl = localStorage.getItem('sheetUrl');
+            const sheetUrl = localStorage.getItem('sheetCsvUrl');
             
             if (!sheetUrl) {
                 alert('元のアプリでスプレッドシートのCSV URLが設定されていません。一度アプリに戻って設定してください。');
