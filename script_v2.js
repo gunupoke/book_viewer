@@ -135,19 +135,25 @@ function stopScanner() {
 let pendingBookData = null;
 
 function onScanSuccess(decodedText, decodedResult) {
-    // ISBNは必ず978から始まる（下段の192から始まるバーコードは無視する）
-    if (decodedText.startsWith("978")) {
+    // ISBNは必ず978から始まる、雑誌のJANコードは491から始まる
+    if (decodedText.startsWith("978") || decodedText.startsWith("491")) {
         stopScanner();
         
-        // 画面をステップ2（確認画面）に切り替え
+        // 画面をステップ２（確認画面）に切替
         document.getElementById('step1Scanning').style.display = 'none';
         document.getElementById('step2Confirm').style.display = 'block';
         document.getElementById('confirmLoading').style.display = 'block';
         document.getElementById('confirmDetails').style.display = 'none';
         document.getElementById('scanResult').innerText = "";
         
-        fetch(`https://api.openbd.jp/v1/get?isbn=${decodedText}`)
-            .then(res => res.json())
+        const appId = 'eaf0a411-9192-4746-b9ed-ac0364bc6426';
+        const accKey = 'pk_bQ411n2T0mvoKWg7KI3n4MVac0tEnuRifC6SPakJDyZ';
+        
+        let apiUrl = decodedText.startsWith("491") 
+            ? `https://openapi.rakuten.co.jp/services/api/BooksMagazine/Search/20170404?applicationId=${appId}&accessKey=${accKey}&jan=${decodedText}&outOfStockFlag=1`
+            : `https://openapi.rakuten.co.jp/services/api/BooksBook/Search/20170404?applicationId=${appId}&accessKey=${accKey}&isbn=${decodedText}&outOfStockFlag=1`;
+        
+        fetch(apiUrl)             .then(res => res.json())
             .then(data => {
                 let title = "";
                 let author = "";
@@ -155,90 +161,23 @@ function onScanSuccess(decodedText, decodedResult) {
                 let year = "";
                 let officialDescription = "";
                 
-                if (data && data.length > 0 && data[0]) {
-                    if (data[0].summary) {
-                        title = data[0].summary.title;
-                        author = data[0].summary.author;
-                        publisher = data[0].summary.publisher || "";
-                        let pubdate = data[0].summary.pubdate || "";
-                        year = normalizeDate(pubdate);
-                    }
+                if (data.Items && data.Items.length > 0) {
+                    const item = data.Items[0].Item;
+                    title = item.title || "";
+                    author = item.author || "";
+                    publisher = item.publisherName || "";
+                    year = normalizeDate(item.salesDate || "");
+                    officialDescription = item.itemCaption || "";
                     
-                    // 公式のあらすじを取得 (onix.CollateralDetail.TextContent)
-                    try {
-                        const onix = data[0].onix;
-                        if (onix && onix.CollateralDetail && onix.CollateralDetail.TextContent) {
-                            const texts = onix.CollateralDetail.TextContent;
-                            // TextType "03" (あらすじ) または "02" (短いあらすじ) を優先して探す
-                            const desc = texts.find(t => t.TextType === "03" || t.TextType === "02");
-                            if (desc) officialDescription = desc.Text;
-                        }
-                    } catch(e) { console.warn("Failed to extract description from OpenBD"); }
-                }
-                
-                if (title) {
                     showConfirmDetails(title, author, decodedText, publisher, year, officialDescription);
                 } else {
-                    // OpenBDで見つからなかった場合、CiNii Books API（大学図書館等のDB）を試す
-                    fetch(`https://ci.nii.ac.jp/books/opensearch/search?isbn=${decodedText}&format=json`)
-                        .then(res => res.json())
-                        .then(ciniiData => {
-                            let graph = ciniiData["@graph"];
-                            if (graph && !Array.isArray(graph)) graph = [graph];
-                            
-                            if (graph) {
-                                const channel = graph.find(g => g.items);
-                                if (channel) {
-                                    let items = channel.items;
-                                    if (items && !Array.isArray(items)) items = [items];
-                                    
-                                    if (items && items.length > 0) {
-                                        const item = items[0];
-                                        title = item.title || "";
-                                        author = item["dc:creator"] || "";
-                                        publisher = "";
-                                        if (item["dc:publisher"]) {
-                                            publisher = Array.isArray(item["dc:publisher"]) ? item["dc:publisher"][0] : item["dc:publisher"];
-                                        }
-                                        const pubDate = item["dc:date"] || "";
-                                        year = normalizeDate(pubDate);
-                                        showConfirmDetails(title, author, decodedText, publisher, year);
-                                        return; // 成功したのでここで終了
-                                    }
-                                }
-                            }
-                            
-                            // CiNiiでも見つからない場合のみGoogle Books API（クリーンアップ機能つき）
-                            fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn:${decodedText}`)
-                                .then(res => res.json())
-                                .then(gData => {
-                                    if (gData.items && gData.items.length > 0) {
-                                        title = gData.items[0].volumeInfo.title;
-                                        const authors = gData.items[0].volumeInfo.authors;
-                                        if (authors) author = authors.join(', ');
-                                        publisher = gData.items[0].volumeInfo.publisher || "";
-                                        let pubDate = gData.items[0].volumeInfo.publishedDate || "";
-                                        year = normalizeDate(pubDate);
-                                        showConfirmDetails(title, author, decodedText, publisher, year);
-                                    } else {
-                                        document.getElementById('confirmLoading').style.display = 'none';
-                                        document.getElementById('scanResult').innerText = "エラー: 本の情報が見つかりませんでした (ISBN: " + decodedText + ") ※全DB検索済";
-                                    }
-                                })
-                                .catch(err => {
-                                    document.getElementById('confirmLoading').style.display = 'none';
-                                    document.getElementById('scanResult').innerText = "Google Books取得エラー: " + err;
-                                });
-                        })
-                        .catch(err => {
-                            document.getElementById('confirmLoading').style.display = 'none';
-                            document.getElementById('scanResult').innerText = "CiNii取得エラー: " + err;
-                        });
+                    document.getElementById('confirmLoading').style.display = 'none';
+                    document.getElementById('scanResult').innerText = "エラー: 本の情報が見つかりませんでした (コード: " + decodedText + ")";
                 }
             })
             .catch(err => {
                 document.getElementById('confirmLoading').style.display = 'none';
-                document.getElementById('scanResult').innerText = "本情報の取得エラー: " + err;
+                document.getElementById('scanResult').innerText = "API通信エラー: " + err;
             });
     }
 }

@@ -166,7 +166,7 @@
 
                                 // 全ての本について正確な日付への上書きを試みる（既存の日付がGoogleBooksのフェイクである可能性が高いため）
                                 if (book[isbnKey]) {
-                                    const fullDate = await fetchFullDate(book[isbnKey]);
+                                    const fullDate = await fetchFullDate(book[isbnKey], titleStr);
                                     // APIから詳細な日付（YYYY-MMなど）が取得でき、かつ既存のものと違うなら上書き
                                     if (fullDate && fullDate.length > 4 && currentYear !== fullDate) {
                                         currentYear = fullDate;
