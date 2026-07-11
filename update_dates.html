@@ -164,10 +164,11 @@
                                 // 前回のツールで付与されてしまったシングルクォートを外す
                                 let currentYear = yearVal.replace(/^'/, '');
 
-                                // 4桁以下ならAPIから取得を試みる
-                                if (book[isbnKey] && currentYear.length <= 4) {
+                                // 全ての本について正確な日付への上書きを試みる（既存の日付がGoogleBooksのフェイクである可能性が高いため）
+                                if (book[isbnKey]) {
                                     const fullDate = await fetchFullDate(book[isbnKey]);
-                                    if (fullDate && fullDate.length > 4) {
+                                    // APIから詳細な日付（YYYY-MMなど）が取得でき、かつ既存のものと違うなら上書き
+                                    if (fullDate && fullDate.length > 4 && currentYear !== fullDate) {
                                         currentYear = fullDate;
                                         updatedCount++;
                                     }
@@ -177,7 +178,8 @@
                                 book[yearKey] = currentYear;
                             }
                             
-                            await new Promise(r => setTimeout(r, 500));
+                            // API負荷対策のウェイト（高速化のため200msに変更）
+                            await new Promise(r => setTimeout(r, 200));
                         }
 
                         // HTMLのtableを生成（これにより改行やタブが含まれていてもコピペで絶対にズレない）
