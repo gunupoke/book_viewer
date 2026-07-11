@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>過去データの発売日アップデート</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; background: #0f172a; color: #f8fafc; }
+        .container { max-width: 800px; margin: 0 auto; background: #1e293b; padding: 20px; border-radius: 8px; }
+        h1 { font-size: 1.5rem; color: #38bdf8; }
+        p { line-height: 1.6; }
+        button { background: #38bdf8; color: #0f172a; border: none; padding: 10px 20px; font-weight: bold; cursor: pointer; border-radius: 4px; font-size: 1rem; }
+        button:disabled { background: #64748b; cursor: not-allowed; }
+        textarea { width: 100%; height: 300px; margin-top: 15px; padding: 10px; background: #0f172a; color: #a7f3d0; border: 1px solid #334155; font-family: monospace; white-space: pre; }
+        #progress { margin-top: 15px; color: #fbbf24; }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>過去データの発売日フルアップデートツール</h1>
+        <p>過去にスキャンして「年（4桁）」しか保存されていない本のデータを、APIから再取得して「年月日（YYYY-MM-DD）」に一括アップデートします。</p>
+        
+        <button id="startBtn">アップデート開始</button>
+        <div id="progress"></div>
+
+        <div id="resultArea" style="display: none;">
+            <p style="color: #6ee7b7; font-weight: bold;">✅ 完了しました！以下のテキストをすべてコピーして、Googleスプレッドシートの「A1」セルを選択し、そのまま貼り付けて上書きしてください。</p>
+            <textarea id="csvOutput" readonly></textarea>
+        </div>
+    </div>
+
+    <script>
+        function normalizeDate(dateStr) {
+            if (!dateStr) return "";
+            let s = dateStr.replace(/[^\d\-]/g, '');
+            if (/^\d{8}$/.test(s)) return `${s.substring(0,4)}-${s.substring(4,6)}-${s.substring(6,8)}`;
+            if (/^\d{6}$/.test(s)) return `${s.substring(0,4)}-${s.substring(4,6)}`;
+            return s;
+        }
+
+        async function fetchFullDate(isbn) {
+            try {
+                // OpenBDから取得
+                const res = await fetch(`https://api.openbd.jp/v1/get?isbn=${isbn}`);
+                const data = await res.json();
+                if (data && data[0] && data[0].summary && data[0].summary.pubdate) {
+                    return normalizeDate(data[0].summary.pubdate);
+                }
+            } catch (e) {}
+
+            try {
+                // Google Booksから取得
+                const res = await fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`);
+                const data = await res.json();
+                if (data.items && data.items.length > 0 && data.items[0].volumeInfo && data.items[0].volumeInfo.publishedDate) {
+                    return normalizeDate(data.items[0].volumeInfo.publishedDate);
+                }
+            } catch (e) {}
+            
+            return null; // 取得できなかった場合はnull
+        }
+
+        document.getElementById('startBtn').addEventListener('click', async () => {
+            const btn = document.getElementById('startBtn');
+            const progress = document.getElementById('progress');
+            const sheetUrl = localStorage.getItem('sheetUrl');
+            
+            if (!sheetUrl) {
+                alert('元のアプリでスプレッドシートのCSV URLが設定されていません。一度アプリに戻って設定してください。');
+                return;
+            }
+
+            btn.disabled = true;
+            progress.innerText = 'CSVデータを読み込んでいます...';
+
+            try {
+                const response = await fetch(sheetUrl + '&t=' + new Date().getTime());
+                const csvText = await response.text();
+                
+                Papa.parse(csvText, {
+                    header: true,
+                    skipEmptyLines: true,
+                    complete: async function(results) {
+                        const books = results.data;
+                        let updatedCount = 0;
+
+                        for (let i = 0; i < books.length; i++) {
+                            const book = books[i];
+                            progress.innerText = `処理中... (${i + 1}/${books.length}): ${book.Title || book.ISBN13}`;
+                            
+                            // Yearが4桁（YYYY）などの短い文字列の場合のみ更新を試みる
+                            if (book.ISBN13 && book.Year && book.Year.length <= 4) {
+                                const fullDate = await fetchFullDate(book.ISBN13);
+                                if (fullDate && fullDate.length > 4) {
+                                    book.Year = fullDate;
+                                    updatedCount++;
+                                }
+                            }
+                            // API負荷対策のウェイト
+                            await new Promise(r => setTimeout(r, 500));
+                        }
+
+                        // 新しいCSVテキストを生成
+                        const newCsv = Papa.unparse(books);
+                        
+                        progress.innerText = `処理完了！ ${updatedCount}冊の発売日をアップデートしました。`;
+                        document.getElementById('resultArea').style.display = 'block';
+                        document.getElementById('csvOutput').value = newCsv;
+                    }
+                });
+            } catch (error) {
+                progress.innerText = 'エラーが発生しました: ' + error.message;
+                btn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>
