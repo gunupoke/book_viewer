@@ -25,7 +25,8 @@
         <div id="progress"></div>
 
         <div id="resultArea" style="display: none;">
-            <p style="color: #6ee7b7; font-weight: bold;">✅ 完了しました！以下のテキストをすべてコピーして、Googleスプレッドシートの「A1」セルを選択し、そのまま貼り付けて上書きしてください。</p>
+            <p style="color: #6ee7b7; font-weight: bold;">✅ 完了しました！以下のテキストをコピーし、Googleスプレッドシートに貼り付けてください。</p>
+            <p style="color: #fbbf24; font-weight: bold; background: #451a03; padding: 10px; border-radius: 4px;">⚠️ 【重要】貼り付ける前に、スプレッドシート全体（左上の角）を選択し、メニューの「表示形式」＞「数字」＞「書式なしテキスト」を選択してください。<br>（これをしないと、Googleの自動変換で再び1905年にバグってしまいます！）</p>
             <textarea id="csvOutput" readonly></textarea>
         </div>
     </div>
@@ -37,6 +38,21 @@
             if (/^\d{8}$/.test(s)) return `${s.substring(0,4)}-${s.substring(4,6)}-${s.substring(6,8)}`;
             if (/^\d{6}$/.test(s)) return `${s.substring(0,4)}-${s.substring(4,6)}`;
             return s;
+        }
+
+        function uncorrupt1905(dateStr) {
+            if (!dateStr || !dateStr.startsWith('1905')) return dateStr;
+            const parts = dateStr.match(/1905[\/\-](\d+)[\/\-](\d+)/);
+            if (parts) {
+                const m = parseInt(parts[1], 10);
+                const d = parseInt(parts[2], 10);
+                const dateObj = new Date(1905, m - 1, d);
+                const base = new Date(1899, 11, 30);
+                let diffDays = Math.round((dateObj - base) / 86400000);
+                diffDays += 1; // Google Sheets 1900年うるう年バグ補正
+                return diffDays.toString();
+            }
+            return dateStr;
         }
 
         async function fetchFullDate(isbn) {
@@ -89,6 +105,11 @@
                             const book = books[i];
                             progress.innerText = `処理中... (${i + 1}/${books.length}): ${book.Title || book.ISBN13}`;
                             
+                            // 1905年バグの復元
+                            if (book.Year && book.Year.startsWith('1905')) {
+                                book.Year = uncorrupt1905(book.Year);
+                            }
+
                             // Yearが4桁（YYYY）などの短い文字列の場合のみ更新を試みる
                             if (book.ISBN13 && book.Year && book.Year.length <= 4) {
                                 const fullDate = await fetchFullDate(book.ISBN13);
