@@ -37,9 +37,21 @@
     <script>
         function normalizeDate(dateStr) {
             if (!dateStr) return "";
-            let s = dateStr.replace(/[^\d\-]/g, '');
+            // NDLフォーマット(2003.6)のドットをハイフンに変換
+            let s = dateStr.replace(/\./g, '-').replace(/[^\d\-]/g, '');
+            // OpenBDフォーマット(200306)
             if (/^\d{8}$/.test(s)) return `${s.substring(0,4)}-${s.substring(4,6)}-${s.substring(6,8)}`;
             if (/^\d{6}$/.test(s)) return `${s.substring(0,4)}-${s.substring(4,6)}`;
+            
+            // NDLフォーマット(2003-6)を(2003-06)へパディング
+            if (/^\d{4}-\d{1,2}$/.test(s)) {
+                let parts = s.split('-');
+                return `${parts[0]}-${parts[1].padStart(2, '0')}`;
+            }
+            if (/^\d{4}-\d{1,2}-\d{1,2}$/.test(s)) {
+                let parts = s.split('-');
+                return `${parts[0]}-${parts[1].padStart(2, '0')}-${parts[2].padStart(2, '0')}`;
+            }
             return s;
         }
 
@@ -59,6 +71,7 @@
         }
 
         async function fetchFullDate(isbn) {
+            // 1. OpenBD (高精度・YYYYMMDD)
             try {
                 const res = await fetch(`https://api.openbd.jp/v1/get?isbn=${isbn}`);
                 const data = await res.json();
@@ -67,6 +80,36 @@
                 }
             } catch (e) {}
 
+            // 2. NDL (国立国会図書館: 高精度・月の1日などのフェイクがない)
+            try {
+                const res = await fetch(`https://ndlsearch.ndl.go.jp/api/opensearch?isbn=${isbn}`);
+                const xmlText = await res.text();
+                const parser = new DOMParser();
+                const xmlDoc = parser.parseFromString(xmlText, "text/xml");
+                const items = xmlDoc.getElementsByTagName('item');
+                if (items.length > 0) {
+                    let issuedNodes = items[0].getElementsByTagName('dcterms:issued');
+                    if (issuedNodes.length > 0 && issuedNodes[0].textContent) {
+                        return normalizeDate(issuedNodes[0].textContent);
+                    }
+                    let dateNodes = items[0].getElementsByTagName('dc:date');
+                    if (dateNodes.length > 0 && dateNodes[0].textContent) {
+                        return normalizeDate(dateNodes[0].textContent);
+                    }
+                }
+            } catch (e) {}
+
+            // 3. CiNii (高精度だが年のみが多い)
+            try {
+                const res = await fetch(`https://ci.nii.ac.jp/books/opensearch/search?isbn=${isbn}&format=json`);
+                const data = await res.json();
+                if (data['@graph'] && data['@graph'][0] && data['@graph'][0].items && data['@graph'][0].items.length > 0) {
+                    let d = data['@graph'][0].items[0]['dc:date'] || data['@graph'][0].items[0]['prism:publicationDate'];
+                    if (d) return normalizeDate(d);
+                }
+            } catch (e) {}
+
+            // 4. Google Books (最終手段。未来の日付や月の1日が多い)
             try {
                 const res = await fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`);
                 const data = await res.json();
@@ -126,6 +169,7 @@
                                     yearVal = uncorrupt1905(yearVal);
                                 }
 
+                                // 前回のツールで付与されてしまったシングルクォートを外す
                                 let currentYear = yearVal.replace(/^'/, '');
 
                                 // 4桁以下ならAPIから取得を試みる
@@ -137,10 +181,8 @@
                                     }
                                 }
 
-                                // スプレッドシートの日付変換バグを防ぐため、必ずシングルクォートをつける
-                                if (currentYear) {
-                                    book[yearKey] = "'" + currentYear;
-                                }
+                                // クォートを付与する代わりに、HTMLの属性で文字列であることを明示する
+                                book[yearKey] = currentYear;
                             }
                             
                             await new Promise(r => setTimeout(r, 500));
@@ -152,9 +194,14 @@
                         for (const book of books) {
                             html += '<tr>' + headers.map(h => {
                                 let val = book[h] || "";
-                                // セル内の改行を <br> に変換すると、スプレッドシートでも同じセル内での改行になる
+                                // 以前のシングルクォートを除去
+                                if (typeof val === 'string') {
+                                    val = val.replace(/^'/, '');
+                                }
                                 let safeVal = escapeHtml(val.toString()).replace(/\n/g, '<br>');
-                                return `<td>${safeVal}</td>`;
+                                let jsonVal = escapeHtml(JSON.stringify({"1":2,"2":val.toString()}));
+                                // Googleスプレッドシート専用の data-sheets-value 属性を使って完全に文字列としてペーストさせる
+                                return `<td style="mso-number-format:'\\@';" data-sheets-value='${jsonVal}'>${safeVal}</td>`;
                             }).join('') + '</tr>';
                         }
                         html += '</table>';
