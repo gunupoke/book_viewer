@@ -25,8 +25,8 @@
         <div id="progress"></div>
 
         <div id="resultArea" style="display: none;">
-            <p style="color: #6ee7b7; font-weight: bold;">✅ 完了しました！以下のテキストをコピーし、Googleスプレッドシートに貼り付けてください。</p>
-            <p style="color: #fbbf24; font-weight: bold; background: #451a03; padding: 10px; border-radius: 4px;">⚠️ 【重要】貼り付ける前に、スプレッドシート全体（左上の角）を選択し、メニューの「表示形式」＞「数字」＞「書式なしテキスト」を選択してください。<br>（これをしないと、Googleの自動変換で再び1905年にバグってしまいます！）</p>
+            <p style="color: #6ee7b7; font-weight: bold;">✅ 完了しました！以下のテキストをコピーし、Googleスプレッドシートの「A1」セルに貼り付けてください。</p>
+            <p style="color: #fbbf24; font-weight: bold; background: #451a03; padding: 10px; border-radius: 4px;">🎉 事前の設定変更は不要になりました！<br>（自動的に列が分かれ、さらにGoogleの勝手な日付変換バグを防ぐ特殊フォーマット（TSV形式）に改良しました！）</p>
             <textarea id="csvOutput" readonly></textarea>
         </div>
     </div>
@@ -110,20 +110,29 @@
                                 book.Year = uncorrupt1905(book.Year);
                             }
 
-                            // Yearが4桁（YYYY）などの短い文字列の場合のみ更新を試みる
-                            if (book.ISBN13 && book.Year && book.Year.length <= 4) {
+                            // 先頭にシングルクォートがあれば一旦外す
+                            let currentYear = book.Year ? book.Year.replace(/^'/, '') : "";
+
+                            // 4桁以下ならAPIから取得を試みる
+                            if (book.ISBN13 && currentYear.length <= 4) {
                                 const fullDate = await fetchFullDate(book.ISBN13);
                                 if (fullDate && fullDate.length > 4) {
-                                    book.Year = fullDate;
+                                    currentYear = fullDate;
                                     updatedCount++;
                                 }
                             }
+
+                            // スプレッドシートの自動日付変換バグを防ぐため、必ず先頭にシングルクォートをつける
+                            if (currentYear) {
+                                book.Year = "'" + currentYear;
+                            }
+                            
                             // API負荷対策のウェイト
                             await new Promise(r => setTimeout(r, 500));
                         }
 
-                        // 新しいCSVテキストを生成
-                        const newCsv = Papa.unparse(books);
+                        // CSVではなくTSV（タブ区切り）にして出力。スプレッドシートへのコピペで自動で列が分かれる。
+                        const newCsv = Papa.unparse(books, { delimiter: "\t" });
                         
                         progress.innerText = `処理完了！ ${updatedCount}冊の発売日をアップデートしました。`;
                         document.getElementById('resultArea').style.display = 'block';
