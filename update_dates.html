@@ -81,21 +81,19 @@
             } catch (e) {}
 
             // 2. NDL (国立国会図書館: 高精度・月の1日などのフェイクがない)
+            // XMLのパースは名前空間(dcterms等)で失敗しやすいため、正規表現で確実に抽出する
             try {
                 const res = await fetch(`https://ndlsearch.ndl.go.jp/api/opensearch?isbn=${isbn}`);
                 const xmlText = await res.text();
-                const parser = new DOMParser();
-                const xmlDoc = parser.parseFromString(xmlText, "text/xml");
-                const items = xmlDoc.getElementsByTagName('item');
-                if (items.length > 0) {
-                    let issuedNodes = items[0].getElementsByTagName('dcterms:issued');
-                    if (issuedNodes.length > 0 && issuedNodes[0].textContent) {
-                        return normalizeDate(issuedNodes[0].textContent);
-                    }
-                    let dateNodes = items[0].getElementsByTagName('dc:date');
-                    if (dateNodes.length > 0 && dateNodes[0].textContent) {
-                        return normalizeDate(dateNodes[0].textContent);
-                    }
+                
+                const issuedMatch = xmlText.match(/<dcterms:issued[^>]*>([^<]+)<\/dcterms:issued>/);
+                if (issuedMatch && issuedMatch[1]) {
+                    return normalizeDate(issuedMatch[1]);
+                }
+                
+                const dateMatch = xmlText.match(/<dc:date[^>]*>([^<]+)<\/dc:date>/);
+                if (dateMatch && dateMatch[1]) {
+                    return normalizeDate(dateMatch[1]);
                 }
             } catch (e) {}
 
@@ -109,14 +107,8 @@
                 }
             } catch (e) {}
 
-            // 4. Google Books (最終手段。未来の日付や月の1日が多い)
-            try {
-                const res = await fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`);
-                const data = await res.json();
-                if (data.items && data.items.length > 0 && data.items[0].volumeInfo && data.items[0].volumeInfo.publishedDate) {
-                    return normalizeDate(data.items[0].volumeInfo.publishedDate);
-                }
-            } catch (e) {}
+            // Google Books APIは日本の書籍の発売日が極めて不正確（1日で仮置き、または未来の日付など）なため、
+            // これ以上はフォールバックさせず、見つからない場合は元の年(YYYY)をそのまま使う仕様に変更。
             
             return null;
         }
