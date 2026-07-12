@@ -236,61 +236,68 @@ function onScanSuccess(decodedText, decodedResult) {
 function cleanAuthorName(authorStr) {
     if (!authorStr) return "";
     
-    // 役割を削除
-    authorStr = authorStr.replace(/[\/／\s]*(著|編|訳|原作|作画|原案)$/g, '');
+    // 1. 役割や生没年を削除
+    authorStr = authorStr.replace(/[\/／\s\[\(]*?(著|編|訳|原作|作画|原案)[\]\)]?/g, '');
+    authorStr = authorStr.replace(/,?\s*\d{4}-?\s*/g, ' '); // remove years
     
-    // まず明白な複数人区切り文字（読点）はカンマに統一
-    authorStr = authorStr.replace(/[、]/g, ',');
+    // 2. スラッシュ・中黒の周りのスペースを削除
+    authorStr = authorStr.replace(/\s*([\/／・])\s*/g, "$1");
     
-    // 日本人名の姓名間のスペースを削除（漢字・ひらがなの間）
-    authorStr = authorStr.replace(/([一-龯ぁ-ん])[\s　]+([一-龯ぁ-ん])/g, "$1$2");
+    // 3. 英語同士のスペースを保護 (FGO PROJECT 等)
+    authorStr = authorStr.replace(/([A-Za-z0-9\.\-])\s+([A-Za-z0-9\.\-])/g, "$1__SPACE__$2");
     
-    // トークン化して、カンマ、中黒、スラッシュの扱いを決定する
-    let tokens = authorStr.split(/([,，・\/／])/);
+    // 4. First Pass Last, First Merger (NDL対策)
+    const replacer = (match, p1, p2, p3, p4) => {
+        let last = p2;
+        let first = p3;
+        let kanjiMatch = last.match(/[\u4E00-\u9FFF]/g);
+        let kanjiCount = kanjiMatch ? kanjiMatch.length : 0;
+        if (kanjiCount <= 2 && last.length <= 4) {
+            return p1 + last + first;
+        }
+        return match;
+    };
     
+    // 先読みアサーション (?=$|[\s\/／・,]) を使用して、再帰的結合を防止
+    let regex = /(^|[\s\/／・])([\u4E00-\u9FFF\u3040-\u309F\u30A0-\u30FFA-Za-z]{1,4})\s*,\s*([\u4E00-\u9FFF\u3040-\u309F\u30A0-\u30FFA-Za-z]{1,4}[^\s,]*)(?=$|[\s\/／・,])/g;
+    authorStr = authorStr.replace(regex, replacer);
+    
+    // 5. 残ったスペースと読点をカンマに変換（複数著者の区切り）
+    authorStr = authorStr.replace(/[\s、，]+/g, ', ');
+    
+    // 6. 保護した英語スペースを戻す
+    authorStr = authorStr.replace(/__SPACE__/g, ' ');
+    
+    // 重複カンマを整理
+    authorStr = authorStr.replace(/(,\s*)+/g, ', ');
+    
+    // 7. Second Pass Last, First Merger (スペースがカンマに変わった後に再結合)
+    authorStr = authorStr.replace(regex, replacer);
+    
+    // 8. 中黒・スラッシュの処理 (カタカナ・英語なら結合、漢字なら分離)
+    let tokens = authorStr.split(/([,・\/／])/);
     let authors = [];
-    let currentAuthor = "";
+    let curr = "";
     
     for (let i = 0; i < tokens.length; i++) {
         let token = tokens[i].trim();
         if (!token) continue;
         
-        if (token.match(/^[,，・\/／]$/)) {
-            let nextToken = (i + 1 < tokens.length) ? tokens[i+1].trim() : "";
-            
-            // カタカナ・英字が含まれる場合、中黒やスラッシュは結合、カンマは区切り
-            let hasKatakana = /[ァ-ヶA-Za-z]/.test(currentAuthor) || /[ァ-ヶA-Za-z]/.test(nextToken);
-            
-            if (hasKatakana) {
-                if (token.match(/^[・\/／]$/)) {
-                    currentAuthor += token; // スラッシュや中黒は正式名称の一部として残す
-                } else {
-                    authors.push(currentAuthor);
-                    currentAuthor = "";
-                }
+        if (token === ',') {
+            if (curr) { authors.push(curr); curr = ""; }
+        } else if (token === '・' || token === '/' || token === '／') {
+            if (/[A-Za-z\u30A0-\u30FF]/.test(curr) || (i + 1 < tokens.length && /[A-Za-z\u30A0-\u30FF]/.test(tokens[i+1]))) {
+                curr += token;
             } else {
-                // 日本人名（漢字・ひらがな）の場合
-                // 合計文字数が5文字以下なら「1人の姓名区切り」とみなして削除結合
-                if (currentAuthor.length > 0 && nextToken.length > 0 && (currentAuthor.length + nextToken.length <= 5)) {
-                    // 削除して結合（何もしない＝separatorを足さない）
-                } else {
-                    authors.push(currentAuthor);
-                    currentAuthor = "";
-                }
+                if (curr) { authors.push(curr); curr = ""; }
             }
         } else {
-            currentAuthor += token;
+            curr += token;
         }
     }
-    if (currentAuthor) authors.push(currentAuthor);
+    if (curr) authors.push(curr);
     
-    // 最後に各著者の余分なスペースを消す（日本人名のみ）
-    authors = authors.map(a => {
-        if (/[ァ-ヶA-Za-z]/.test(a)) return a;
-        return a.replace(/[\s　]+/g, '');
-    });
-    
-    return authors.filter(a => a).join(', ');
+    return authors.map(a => a.trim()).filter(a => a).join(', ');
 }
 
 function normalizeDate(dateStr) {
