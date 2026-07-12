@@ -70,45 +70,47 @@
             return dateStr;
         }
 
-        async function fetchFullDate(isbn) {
-            // 1. OpenBD (高精度・YYYYMMDD)
-            try {
-                const res = await fetch(`https://api.openbd.jp/v1/get?isbn=${isbn}`);
-                const data = await res.json();
-                if (data && data[0] && data[0].summary && data[0].summary.pubdate) {
-                    return normalizeDate(data[0].summary.pubdate);
-                }
-            } catch (e) {}
+        async function fetchFullDate(isbn, title) {
+            if (!isbn) return null;
+            
+            const appId = 'eaf0a411-9192-4746-b9ed-ac0364bc6426';
+            const accKey = 'pk_bQ411n2T0mvoKWg7KI3n4MVac0tEnuRifC6SPakJDyZ';
+            
+            // 1. 雑誌 (JANコードが491で始まる場合)
+            if (isbn.startsWith('491')) {
+                // まずはJANコードで楽天雑誌APIを検索
+                try {
+                    let apiUrl = `https://openapi.rakuten.co.jp/services/api/BooksMagazine/Search/20170404?applicationId=${appId}&accessKey=${accKey}&jan=${isbn}&outOfStockFlag=1`;
+                    const res = await fetch(apiUrl);
+                    const data = await res.json();
+                    if (data.Items && data.Items.length > 0 && data.Items[0].Item.salesDate) {
+                        return normalizeDate(data.Items[0].Item.salesDate);
+                    }
+                } catch (e) {}
 
-            // 2. NDL (国立国会図書館: 高精度・月の1日などのフェイクがない)
-            // XMLのパースは名前空間(dcterms等)で失敗しやすいため、正規表現で確実に抽出する
-            try {
-                const res = await fetch(`https://ndlsearch.ndl.go.jp/api/opensearch?isbn=${isbn}`);
-                const xmlText = await res.text();
-                
-                const issuedMatch = xmlText.match(/<dcterms:issued[^>]*>([^<]+)<\/dcterms:issued>/);
-                if (issuedMatch && issuedMatch[1]) {
-                    return normalizeDate(issuedMatch[1]);
+                // JANで見つからない場合（バックナンバー等）、タイトルで楽天雑誌APIを検索
+                if (title) {
+                    try {
+                        let encodedTitle = encodeURIComponent(title);
+                        let apiUrlTitle = `https://openapi.rakuten.co.jp/services/api/BooksMagazine/Search/20170404?applicationId=${appId}&accessKey=${accKey}&title=${encodedTitle}&outOfStockFlag=1`;
+                        const res = await fetch(apiUrlTitle);
+                        const data = await res.json();
+                        if (data.Items && data.Items.length > 0 && data.Items[0].Item.salesDate) {
+                            return normalizeDate(data.Items[0].Item.salesDate);
+                        }
+                    } catch (e) {}
                 }
-                
-                const dateMatch = xmlText.match(/<dc:date[^>]*>([^<]+)<\/dc:date>/);
-                if (dateMatch && dateMatch[1]) {
-                    return normalizeDate(dateMatch[1]);
-                }
-            } catch (e) {}
-
-            // 3. CiNii (高精度だが年のみが多い)
-            try {
-                const res = await fetch(`https://ci.nii.ac.jp/books/opensearch/search?isbn=${isbn}&format=json`);
-                const data = await res.json();
-                if (data['@graph'] && data['@graph'][0] && data['@graph'][0].items && data['@graph'][0].items.length > 0) {
-                    let d = data['@graph'][0].items[0]['dc:date'] || data['@graph'][0].items[0]['prism:publicationDate'];
-                    if (d) return normalizeDate(d);
-                }
-            } catch (e) {}
-
-            // Google Books APIは日本の書籍の発売日が極めて不正確（1日で仮置き、または未来の日付など）なため、
-            // これ以上はフォールバックさせず、見つからない場合は元の年(YYYY)をそのまま使う仕様に変更。
+            } else {
+                // 2. 一般書籍 (ISBN)
+                try {
+                    let apiUrl = `https://openapi.rakuten.co.jp/services/api/BooksBook/Search/20170404?applicationId=${appId}&accessKey=${accKey}&isbn=${isbn}&outOfStockFlag=1`;
+                    const res = await fetch(apiUrl);
+                    const data = await res.json();
+                    if (data.Items && data.Items.length > 0 && data.Items[0].Item.salesDate) {
+                        return normalizeDate(data.Items[0].Item.salesDate);
+                    }
+                } catch (e) {}
+            }
             
             return null;
         }
