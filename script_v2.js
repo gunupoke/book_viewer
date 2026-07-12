@@ -181,21 +181,23 @@ function onScanSuccess(decodedText, decodedResult) {
                     const ndlQuery = isMagazine ? `any=${decodedText}` : `isbn=${decodedText}`;
                     const ndlRes = await fetch(`https://ndlsearch.ndl.go.jp/api/sru?operation=searchRetrieve&recordPacking=xml&query=${ndlQuery}`);
                     const xmlStr = await ndlRes.text();
-                    const parser = new DOMParser();
-                    const xmlDoc = parser.parseFromString(xmlStr, "text/xml");
-                    const records = xmlDoc.getElementsByTagName("record");
-                    if (records.length > 0) {
-                        const recordData = records[0].getElementsByTagName("recordData")[0];
-                        if (recordData) {
-                            const dcTitle = recordData.getElementsByTagName("dc:title")[0] || recordData.getElementsByTagName("title")[0];
-                            const dcCreator = recordData.getElementsByTagName("dc:creator")[0] || recordData.getElementsByTagName("creator")[0];
-                            const dcPublisher = recordData.getElementsByTagName("dc:publisher")[0] || recordData.getElementsByTagName("publisher")[0];
-                            const dcDate = recordData.getElementsByTagName("dc:date")[0] || recordData.getElementsByTagName("date")[0];
-                            title = dcTitle ? dcTitle.textContent : "";
-                            author = dcCreator ? dcCreator.textContent : "";
-                            publisher = dcPublisher ? dcPublisher.textContent : "";
-                            year = dcDate ? normalizeDate(dcDate.textContent) : "";
-                        }
+                    
+                    const titleMatch = xmlStr.match(/<dc:title>([\s\S]*?)<\/dc:title>/);
+                    if (titleMatch) {
+                        const creatorMatch = xmlStr.match(/<dc:creator>([\s\S]*?)<\/dc:creator>/);
+                        const pubMatch = xmlStr.match(/<dc:publisher>([\s\S]*?)<\/dc:publisher>/);
+                        const dateMatch = xmlStr.match(/<dc:date>([\s\S]*?)<\/dc:date>/);
+                        
+                        const decodeHtml = (html) => {
+                            const txt = document.createElement("textarea");
+                            txt.innerHTML = html;
+                            return txt.value;
+                        };
+                        
+                        title = decodeHtml(titleMatch[1]);
+                        author = creatorMatch ? decodeHtml(creatorMatch[1]) : "";
+                        publisher = pubMatch ? decodeHtml(pubMatch[1]) : "";
+                        year = dateMatch ? normalizeDate(dateMatch[1]) : "";
                     }
                 }
                 
