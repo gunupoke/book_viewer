@@ -97,9 +97,11 @@ async function startScanner() {
         // EAN_13のみを検知するネイティブディテクター（AIチップ直結の爆速処理）
         const detector = new BarcodeDetector({ formats: ['ean_13'] });
         
+        let isProcessingFrame = false;
         // 毎秒30回（約33ms間隔）でハードウェア解析を実行
         scanInterval = setInterval(async () => {
-            if (!isScanning) return;
+            if (!isScanning || isProcessingFrame) return;
+            isProcessingFrame = true;
             try {
                 const barcodes = await detector.detect(video);
                 if (barcodes.length > 0) {
@@ -112,6 +114,8 @@ async function startScanner() {
                 }
             } catch (e) {
                 // Ignore frame errors
+            } finally {
+                isProcessingFrame = false;
             }
         }, 33);
         
@@ -135,25 +139,19 @@ function stopScanner() {
 let pendingBookData = null;
 
 function onScanSuccess(decodedText, decodedResult) {
-    // ISBNは必ず978から始まる、雑誌のJANコードは491から始まる
-    if (decodedText.startsWith("978") || decodedText.startsWith("491")) {
+    // ISBNは必ず978から始まる（下段の192から始まるバーコードは無視する）
+    if (decodedText.startsWith("978")) {
         stopScanner();
         
-        // 画面をステップ２（確認画面）に切替
+        // 画面をステップ2（確認画面）に切り替え
         document.getElementById('step1Scanning').style.display = 'none';
         document.getElementById('step2Confirm').style.display = 'block';
         document.getElementById('confirmLoading').style.display = 'block';
         document.getElementById('confirmDetails').style.display = 'none';
         document.getElementById('scanResult').innerText = "";
         
-        const appId = 'eaf0a411-9192-4746-b9ed-ac0364bc6426';
-        const accKey = 'pk_bQ411n2T0mvoKWg7KI3n4MVac0tEnuRifC6SPakJDyZ';
-        
-        let apiUrl = decodedText.startsWith("491") 
-            ? `https://openapi.rakuten.co.jp/services/api/BooksMagazine/Search/20170404?applicationId=${appId}&accessKey=${accKey}&jan=${decodedText}&outOfStockFlag=1`
-            : `https://openapi.rakuten.co.jp/services/api/BooksBook/Search/20170404?applicationId=${appId}&accessKey=${accKey}&isbn=${decodedText}&outOfStockFlag=1`;
-        
-        fetch(apiUrl)             .then(res => res.json())
+        fetch(`https://api.openbd.jp/v1/get?isbn=${decodedText}`)
+            .then(res => res.json())
             .then(data => {
                 let title = "";
                 let author = "";
@@ -161,61 +159,68 @@ function onScanSuccess(decodedText, decodedResult) {
                 let year = "";
                 let officialDescription = "";
                 
-                if (data.Items && data.Items.length > 0) {
-                    const item = data.Items[0].Item;
-                    title = item.title || "";
-                    author = item.author || "";
-                    publisher = item.publisherName || "";
-                    year = normalizeDate(item.salesDate || "");
-                    officialDescription = item.itemCaption || "";
+                if (data && data.length > 0 && data[0]) {
+                    if (data[0].summary) {
+                        title = data[0].summary.title;
+                        author = data[0].summary.author;
+                        publisher = data[0].summary.publisher || "";
+                        let pubdate = data[0].summary.pubdate || "";
+                        if (pubdate.length >= 4) year = pubdate.substring(0, 4);
+                    }
                     
+                    // 公式のあらすじを取得 (onix.CollateralDetail.TextContent)
+                    try {
+                        const onix = data[0].onix;
+                        if (onix && onix.CollateralDetail && onix.CollateralDetail.TextContent) {
+                            const texts = onix.CollateralDetail.TextContent;
+                            // TextType "03" (あらすじ) または "02" (短いあらすじ) を優先して探す
+                            const desc = texts.find(t => t.TextType === "03" || t.TextType === "02");
+                            if (desc) officialDescription = desc.Text;
+                        }
+                    } catch(e) { console.warn("Failed to extract description from OpenBD"); }
+                }
+                
+                if (title) {
                     showConfirmDetails(title, author, decodedText, publisher, year, officialDescription);
                 } else {
-                    document.getElementById('confirmLoading').style.display = 'none';
-                    document.getElementById('scanResult').innerText = "エラー: 本の情報が見つかりませんでした (コード: " + decodedText + ")";
+                    // OpenBDで見つからなかった場合のみGoogle Books API（クリーンアップ機能つき）
+                    fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn:${decodedText}`)
+                        .then(res => res.json())
+                        .then(gData => {
+                            if (gData.items && gData.items.length > 0) {
+                                title = gData.items[0].volumeInfo.title;
+                                const authors = gData.items[0].volumeInfo.authors;
+                                if (authors) author = authors.join(', ');
+                                let pub = gData.items[0].volumeInfo.publisher || "";
+                                let pubDate = gData.items[0].volumeInfo.publishedDate || "";
+                                let yr = pubDate.length >= 4 ? pubDate.substring(0, 4) : "";
+                                showConfirmDetails(title, author, decodedText, pub, yr);
+                            } else {
+                                document.getElementById('confirmLoading').style.display = 'none';
+                                document.getElementById('scanResult').innerText = "エラー: 本の情報が見つかりませんでした (ISBN: " + decodedText + ")";
+                            }
+                        })
+                        .catch(err => {
+                            document.getElementById('confirmLoading').style.display = 'none';
+                            document.getElementById('scanResult').innerText = "本情報の取得エラー: " + err;
+                        });
                 }
             })
             .catch(err => {
                 document.getElementById('confirmLoading').style.display = 'none';
-                document.getElementById('scanResult').innerText = "API通信エラー: " + err;
+                document.getElementById('scanResult').innerText = "本情報の取得エラー: " + err;
             });
     }
 }
 
 function cleanAuthorName(authorStr) {
     if (!authorStr) return "";
+    // カンマで分割し、前後の空白を除去
     let parts = authorStr.split(',').map(p => p.trim());
-    parts = parts.filter(p => !/^[\d\-?]+$/.test(p));
-    parts = parts.map(p => p.replace(/[\/／\s]*(著|編|訳|原作|作画|原案)$/, '').trim());
-    return parts.join(', ').trim();
-}
-
-function normalizeDate(dateStr) {
-    if (!dateStr) return "";
-    let s = dateStr.replace(/[^\d\-]/g, '');
-    if (/^\d{8}$/.test(s)) {
-        return `${s.substring(0,4)}-${s.substring(4,6)}-${s.substring(6,8)}`;
-    }
-    if (/^\d{6}$/.test(s)) {
-        return `${s.substring(0,4)}-${s.substring(4,6)}`;
-    }
-    return s;
-}
-
-function getAmazonCoverUrl(isbn13) {
-    if (!isbn13) return '';
-    let asin = isbn13;
-    if (isbn13.startsWith('978') && isbn13.length === 13) {
-        const base = isbn13.substring(3, 12);
-        let sum = 0;
-        for (let i = 0; i < 9; i++) {
-            sum += parseInt(base[i]) * (10 - i);
-        }
-        const check = 11 - (sum % 11);
-        const checkDigit = check === 10 ? 'X' : (check === 11 ? '0' : check.toString());
-        asin = base + checkDigit;
-    }
-    return `https://images-na.ssl-images-amazon.com/images/P/${asin}.09.LZZZZZZZ.jpg`;
+    // 「数字とハイフン（またはチルダ）」だけで構成されているパーツ（生没年など）を除外
+    parts = parts.filter(p => !/^[\d\-〜]+$/.test(p));
+    // 日本語の書籍名に倣ってスペースなしで結合する
+    return parts.join('').trim();
 }
 
 function showConfirmDetails(title, author, isbn, publisher, year, officialDescription = "") {
@@ -400,9 +405,8 @@ function handleSearch(evt) {
     const filtered = allBooks.filter(book => {
         const title = (book.Title || "").toLowerCase();
         const author = (book.Author || "").toLowerCase();
-        const genre = (book.Gemini_Genre || "").toLowerCase();
         const tags = (book.Tags || "").toLowerCase();
-        return title.includes(term) || author.includes(term) || genre.includes(term) || tags.includes(term);
+        return title.includes(term) || author.includes(term) || tags.includes(term);
     });
     renderBooks(filtered);
 }
@@ -423,37 +427,20 @@ function renderBooks(books) {
         card.className = 'book-card';
 
         let tagsHtml = '';
-        if (book.Gemini_Genre) {
-            tagsHtml += `<span class="tag">${book.Gemini_Genre}</span>`;
-        }
         if (book.Status) {
-            let displayStatus = book.Status;
-            if (displayStatus === '読書中') displayStatus = 'いま読んでる';
-            
-            let bg = 'rgba(56, 189, 248, 0.2)';
-            let color = '#7dd3fc';
-            if (displayStatus === '読み終わった') { bg = 'rgba(52, 211, 153, 0.2)'; color = '#6ee7b7'; }      // 緑系
-            else if (displayStatus === 'いま読んでる') { bg = 'rgba(56, 189, 248, 0.2)'; color = '#7dd3fc'; } // 青系
-            else if (displayStatus === '積読') { bg = 'rgba(251, 191, 36, 0.2)'; color = '#fcd34d'; }        // 黄系
-            else if (displayStatus === '読みたい') { bg = 'rgba(192, 132, 252, 0.2)'; color = '#d8b4fe'; }    // 紫系
-            else if (displayStatus === '手放した') { bg = 'rgba(156, 163, 175, 0.2)'; color = '#d1d5db'; }    // 灰系
-            
-            tagsHtml += `<span class="tag" style="background: ${bg}; color: ${color};">${displayStatus}</span>`;
+            tagsHtml += `<span class="tag" style="background: rgba(56, 189, 248, 0.2); color: #7dd3fc;">${book.Status}</span>`;
         }
 
         const summary = book.Gemini_Summary || "（要約未生成）";
-        const rec = book.Gemini_Recommendation ? `<div class="book-rec">💡 ${book.Gemini_Recommendation}</div>` : '';
+        const rec = '';
         
-        // 書影のURL。精度の高いAmazon(ASIN)をメインにし、失敗したらOpenBDにフォールバック
-        const amazonUrl = getAmazonCoverUrl(book.ISBN13);
+        // 書影のURL。精度の高いOpenBDをメインにし、失敗したらNDLにフォールバック。それでもダメなら非表示にして下のテキストを見せる
         const openbdUrl = `https://cover.openbd.jp/${book.ISBN13}.jpg`;
+        const ndlUrl = `https://ndlsearch.ndl.go.jp/thumbnail/${book.ISBN13}.jpg`;
         
-        // どちらも失敗した場合は非表示にする
-        const fallbackScript = `this.onerror=null; this.src='${openbdUrl}'; this.onerror=function(){this.style.display='none';}`;
-        const onloadScript = `if(this.naturalWidth <= 1) { this.onload=null; this.src='${openbdUrl}'; }`;
-        const coverUrl = book.ISBN13 ? amazonUrl : 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
-        // 背景色を透明にすることで、Amazonの1x1透明GIFが返ってきた場合でも下のテキストが見えるようにする
-        const imgTag = book.ISBN13 ? `<img src="${amazonUrl}" alt="書影" style="width: 100%; height: 100%; object-fit: cover; box-shadow: 0 4px 6px rgba(0,0,0,0.3); position: relative; z-index: 1; background: transparent;" onload="${onloadScript}" onerror="${fallbackScript}">` : '';
+        const fallbackScript = `this.onerror=null; this.src='${ndlUrl}'; this.onerror=function(){this.style.display='none';}`;
+        const coverUrl = book.ISBN13 ? openbdUrl : 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+        const imgTag = book.ISBN13 ? `<img src="${openbdUrl}" alt="書影" style="width: 100%; height: 100%; object-fit: cover; box-shadow: 0 4px 6px rgba(0,0,0,0.3); position: relative; z-index: 1; background: #1e293b;" onerror="${fallbackScript}">` : '';
 
         // 書影を表示するためのフレックスレイアウトを追加
         card.style.display = 'flex';
@@ -590,9 +577,7 @@ function openDetailModal(book, coverUrl, summary, rec) {
     document.getElementById('detailPublisher').innerText = pubInfo.join(' / ');
     
     document.getElementById('detailType').innerText = book.Type ? `[${book.Type}]` : '';
-    let currentStatus = book.Status || '積読';
-    if (currentStatus === '読書中') currentStatus = 'いま読んでる';
-    document.getElementById('detailStatus').value = currentStatus;
+    document.getElementById('detailStatus').value = book.Status || '積読';
     
     document.getElementById('detailSummary').innerText = summary;
     document.getElementById('detailRec').innerHTML = rec;
