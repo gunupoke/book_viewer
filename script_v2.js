@@ -150,39 +150,84 @@ function onScanSuccess(decodedText, decodedResult) {
         document.getElementById('confirmDetails').style.display = 'none';
         document.getElementById('scanResult').innerText = "";
         
-        const appId = 'eaf0a411-9192-4746-b9ed-ac0364bc6426';
-        const accKey = 'pk_bQ411n2T0mvoKWg7KI3n4MVac0tEnuRifC6SPakJDyZ';
+        let isMagazine = decodedText.startsWith("491");
         
-        let apiUrl = decodedText.startsWith("491") 
-            ? `https://openapi.rakuten.co.jp/services/api/BooksMagazine/Search/20170404?applicationId=${appId}&accessKey=${accKey}&jan=${decodedText}&outOfStockFlag=1`
-            : `https://openapi.rakuten.co.jp/services/api/BooksBook/Search/20170404?applicationId=${appId}&accessKey=${accKey}&isbn=${decodedText}&outOfStockFlag=1`;
-        
-        fetch(apiUrl)             .then(res => res.json())
-            .then(data => {
-                let title = "";
-                let author = "";
-                let publisher = "";
-                let year = "";
-                let officialDescription = "";
+        async function fetchBookData() {
+            let title = "", author = "", publisher = "", year = "", officialDescription = "";
+            try {
+                if (!isMagazine) {
+                    const obdRes = await fetch(`https://api.openbd.jp/v1/get?isbn=${decodedText}`);
+                    const obdData = await obdRes.json();
+                    if (obdData && obdData.length > 0 && obdData[0]) {
+                        if (obdData[0].summary) {
+                            title = obdData[0].summary.title;
+                            author = obdData[0].summary.author;
+                            publisher = obdData[0].summary.publisher || "";
+                            year = normalizeDate(obdData[0].summary.pubdate || "");
+                        }
+                        try {
+                            const onix = obdData[0].onix;
+                            if (onix && onix.CollateralDetail && onix.CollateralDetail.TextContent) {
+                                const texts = onix.CollateralDetail.TextContent;
+                                const desc = texts.find(t => t.TextType === "03" || t.TextType === "02");
+                                if (desc) officialDescription = desc.Text;
+                            }
+                        } catch(e) {}
+                    }
+                }
                 
-                if (data.Items && data.Items.length > 0) {
-                    const item = data.Items[0].Item;
-                    title = item.title || "";
-                    author = item.author || "";
-                    publisher = item.publisherName || "";
-                    year = normalizeDate(item.salesDate || "");
-                    officialDescription = item.itemCaption || "";
-                    
+                // NDL SRU API Fallback
+                if (!title) {
+                    const ndlQuery = isMagazine ? `any=${decodedText}` : `isbn=${decodedText}`;
+                    const ndlRes = await fetch(`https://ndlsearch.ndl.go.jp/api/sru?operation=searchRetrieve&query=${ndlQuery}`);
+                    const xmlStr = await ndlRes.text();
+                    const parser = new DOMParser();
+                    const xmlDoc = parser.parseFromString(xmlStr, "text/xml");
+                    const records = xmlDoc.getElementsByTagName("record");
+                    if (records.length > 0) {
+                        const recordData = records[0].getElementsByTagName("recordData")[0];
+                        if (recordData) {
+                            const dcTitle = recordData.getElementsByTagName("dc:title")[0] || recordData.getElementsByTagName("title")[0];
+                            const dcCreator = recordData.getElementsByTagName("dc:creator")[0] || recordData.getElementsByTagName("creator")[0];
+                            const dcPublisher = recordData.getElementsByTagName("dc:publisher")[0] || recordData.getElementsByTagName("publisher")[0];
+                            const dcDate = recordData.getElementsByTagName("dc:date")[0] || recordData.getElementsByTagName("date")[0];
+                            title = dcTitle ? dcTitle.textContent : "";
+                            author = dcCreator ? dcCreator.textContent : "";
+                            publisher = dcPublisher ? dcPublisher.textContent : "";
+                            year = dcDate ? normalizeDate(dcDate.textContent) : "";
+                        }
+                    }
+                }
+                
+                // Google Books API Fallback
+                if (!title && !isMagazine) {
+                    const gbRes = await fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn:${decodedText}`);
+                    if (gbRes.ok) {
+                        const gbData = await gbRes.json();
+                        if (gbData.items && gbData.items.length > 0) {
+                            const info = gbData.items[0].volumeInfo;
+                            title = info.title || "";
+                            author = info.authors ? info.authors.join(", ") : "";
+                            publisher = info.publisher || "";
+                            year = normalizeDate(info.publishedDate || "");
+                            officialDescription = info.description || "";
+                        }
+                    }
+                }
+
+                if (title) {
                     showConfirmDetails(title, author, decodedText, publisher, year, officialDescription);
                 } else {
                     document.getElementById('confirmLoading').style.display = 'none';
                     document.getElementById('scanResult').innerText = "エラー: 本の情報が見つかりませんでした (コード: " + decodedText + ")";
                 }
-            })
-            .catch(err => {
+            } catch (err) {
                 document.getElementById('confirmLoading').style.display = 'none';
                 document.getElementById('scanResult').innerText = "API通信エラー: " + err;
-            });
+            }
+        }
+        
+        fetchBookData();
     }
 }
 
@@ -595,7 +640,6 @@ function openDetailModal(book, coverUrl, summary, rec) {
     document.getElementById('detailStatus').value = currentStatus;
     
     document.getElementById('detailSummary').innerText = summary;
-    document.getElementById('detailRec').innerHTML = rec;
     
     detailModal.classList.add('show');
 }
