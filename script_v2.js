@@ -239,14 +239,14 @@ function cleanAuthorName(authorStr) {
     // 役割を削除
     authorStr = authorStr.replace(/[\/／\s]*(著|編|訳|原作|作画|原案)$/g, '');
     
-    // まず明白な複数人区切り文字（スラッシュ、読点）はカンマに統一
-    authorStr = authorStr.replace(/[\/／、]/g, ',');
+    // まず明白な複数人区切り文字（読点）はカンマに統一
+    authorStr = authorStr.replace(/[、]/g, ',');
     
     // 日本人名の姓名間のスペースを削除（漢字・ひらがなの間）
     authorStr = authorStr.replace(/([一-龯ぁ-ん])[\s　]+([一-龯ぁ-ん])/g, "$1$2");
     
-    // トークン化して、カンマと中黒の扱いを決定する
-    let tokens = authorStr.split(/([,，・])/);
+    // トークン化して、カンマ、中黒、スラッシュの扱いを決定する
+    let tokens = authorStr.split(/([,，・\/／])/);
     
     let authors = [];
     let currentAuthor = "";
@@ -255,15 +255,15 @@ function cleanAuthorName(authorStr) {
         let token = tokens[i].trim();
         if (!token) continue;
         
-        if (token === ',' || token === '，' || token === '・') {
+        if (token.match(/^[,，・\/／]$/)) {
             let nextToken = (i + 1 < tokens.length) ? tokens[i+1].trim() : "";
             
-            // カタカナ・英字が含まれる場合、・は結合、カンマは区切り
+            // カタカナ・英字が含まれる場合、中黒やスラッシュは結合、カンマは区切り
             let hasKatakana = /[ァ-ヶA-Za-z]/.test(currentAuthor) || /[ァ-ヶA-Za-z]/.test(nextToken);
             
             if (hasKatakana) {
-                if (token === '・') {
-                    currentAuthor += '・';
+                if (token.match(/^[・\/／]$/)) {
+                    currentAuthor += token; // スラッシュや中黒は正式名称の一部として残す
                 } else {
                     authors.push(currentAuthor);
                     currentAuthor = "";
