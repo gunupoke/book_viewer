@@ -480,6 +480,13 @@ function fetchDataFromUrl(url) {
                 header: true,
                 skipEmptyLines: true,
                 complete: function(results) {
+                    // 全データに対して最新の自動整形（著者名・日付など）を適用
+                    results.data.forEach(book => {
+                        if (book.Author) book.Author = cleanAuthorName(book.Author);
+                        if (book.Title) book.Title = book.Title.trim();
+                        if (book.Year) book.Year = normalizeDate(book.Year);
+                    });
+
                     // 新着順にするために配列を反転
                     allBooks = results.data.reverse();
                     renderBooks(allBooks);
