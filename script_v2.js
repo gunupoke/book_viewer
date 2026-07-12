@@ -179,7 +179,7 @@ function onScanSuccess(decodedText, decodedResult) {
                 // NDL SRU API Fallback
                 if (!title) {
                     const ndlQuery = isMagazine ? `any=${decodedText}` : `isbn=${decodedText}`;
-                    const ndlRes = await fetch(`https://ndlsearch.ndl.go.jp/api/sru?operation=searchRetrieve&query=${ndlQuery}`);
+                    const ndlRes = await fetch(`https://ndlsearch.ndl.go.jp/api/sru?operation=searchRetrieve&recordPacking=xml&query=${ndlQuery}`);
                     const xmlStr = await ndlRes.text();
                     const parser = new DOMParser();
                     const xmlDoc = parser.parseFromString(xmlStr, "text/xml");
