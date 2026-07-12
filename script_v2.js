@@ -235,10 +235,62 @@ function onScanSuccess(decodedText, decodedResult) {
 
 function cleanAuthorName(authorStr) {
     if (!authorStr) return "";
-    let parts = authorStr.split(',').map(p => p.trim());
-    parts = parts.filter(p => !/^[\d\-?]+$/.test(p));
-    parts = parts.map(p => p.replace(/[\/／\s]*(著|編|訳|原作|作画|原案)$/, '').trim());
-    return parts.join(', ').trim();
+    
+    // 役割を削除
+    authorStr = authorStr.replace(/[\/／\s]*(著|編|訳|原作|作画|原案)$/g, '');
+    
+    // まず明白な複数人区切り文字（スラッシュ、読点）はカンマに統一
+    authorStr = authorStr.replace(/[\/／、]/g, ',');
+    
+    // 日本人名の姓名間のスペースを削除（漢字・ひらがなの間）
+    authorStr = authorStr.replace(/([一-龯ぁ-ん])[\s　]+([一-龯ぁ-ん])/g, "$1$2");
+    
+    // トークン化して、カンマと中黒の扱いを決定する
+    let tokens = authorStr.split(/([,，・])/);
+    
+    let authors = [];
+    let currentAuthor = "";
+    
+    for (let i = 0; i < tokens.length; i++) {
+        let token = tokens[i].trim();
+        if (!token) continue;
+        
+        if (token === ',' || token === '，' || token === '・') {
+            let nextToken = (i + 1 < tokens.length) ? tokens[i+1].trim() : "";
+            
+            // カタカナ・英字が含まれる場合、・は結合、カンマは区切り
+            let hasKatakana = /[ァ-ヶA-Za-z]/.test(currentAuthor) || /[ァ-ヶA-Za-z]/.test(nextToken);
+            
+            if (hasKatakana) {
+                if (token === '・') {
+                    currentAuthor += '・';
+                } else {
+                    authors.push(currentAuthor);
+                    currentAuthor = "";
+                }
+            } else {
+                // 日本人名（漢字・ひらがな）の場合
+                // 合計文字数が5文字以下なら「1人の姓名区切り」とみなして削除結合
+                if (currentAuthor.length > 0 && nextToken.length > 0 && (currentAuthor.length + nextToken.length <= 5)) {
+                    // 削除して結合（何もしない＝separatorを足さない）
+                } else {
+                    authors.push(currentAuthor);
+                    currentAuthor = "";
+                }
+            }
+        } else {
+            currentAuthor += token;
+        }
+    }
+    if (currentAuthor) authors.push(currentAuthor);
+    
+    // 最後に各著者の余分なスペースを消す（日本人名のみ）
+    authors = authors.map(a => {
+        if (/[ァ-ヶA-Za-z]/.test(a)) return a;
+        return a.replace(/[\s　]+/g, '');
+    });
+    
+    return authors.filter(a => a).join(', ');
 }
 
 function normalizeDate(dateStr) {
