@@ -555,7 +555,6 @@ function renderBooks(books) {
         }
 
         const summary = book.Gemini_Summary || "（要約未生成）";
-        const rec = '';
         
         // 書影のURL。精度の高いAmazon(ASIN)をメインにし、失敗したらOpenBDにフォールバック
         const amazonUrl = getAmazonCoverUrl(book.ISBN13);
@@ -586,7 +585,7 @@ function renderBooks(books) {
         
         // カードクリックで詳細モーダルを開く
         card.addEventListener('click', () => {
-            openDetailModal(book, coverUrl, summary, rec);
+            openDetailModal(book, coverUrl, summary);
         });
 
         grid.appendChild(card);
@@ -679,7 +678,7 @@ let currentDetailBook = null;
 const detailModal = document.getElementById('detailModal');
 document.getElementById('closeDetail').addEventListener('click', () => detailModal.classList.remove('show'));
 
-function openDetailModal(book, coverUrl, summary, rec) {
+function openDetailModal(book, coverUrl, summary) {
     currentDetailBook = book;
     const detailCover = document.getElementById('detailCover');
     detailCover.src = coverUrl;
