@@ -1,7 +1,7 @@
 - [ ] Verify 186 unapproved books
   - [/] Subagent 0 (batch 0)
   - [/] Subagent 1 (batch 1)
-  - [/] Subagent 2 (batch 2)
+  - [x] Subagent 2 (batch 2)
   - [/] Subagent 3 (batch 3)
   - [/] Subagent 4 (batch 4)
   - [/] Subagent 5 (batch 5)
