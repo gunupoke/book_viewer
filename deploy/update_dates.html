@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>過去データの発売日アップデート</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; background: #0f172a; color: #f8fafc; }
+        .container { max-width: 800px; margin: 0 auto; background: #1e293b; padding: 20px; border-radius: 8px; }
+        h1 { font-size: 1.5rem; color: #38bdf8; }
+        p { line-height: 1.6; }
+        button { background: #38bdf8; color: #0f172a; border: none; padding: 10px 20px; font-weight: bold; cursor: pointer; border-radius: 4px; font-size: 1rem; }
+        button:disabled { background: #64748b; cursor: not-allowed; }
+        #progress { margin-top: 15px; color: #fbbf24; }
+        /* テーブルを非表示領域に作成してコピペ用にする */
+        #tableWrapper { position: absolute; left: -9999px; top: -9999px; }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>過去データの発売日フルアップデートツール</h1>
+        <p>過去にスキャンして「年」しか保存されていない本のデータを、APIから再取得して「年月日」に一括アップデートします。</p>
+        
+        <button id="startBtn">アップデート開始</button>
+        <div id="progress"></div>
+
+        <div id="resultArea" style="display: none; margin-top: 20px;">
+            <p style="color: #6ee7b7; font-weight: bold;">✅ 完了しました！以下のボタンを押してデータをコピーし、Googleスプレッドシートの「A1」セルを選択してそのまま貼り付けてください。</p>
+            <p style="color: #fbbf24; font-weight: bold; background: #451a03; padding: 10px; border-radius: 4px;">🎉 コピーボタンを使えば、タイトルの改行や特殊な列名（Year_1など）にも完全対応し、ズレずに綺麗に貼り付けられます！</p>
+            <button id="copyBtn" style="background: #10b981; color: white; padding: 15px 30px; font-size: 1.2rem;">📋 データをクリップボードにコピー</button>
+        </div>
+    </div>
+
+    <div id="tableWrapper"></div>
+
+    <script>
+        function normalizeDate(dateStr) {
+            if (!dateStr) return "";
+            // NDLフォーマット(2003.6)のドットをハイフンに変換
+            let s = dateStr.replace(/\./g, '-').replace(/[^\d\-]/g, '');
+            // OpenBDフォーマット(200306)
+            if (/^\d{8}$/.test(s)) return `${s.substring(0,4)}-${s.substring(4,6)}-${s.substring(6,8)}`;
+            if (/^\d{6}$/.test(s)) return `${s.substring(0,4)}-${s.substring(4,6)}`;
+            
+            // NDLフォーマット(2003-6)を(2003-06)へパディング
+            if (/^\d{4}-\d{1,2}$/.test(s)) {
+                let parts = s.split('-');
+                return `${parts[0]}-${parts[1].padStart(2, '0')}`;
+            }
+            if (/^\d{4}-\d{1,2}-\d{1,2}$/.test(s)) {
+                let parts = s.split('-');
+                return `${parts[0]}-${parts[1].padStart(2, '0')}-${parts[2].padStart(2, '0')}`;
+            }
+            return s;
+        }
+
+        function uncorrupt1905(dateStr) {
+            if (!dateStr || !dateStr.startsWith('1905')) return dateStr;
+            const parts = dateStr.match(/1905[\/\-](\d+)[\/\-](\d+)/);
+            if (parts) {
+                const m = parseInt(parts[1], 10);
+                const d = parseInt(parts[2], 10);
+                const dateObj = new Date(1905, m - 1, d);
+                const base = new Date(1899, 11, 30);
+                let diffDays = Math.round((dateObj - base) / 86400000);
+                diffDays += 1;
+                return diffDays.toString();
+            }
+            return dateStr;
+        }
+
+        async function fetchFullDate(isbn, title) {
+            if (!isbn) return null;
+            
+            const appId = 'eaf0a411-9192-4746-b9ed-ac0364bc6426';
+            const accKey = 'pk_bQ411n2T0mvoKWg7KI3n4MVac0tEnuRifC6SPakJDyZ';
+            
+            // 1. 雑誌 (JANコードが491で始まる場合)
+            if (isbn.startsWith('491')) {
+                // まずはJANコードで楽天雑誌APIを検索
+                try {
+                    let apiUrl = `https://openapi.rakuten.co.jp/services/api/BooksMagazine/Search/20170404?applicationId=${appId}&accessKey=${accKey}&jan=${isbn}&outOfStockFlag=1`;
+                    const res = await fetch(apiUrl);
+                    const data = await res.json();
+                    if (data.Items && data.Items.length > 0 && data.Items[0].Item.salesDate) {
+                        return normalizeDate(data.Items[0].Item.salesDate);
+                    }
+                } catch (e) {}
+
+                // JANで見つからない場合（バックナンバー等）、タイトルで楽天雑誌APIを検索
+                if (title) {
+                    try {
+                        let encodedTitle = encodeURIComponent(title);
+                        let apiUrlTitle = `https://openapi.rakuten.co.jp/services/api/BooksMagazine/Search/20170404?applicationId=${appId}&accessKey=${accKey}&title=${encodedTitle}&outOfStockFlag=1`;
+                        const res = await fetch(apiUrlTitle);
+                        const data = await res.json();
+                        if (data.Items && data.Items.length > 0 && data.Items[0].Item.salesDate) {
+                            return normalizeDate(data.Items[0].Item.salesDate);
+                        }
+                    } catch (e) {}
+                }
+            } else {
+                // 2. 一般書籍 (ISBN)
+                try {
+                    let apiUrl = `https://openapi.rakuten.co.jp/services/api/BooksBook/Search/20170404?applicationId=${appId}&accessKey=${accKey}&isbn=${isbn}&outOfStockFlag=1`;
+                    const res = await fetch(apiUrl);
+                    const data = await res.json();
+                    if (data.Items && data.Items.length > 0 && data.Items[0].Item.salesDate) {
+                        return normalizeDate(data.Items[0].Item.salesDate);
+                    }
+                } catch (e) {}
+            }
+            
+            return null;
+        }
+
+        document.getElementById('startBtn').addEventListener('click', async () => {
+            const btn = document.getElementById('startBtn');
+            const progress = document.getElementById('progress');
+            const sheetUrl = localStorage.getItem('sheetCsvUrl');
+            
+            if (!sheetUrl) {
+                alert('元のアプリでスプレッドシートのCSV URLが設定されていません。一度アプリに戻って設定してください。');
+                return;
+            }
+
+            btn.disabled = true;
+            progress.innerText = 'データを読み込んでいます...';
+
+            try {
+                const response = await fetch(sheetUrl + '&t=' + new Date().getTime());
+                const csvText = await response.text();
+                
+                Papa.parse(csvText, {
+                    header: true,
+                    skipEmptyLines: true,
+                    complete: async function(results) {
+                        const books = results.data;
+                        if (books.length === 0) {
+                            progress.innerText = 'データが空です。';
+                            return;
+                        }
+
+                        // ヘッダー名からYear列とISBN列を自動推測（_1 などが付いていても対応）
+                        const headers = Object.keys(books[0]);
+                        const yearKey = headers.find(k => k.toLowerCase().includes('year')) || headers.find(k => k.includes('出版年'));
+                        const isbnKey = headers.find(k => k.toLowerCase().includes('isbn'));
+                        const titleKey = headers.find(k => k.toLowerCase().includes('title')) || headers.find(k => k.includes('タイトル'));
+
+                        let updatedCount = 0;
+
+                        for (let i = 0; i < books.length; i++) {
+                            const book = books[i];
+                            const titleStr = titleKey ? book[titleKey] : `行 ${i+1}`;
+                            progress.innerText = `処理中... (${i + 1}/${books.length}): ${titleStr}`;
+                            
+                            if (yearKey && isbnKey) {
+                                let yearVal = book[yearKey] || "";
+                                
+                                // 1905年バグの復元
+                                if (yearVal.startsWith('1905')) {
+                                    yearVal = uncorrupt1905(yearVal);
+                                }
+
+                                // 前回のツールで付与されてしまったシングルクォートを外す
+                                let currentYear = yearVal.replace(/^'/, '');
+
+                                // 全ての本について正確な日付への上書きを試みる（既存の日付がGoogleBooksのフェイクである可能性が高いため）
+                                if (book[isbnKey]) {
+                                    const fullDate = await fetchFullDate(book[isbnKey], titleStr);
+                                    // APIから詳細な日付（YYYY-MMなど）が取得でき、かつ既存のものと違うなら上書き
+                                    if (fullDate && fullDate.length > 4 && currentYear !== fullDate) {
+                                        currentYear = fullDate;
+                                        updatedCount++;
+                                    }
+                                }
+
+                                // クォートを付与する代わりに、HTMLの属性で文字列であることを明示する
+                                book[yearKey] = currentYear;
+                            }
+                            
+                            // API負荷対策のウェイト（高速化のため200msに変更）
+                            await new Promise(r => setTimeout(r, 200));
+                        }
+
+                        // HTMLのtableを生成（これにより改行やタブが含まれていてもコピペで絶対にズレない）
+                        let html = '<table id="exportTable">';
+                        html += '<tr>' + headers.map(h => `<th>${escapeHtml(h)}</th>`).join('') + '</tr>';
+                        for (const book of books) {
+                            html += '<tr>' + headers.map(h => {
+                                let val = book[h] || "";
+                                // 以前のシングルクォートを除去
+                                if (typeof val === 'string') {
+                                    val = val.replace(/^'/, '');
+                                }
+                                let safeVal = escapeHtml(val.toString()).replace(/\n/g, '<br>');
+                                let jsonVal = escapeHtml(JSON.stringify({"1":2,"2":val.toString()}));
+                                // Googleスプレッドシート専用の data-sheets-value 属性を使って完全に文字列としてペーストさせる
+                                return `<td style="mso-number-format:'\\@';" data-sheets-value='${jsonVal}'>${safeVal}</td>`;
+                            }).join('') + '</tr>';
+                        }
+                        html += '</table>';
+                        
+                        document.getElementById('tableWrapper').innerHTML = html;
+
+                        progress.innerText = `処理完了！ ${updatedCount}冊の発売日をアップデートしました。`;
+                        document.getElementById('resultArea').style.display = 'block';
+                    }
+                });
+            } catch (error) {
+                progress.innerText = 'エラーが発生しました: ' + error.message;
+                btn.disabled = false;
+            }
+        });
+
+        document.getElementById('copyBtn').addEventListener('click', () => {
+            const table = document.getElementById('exportTable');
+            const range = document.createRange();
+            range.selectNode(table);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            document.execCommand('copy');
+            window.getSelection().removeAllRanges();
+            alert('コピー完了！\nスプレッドシートのA1セルを選択して貼り付けてください。');
+        });
+
+        function escapeHtml(str) {
+            return str.replace(/&/g, '&amp;')
+                      .replace(/</g, '&lt;')
+                      .replace(/>/g, '&gt;')
+                      .replace(/"/g, '&quot;')
+                      .replace(/'/g, '&#039;');
+        }
+    </script>
+</body>
+</html>

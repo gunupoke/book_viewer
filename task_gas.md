@@ -1,0 +1,3 @@
+- `[x]` Write Google Apps Script for handling asynchronous background summaries
+- `[x]` Add setup instructions to Walkthrough or GAS file
+- `[x]` Create GAS Script Artifact

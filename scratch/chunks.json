@@ -1,0 +1,87 @@
+[
+  {
+    "TypeName": "DateVerifier",
+    "Role": "Date Verifier Chunk 1",
+    "Prompt": "Please find the official release date for the following books:\n\n- Title: 母性のディストピア\n  Author: 宇野常寛\n  Publisher: 集英社\n- Title: ハルキとハルヒ 村上春樹と涼宮ハルヒを解読する (ACADEMIA SOCIETY NO.5)\n  Author: 土居豊\n  Publisher: 大学教育出版\n- Title: 天 2 (バンブーコミックス)\n  Author: 福本伸行\n  Publisher: 竹書房\n- Title: 天 3 (バンブーコミックス)\n  Author: 福本伸行\n  Publisher: 竹書房\n- Title: 天 4 (バンブーコミックス)\n  Author: 福本伸行\n  Publisher: 竹書房"
+  },
+  {
+    "TypeName": "DateVerifier",
+    "Role": "Date Verifier Chunk 2",
+    "Prompt": "Please find the official release date for the following books:\n\n- Title: 天 5 (バンブーコミックス)\n  Author: 福本伸行\n  Publisher: 竹書房\n- Title: 天 1 (バンブーコミックス)\n  Author: 福本伸行\n  Publisher: 竹書房\n- Title: ニュー日本文学史\n  Author: 三宅香帆\n  Publisher: 淡交社\n- Title: アニソン大全 ーー「鉄腕アトム」から「鬼滅の刃」まで (単行本)\n  Author: 澄川龍一\n  Publisher: 祥伝社\n- Title: DIE WITH ZERO 人生が豊かになりすぎる究極のルール\n  Author: ビル・パーキンス\n  Publisher: ダイヤモンド社"
+  },
+  {
+    "TypeName": "DateVerifier",
+    "Role": "Date Verifier Chunk 3",
+    "Prompt": "Please find the official release date for the following books:\n\n- Title: 将棋世界 2026年4月号\n  Author: 「将棋世界」編集部\n  Publisher: マイナビ出版\n- Title: 性的であるとはどのようなことか\n  Author: 難波優輝\n  Publisher: 光文社\n- Title: 三体\n  Author: 劉慈欣\n  Publisher: 早川書房\n- Title: 花ざかりの森・憂国 自選短編集 (新潮文庫)\n  Author: 三島由紀夫\n  Publisher: 新潮社\n- Title: ゼロ年代の想像力 (ハヤカワ文庫JA)\n  Author: 宇野常寛\n  Publisher: 早川書房"
+  },
+  {
+    "TypeName": "DateVerifier",
+    "Role": "Date Verifier Chunk 4",
+    "Prompt": "Please find the official release date for the following books:\n\n- Title: 考察する若者たち (PHP新書)\n  Author: 三宅香帆\n  Publisher: PHP研究所\n- Title: 暇と退屈の倫理学 (新潮文庫)\n  Author: 國分功一郎\n  Publisher: 新潮社\n- Title: 「選択肢」の選択史 ニトロプラスのシナリオライターはノベルゲームをどう作ってきたか (星海社新書)\n  Author: 下倉バイオ\n  Publisher: 星海社\n- Title: 虚構世界はなぜ必要か? SFアニメ「超」考察\n  Author: 古谷利裕\n  Publisher: 勁草書房\n- Title: 史上最強の漢検マスター準1級問題集\n  Author: オフィス海\n  Publisher: ナツメ社"
+  },
+  {
+    "TypeName": "DateVerifier",
+    "Role": "Date Verifier Chunk 5",
+    "Prompt": "Please find the official release date for the following books:\n\n- Title: 西洋の敗北 日本と世界に何が起きるのか\n  Author: エマニュエル・トッド\n  Publisher: 文藝春秋\n- Title: 「好き」を言語化する技術 推しの素晴らしさを語りたいのに「やばい!」しかでてこない\n  Author: 三宅香帆\n  Publisher: ディスカヴァー・トゥエンティワン\n- Title: 平和と愚かさ\n  Author: 東浩紀\n  Publisher: ゲンロン\n- Title: Occultic;Nine (3) -オカルティック・ナイン- (オーバーラップ文庫)\n  Author: 志倉千代丸\n  Publisher: オーバーラップ\n- Title: Occultic;Nine (2) -オカルティック・ナイン- (オーバーラップ文庫)\n  Author: 志倉千代丸\n  Publisher: オーバーラップ"
+  },
+  {
+    "TypeName": "DateVerifier",
+    "Role": "Date Verifier Chunk 6",
+    "Prompt": "Please find the official release date for the following books:\n\n- Title: Occultic;Nine (1) -オカルティック・ナイン- (オーバーラップ文庫)\n  Author: 志倉千代丸\n  Publisher: オーバーラップ\n- Title: アカギ 1 (バンブーコミックス)\n  Author: 福本伸行\n  Publisher: 竹書房\n- Title: アカギ (2) (近代麻雀コミックス バンブーコミックス)\n  Author: 福本伸行\n  Publisher: 竹書房\n- Title: アカギ (3) (近代麻雀コミックス バンブーコミックス)\n  Author: 福本伸行\n  Publisher: 竹書房\n- Title: アカギ 4 (バンブーコミックス)\n  Author: 福本伸行\n  Publisher: 竹書房"
+  },
+  {
+    "TypeName": "DateVerifier",
+    "Role": "Date Verifier Chunk 7",
+    "Prompt": "Please find the official release date for the following books:\n\n- Title: アカギ 5 (バンブーコミックス)\n  Author: 福本伸行\n  Publisher: 竹書房\n- Title: アカギ 6 (バンブーコミックス)\n  Author: 福本伸行\n  Publisher: 竹書房\n- Title: アカギ 7 (バンブーコミックス)\n  Author: 福本伸行\n  Publisher: 竹書房\n- Title: 「振り仮名」があれば学力は上がるのか (ポプラ新書 286)\n  Author: 松本大\n  Publisher: ポプラ社\n- Title: 本を読めなくなった人たち コスパとテキストメディアをめぐる現在形 (中公新書ラクレ)\n  Author: 稲田豊史\n  Publisher: 中央公論新社"
+  },
+  {
+    "TypeName": "DateVerifier",
+    "Role": "Date Verifier Chunk 8",
+    "Prompt": "Please find the official release date for the following books:\n\n- Title: 物語化批判の哲学 〈わたしの人生〉を遊びなおすために (講談社現代新書)\n  Author: 難波優輝\n  Publisher: 講談社\n- Title: 増補改訂版 スマホ時代の哲学 「常時接続の世界」で失われた孤独をめぐる冒険\n  Author: 谷川嘉浩\n  Publisher: ディスカヴァー・トゥエンティワン\n- Title: PLURALITY\n  Author: オードリー・タン\n  Publisher: サイボウズ\n- Title: 涼宮ハルヒの劇場 (角川スニーカー文庫)\n  Author: 谷川流\n  Publisher: KADOKAWA\n- Title: 涼宮ハルヒの直観 (角川スニーカー文庫)\n  Author: 谷川流\n  Publisher: KADOKAWA"
+  },
+  {
+    "TypeName": "DateVerifier",
+    "Role": "Date Verifier Chunk 9",
+    "Prompt": "Please find the official release date for the following books:\n\n- Title: 涼宮ハルヒの驚愕(後) (角川スニーカー文庫)\n  Author: 谷川流\n  Publisher: KADOKAWA\n- Title: 涼宮ハルヒの憂鬱 (角川スニーカー文庫)\n  Author: 谷川流\n  Publisher: KADOKAWA\n- Title: 涼宮ハルヒの溜息 (角川スニーカー文庫)\n  Author: 谷川流\n  Publisher: KADOKAWA\n- Title: 涼宮ハルヒの退屈 (角川スニーカー文庫)\n  Author: 谷川流\n  Publisher: KADOKAWA\n- Title: 涼宮ハルヒの消失 (角川スニーカー文庫)\n  Author: 谷川流\n  Publisher: KADOKAWA"
+  },
+  {
+    "TypeName": "DateVerifier",
+    "Role": "Date Verifier Chunk 10",
+    "Prompt": "Please find the official release date for the following books:\n\n- Title: 涼宮ハルヒの暴走 (角川スニーカー文庫)\n  Author: 谷川流\n  Publisher: KADOKAWA\n- Title: 涼宮ハルヒの動揺 (角川スニーカー文庫)\n  Author: 谷川流\n  Publisher: KADOKAWA\n- Title: 涼宮ハルヒの陰謀 (角川スニーカー文庫)\n  Author: 谷川流\n  Publisher: KADOKAWA\n- Title: 涼宮ハルヒの憤慨 (角川スニーカー文庫)\n  Author: 谷川流\n  Publisher: KADOKAWA\n- Title: 涼宮ハルヒの分裂 (角川スニーカー文庫)\n  Author: 谷川流\n  Publisher: 角川書店"
+  },
+  {
+    "TypeName": "DateVerifier",
+    "Role": "Date Verifier Chunk 11",
+    "Prompt": "Please find the official release date for the following books:\n\n- Title: 涼宮ハルヒの驚愕 初回限定版 (角川スニーカー文庫)\n  Author: 谷川流\n  Publisher: 角川書店\n- Title: 現代思想入門 (講談社現代新書)\n  Author: 千葉雅也\n  Publisher: 講談社\n- Title: 日本経済の死角 収奪的システムを解き明かす (ちくま新書 1840)\n  Author: 河野龍太郎\n  Publisher: 筑摩書房\n- Title: 男はなぜ孤独死するのか 男たちの成功の代償\n  Author: トーマス・ジョイナー\n  Publisher: 晶文社\n- Title: 電撃G’s magazine (2018年4月号) (月刊誌)\n  Author: KADOKAWA\n  Publisher: KADOKAWA"
+  },
+  {
+    "TypeName": "DateVerifier",
+    "Role": "Date Verifier Chunk 12",
+    "Prompt": "Please find the official release date for the following books:\n\n- Title: 週刊文春エンタ+ (文春ムック)\n  Author: 文藝春秋\n  Publisher: 文藝春秋\n- Title: 週刊文春エンタ+ 総力特集 怪獣8号 (文春ムック)\n  Author: 文藝春秋\n  Publisher: 文藝春秋\n- Title: 週刊文春エンタ+ 特集 機動戦士ガンダム (文春MOOK)\n  Author: 文藝春秋\n  Publisher: 文藝春秋\n- Title: 週刊文春エンタ! エンタメが私を救う。 (文春MOOK)\n  Author: 文藝春秋\n  Publisher: 文藝春秋\n- Title: 週刊文春エンタ! アニメの力。 (文春MOOK)\n  Author: 文藝春秋\n  Publisher: 文藝春秋"
+  },
+  {
+    "TypeName": "DateVerifier",
+    "Role": "Date Verifier Chunk 13",
+    "Prompt": "Please find the official release date for the following books:\n\n- Title: 文春ムック 週刊文春エンタ+(プラス) 特集『機動警察パトレイバー』 (文春ムック)\n  Author: 文藝春秋編\n  Publisher: 文藝春秋\n- Title: コードギアス 反逆のルルーシュ ゼロ×ぴあ (ぴあMOOK)\n  Author: ぴあ\n  Publisher: ぴあ\n- Title: STEINS;GATE 0 (6) (角川コミックス・エース)\n  Author: 姫乃タカ\n  Publisher: KADOKAWA\n- Title: STEINS;GATE 0 (5) (角川コミックス・エース)\n  Author: 姫乃タカ\n  Publisher: KADOKAWA\n- Title: STEINS;GATE 0 (4) (角川コミックス・エース)\n  Author: 姫乃タカ\n  Publisher: KADOKAWA"
+  },
+  {
+    "TypeName": "DateVerifier",
+    "Role": "Date Verifier Chunk 14",
+    "Prompt": "Please find the official release date for the following books:\n\n- Title: STEINS;GATE ELITE 公式資料集 Deceive the World\n  Author: 電撃ゲーム書籍編集部\n  Publisher: KADOKAWA\n- Title: STEINS;GATE 0 (3) (角川コミックス・エース)\n  Author: 姫乃タカ\n  Publisher: KADOKAWA\n- Title: STEINS;GATE 0 (2) (角川コミックス・エース)\n  Author: 姫乃タカ\n  Publisher: KADOKAWA\n- Title: STEINS;GATE 0 (1) (角川コミックス・エース)\n  Author: 姫乃タカ\n  Publisher: KADOKAWA\n- Title: STEINS;GATE 0 コミックアンソロジー (IDコミックス・DNAメディアコミックス)\n  Author: アンソロジー\n  Publisher: 一迅社"
+  },
+  {
+    "TypeName": "DateVerifier",
+    "Role": "Date Verifier Chunk 15",
+    "Prompt": "Please find the official release date for the following books:\n\n- Title: STEINS;GATE 0 電撃コミックアンソロジー (電撃コミックスEX)\n  Author: 笹森トモエ\n  Publisher: KADOKAWA\n- Title: STEINS;GATE 0 公式資料集 Amadeus’ Script\n  Author: 電撃攻略本編集部\n  Publisher: KADOKAWA\n- Title: STEINS;GATE 永劫回帰のパンドラ(1) (ファミ通クリアコミックス)\n  Author: 鳥飼やすゆき\n  Publisher: KADOKAWA\n- Title: STEINS;GATE 無限遠点のアークライト (ヤングジャンプコミックス)\n  Author: 成家慎一郎\n  Publisher: 集英社\n- Title: TVAnime STEINS;GATE OFFICIAL GUIDEBOOK 記憶補完のモノグラフ\n  Author: ニュータイプ\n  Publisher: 角川書店"
+  },
+  {
+    "TypeName": "DateVerifier",
+    "Role": "Date Verifier Chunk 16",
+    "Prompt": "Please find the official release date for the following books:\n\n- Title: STEINS;GATE 相思相愛のトゥルーメモリーズ\n  Author: 未来ガジェット研究所\n  Publisher: 角川書店\n- Title: シュタインズ・ゲート 公式資料集\n  Author: ファミ通Xbox編集部\n  Publisher: エンターブレイン\n- Title: 火車\n  Author: 宮部みゆき\n  Publisher: 新潮社\n- Title: スノウボールアース = SNOW BALL EARTH. 2\n  Author: 辻次夕日郎\n  Publisher: 小学館\n- Title: スノウボールアース = SNOW BALL EARTH. 1\n  Author: 辻次夕日郎\n  Publisher: 小学館"
+  },
+  {
+    "TypeName": "DateVerifier",
+    "Role": "Date Verifier Chunk 17",
+    "Prompt": "Please find the official release date for the following books:\n\n- Title: アニメーションと国家\n  Author: 雪村まゆみ\n  Publisher: フィルムアート社\n- Title: ANIMAGE LIBRARY VOL.1 DVD BOOK「ほしのこえ」\n  Author: 新海誠\n  Publisher: 徳間書店"
+  }
+]
