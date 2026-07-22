@@ -1,5 +1,13 @@
-# 蔵書データ自動取得のタスクリスト
-
-- `[x]` ユーザーにスプレッドシートの「ウェブに公開（CSV）」手順を案内し、URLを取得する
-- `[x]` 現在稼働中のスケジュールタスク（手動更新版）をキャンセルする
-- `[x]` 新しい全自動のスケジュールタスク（取得したURLからCSVを自動ダウンロードして検証する版）を登録する
+- [ ] Verify 186 unapproved books
+  - [/] Subagent 0 (batch 0)
+  - [/] Subagent 1 (batch 1)
+  - [/] Subagent 2 (batch 2)
+  - [/] Subagent 3 (batch 3)
+  - [/] Subagent 4 (batch 4)
+  - [/] Subagent 5 (batch 5)
+  - [/] Subagent 6 (batch 6)
+  - [/] Subagent 7 (batch 7)
+  - [/] Subagent 8 (batch 8)
+  - [/] Subagent 9 (batch 9)
+- [ ] Compile results into verification_report.md
+- [ ] Present report to user for morning review
