@@ -1,1 +1,7 @@
-{"RequestFeedback": false, "Summary": "事前確認用の186冊のあらすじ一覧", "UserFacing": true}
+{
+  "summary": "186冊すべての書き直し後のあらすじ一覧（事前確認用）",
+  "createdAt": "2026-07-24T19:12:26.482868400Z",
+  "updatedAt": "2026-07-24T19:12:26.472404900Z",
+  "requestFeedback": true,
+  "userFacing": true
+}
