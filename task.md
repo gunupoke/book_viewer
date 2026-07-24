@@ -1,6 +1,13 @@
-- `[x]` Split 186 books into 5 batches and save them as separate JSON files in `scratch/`.
-- `[x]` Spawn 5 subagents to process the batches in parallel.
-- `[x]` Wait for all 5 subagents to complete their processing and output rewritten JSONs.
-- `[x]` Merge the outputs from the 5 subagents into `all_verified_books_v2.json`.
-- `[x]` Run an automated script to verify that all 186 books have high-quality summaries and no generic text.
-- `[x]` Create `walkthrough.md` to present the final result to the user.
+- [ ] Verify 186 unapproved books
+  - [x] Subagent 0 (batch 0)
+  - [x] Subagent 1 (batch 1)
+  - [x] Subagent 2 (batch 2)
+  - [/] Subagent 3 (batch 3)
+  - [x] Subagent 4 (batch 4)
+  - [x] Subagent 5 (batch 5)
+  - [/] Subagent 6 (batch 6)
+  - [x] Subagent 7 (batch 7)
+  - [x] Subagent 8 (batch 8)
+  - [x] Subagent 9 (batch 9)
+- [x] Compile results into verification_report.md
+- [x] Present report to user for morning review
