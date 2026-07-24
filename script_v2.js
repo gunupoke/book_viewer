@@ -697,8 +697,11 @@ function openDetailModal(book, coverUrl, summary) {
     document.getElementById('detailAuthor').innerText = book.Author || '著者不明';
     
     let pubInfo = [];
-    if (book.Publisher) pubInfo.push(book.Publisher);
-    if (book.Year) pubInfo.push(`${book.Year}年`);
+    if (book.Publisher) pubInfo.push(String(book.Publisher).trim());
+    if (book.Year) {
+        let cleanYear = String(book.Year).replace(/\r/g, '').replace(/年/g, '').trim();
+        if (cleanYear) pubInfo.push(cleanYear);
+    }
     document.getElementById('detailPublisher').innerText = pubInfo.join(' / ');
     
     document.getElementById('detailType').innerText = book.Type ? `[${book.Type}]` : '';
