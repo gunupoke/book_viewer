@@ -3,4 +3,4 @@
 - `[x]` Wait for all 5 subagents to complete their processing and output rewritten JSONs.
 - `[x]` Merge the outputs from the 5 subagents into `all_verified_books_v2.json`.
 - `[x]` Run an automated script to verify that all 186 books have high-quality summaries and no generic text.
-- `[/]` Create `walkthrough.md` to present the final result to the user.
+- `[x]` Create `walkthrough.md` to present the final result to the user.
