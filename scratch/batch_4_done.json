@@ -1,0 +1,306 @@
+[
+  {
+    "isbn": "9784768312797",
+    "title": "アニメーターの仕事がわかる本",
+    "status": "REVISED",
+    "original_summary": "玄光社",
+    "new_summary": "作画監督・西位輝実が、アニメ業界のリアルな現状や働き方を解説する入門書。労働環境やお金といったシビアな現実を直視しつつ、プロとしての生存戦略を指南する。",
+    "reason": "Original summary was just the publisher ('玄光社'). Created a new summary."
+  },
+  {
+    "isbn": "9784905033318",
+    "title": "プロジェクト・シン・エヴァンゲリオン　実績・省察・評価・総括",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "『シン・エヴァンゲリオン劇場版』の制作過程をプロジェクトマネジメントの観点から振り返る公式報告書。前代未聞の巨大プロジェクトの全貌と裏側を詳細に記録し、クリエイターの苦悩と挑戦を解き明かす。",
+    "reason": "Original summary was empty. Created a new summary focusing on the setup."
+  },
+  {
+    "isbn": "9784103549512",
+    "title": "成瀬は天下を取りにいく",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "我が道を突き進む中学生・成瀬あかり。「この夏を西武に捧げる」と宣言し、毎日ローカルテレビに映り込もうと奮闘する。滋賀県大津市を舞台に描かれる、型破りで爽快な青春群像劇。",
+    "reason": "Original summary was empty. Created a new summary focusing on the setup."
+  },
+  {
+    "isbn": "9784103549529",
+    "title": "成瀬は信じた道をいく",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "高校3年生になった成瀬あかりが、大学受験や街の騒動の中でも相変わらず我が道を突き進む姿を、周囲の人々の視点から温かく描く。予測不能な行動が周囲を巻き込む痛快な青春群像劇。",
+    "reason": "Original summary was empty. Created a new summary focusing on the setup."
+  },
+  {
+    "isbn": "9784575237320",
+    "title": "王様ゲーム滅亡6．08",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "ある日、日本中の高校生全員に謎の「王様」から「広島にいる者は岡山へ移動しろ」という命令が届く。スケールが全国へと拡大し、逃れられない死の連鎖が日本を滅亡へ導く絶望のサバイバル。",
+    "reason": "Original summary was empty. Created a new summary focusing on the setup."
+  },
+  {
+    "isbn": "9784575236934",
+    "title": "王様ゲーム（終極）",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "かつての凄惨なゲームの唯一の生存者・金沢伸明は、転校先の呉広高校で平穏な生活を送ろうとしていた。だが再び「王様」からの命令メールが届き、新たな命懸けのゲームが容赦なく襲いかかる。",
+    "reason": "Original summary was empty. Created a new summary focusing on the setup."
+  },
+  {
+    "isbn": "9784575237115",
+    "title": "王様ゲーム（臨場）",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "事件を追う児玉葉月が廃校で見つけたノート。そこには、のちに伸明と出会う本多奈津子が過去に経験した、もう一つの凄惨な「王様ゲーム」の全貌と、極限状態での人間ドラマが克明に記されていた。",
+    "reason": "あらすじが空欄であったため、フックとなる展開と固有名詞を含めて新規作成しました。"
+  },
+  {
+    "isbn": "9784309029160",
+    "title": "推し、燃ゆ",
+    "status": "REVISED",
+    "original_summary": "2020/09/11",
+    "new_summary": "アイドル「まざま座」の上野真幸を推すことだけを生きがいとする高校生・あかり。しかしある日、推しがファンを殴って大炎上し、彼女の日常に狂いが生じていく。推し活の光と影を浮き彫りにする現代文学。",
+    "reason": "あらすじが日付になっていたため、あかりや上野真幸などの固有名詞を含め、物語のフックに焦点を当てて新規作成しました。"
+  },
+  {
+    "isbn": "9784768458402",
+    "title": "アニメ研究入門【応用編】",
+    "status": "REVISED",
+    "original_summary": "2018/11/20",
+    "new_summary": "映像心理論や声優論、『まどマギ』のマルチモーダル分析など、アニメを学術的な研究対象として多角的に分析・考察するための11の実践的なメソッドを提示。より深い作品理解へ導く本格的な研究書。",
+    "reason": "あらすじが日付になっていたため、書籍のコンセプトや具体的な研究手法の例を含めて内容を伝えるあらすじを作成しました。"
+  },
+  {
+    "isbn": "9784768457399",
+    "title": "アニメ研究入門増補改訂版",
+    "status": "REVISED",
+    "original_summary": "2014/09/01",
+    "new_summary": "文学理論からジェンダー論まで、アニメを学術的に分析するための9つの視点を解説。「海外アニメ」や「批評と研究」の章を新たに追加し、多様な視点からアニメーションの本質に迫る入門ガイド。",
+    "reason": "あらすじが日付になっていたため、増補改訂版の特徴や具体的な内容を含めてあらすじを作成しました。"
+  },
+  {
+    "isbn": "9784344035768",
+    "title": "遅いインターネット",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "SNS等の「速すぎる」情報消費が思考力を奪う現代。吉本隆明の思想などを交え、「読む」と「書く」の往復を通じて自ら考える力を取り戻すための生存戦略を提唱する、情報社会を生き抜くための指南書。",
+    "reason": "あらすじが空欄であったため、書籍のフックとなるテーマや具体的なキーワードを含めて新規作成しました。"
+  },
+  {
+    "isbn": "9784832241190",
+    "title": "ご注文はうさぎですか？（1）",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "木組みの街にやってきた高校生ココア。下宿先を探して入った喫茶「ラビットハウス」で、看板娘のチノやクールなリゼと出会い、コーヒーの香りと温かな笑顔に包まれた賑やかで癒やされる日常が始まる。",
+    "reason": "あらすじが空欄であったため、ココアやチノなどのキャラクター名と作品の舞台を含め、セットアップに焦点を当てて作成しました。"
+  },
+  {
+    "isbn": "9784832242692",
+    "title": "ご注文はうさぎですか？（2）",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "ラビットハウスでの仕事にも慣れてきたココア。和風喫茶「甘兎庵」の千夜やシャロも加わり、海水浴や夏祭りなど四季折々のイベントを通じて深まる少女たちの絆と、ほのぼのとした日常を描く。",
+    "reason": "あらすじが空欄であったため、2巻から登場するキャラクター名を含め、物語の展開に焦点を当てて作成しました。"
+  },
+  {
+    "isbn": "9784832244207",
+    "title": "ご注文はうさぎですか？（3）",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "文化祭やプール遊びといった高校生ライフを満喫するココアたち。さらに、チノたちの妹ユニット「チマメ隊」の微笑ましい成長や、ラビットハウスの夜のBARタイムでの大人たちの交流など、世界観が広がる物語。",
+    "reason": "あらすじが空欄であったため、具体的なキャラクター名を含めて3巻の展開に焦点を当てて作成しました。"
+  },
+  {
+    "isbn": "9784832246171",
+    "title": "ご注文はうさぎですか？　4",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "チノの父親タカヒロの昔の仲間や青山ブルーマウンテン先生との交流。すれ違いから始まるプチ家出騒動など、少しずつ変化する人間関係の機微を丁寧に描き、キャラクターたちの新たな一面が垣間見える。",
+    "reason": "あらすじが空欄であったため、主要キャラクターたちの名前を含め、作品のセットアップと内容を伝える形で作成しました。"
+  },
+  {
+    "isbn": "9784832247345",
+    "title": "ご注文はうさぎですか？（5）",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "ココアの実家から姉のモカがラビットハウスにやってきた。「お姉ちゃん」の座を巡るココアとモカの攻防や、紅葉狩り、クリスマスなど秋から冬にかけての季節の移ろいとともに、温かい家族愛と友情を描く。",
+    "reason": "あらすじが空欄であったため、5巻のフックとなる季節のイベントや里帰りなどの具体的なエピソードを含めて作成しました。"
+  },
+  {
+    "isbn": "9784832248946",
+    "title": "ご注文はうさぎですか？（6）",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "高校生活も折り返し地点。リゼの大学推薦入試や、チノ・マヤ・メグの進路相談など、将来を見据えた選択の時期を迎える少女たち。夢に向かって一歩踏み出す姿と、変わらない温かな日々を繊細に綴る。",
+    "reason": "あらすじが空欄であったため、6巻の具体的な展開（推薦試験など）とキャラクター名を含めて作成しました。"
+  },
+  {
+    "isbn": "9784832249905",
+    "title": "ご注文はうさぎですか？　7",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "チマメ隊の中学卒業が近づく冬。高校受験に向けた勉強会や卒業旅行の計画、そして涙と笑顔の卒業式を迎える少女たち。少しずつ大人への階段を登る彼女たちの、感動的で心温まる成長の軌跡。",
+    "reason": "あらすじが空欄であったため、7巻の大きな展開である中学生組の卒業・受験というフックを含めて作成しました。"
+  },
+  {
+    "isbn": "9784832271197",
+    "title": "ご注文はうさぎですか？　8",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "チノ、マヤ、メグの3人が無事に高校へ合格。新たな制服をまとったチマメ隊の高校生活スタートと、お祝いを兼ねた旅行へ出発。未知の風景と新しい出会いが、少女たちの日常にさらなる彩りを添える。",
+    "reason": "あらすじが空欄であったため、8巻の主要な展開である「卒業旅行」やキャラクター名を含めて作成しました。"
+  },
+  {
+    "isbn": "9784832272378",
+    "title": "ご注文はうさぎですか？　9",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "都会への旅先で出会った新たな友達フウラやエル。旅行を通じて見つけた新しい視点と、木組みの街へ戻ってきたココアたちの新たな春。変化と成長を受け入れながら、心地よい日常がこれからも続いていく。",
+    "reason": "あらすじが空欄であったため、進級という9巻のフックとなる展開と具体的なキャラクター名を含めて作成しました。"
+  },
+  {
+    "isbn": "9784832273337",
+    "title": "ご注文はうさぎですか？　10",
+    "status": "REVISED",
+    "original_summary": "マンガ",
+    "new_summary": "木組みの街にやってきたフウラたちとの交流が深まる。ココアやチノたちが先輩・後輩として互いを支え合い、賑やかさが増したカフェ生活。新しい絆が生まれ、彼女たちの世界がさらに豊かに広がっていく。",
+    "reason": "あらすじが「マンガ」とのみ記されていたため、10巻で活躍する新キャラクターの名前などの固有名詞を含めて作成しました。"
+  },
+  {
+    "isbn": "9784832274389",
+    "title": "ご注文はうさぎですか？　11",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "進学した少女たちの成長や、チノが新たな夢を抱くエピソードなど、きらきらした思い出が紡がれる。移りゆく季節の中で育まれる友情と、ラビットハウスを中心とした優しく温かな日常の情景。",
+    "reason": "あらすじが空欄であったため、チノなどの固有名詞を含め、11巻の具体的なフックとなる展開に焦点を当てて作成しました。"
+  },
+  {
+    "isbn": "9784758005760",
+    "title": "STEINS；GATEコミックアンソロジー",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "『シュタインズ・ゲート』の世界を複数の作家が描く短編集。原作とは異なる、岡部倫太郎たちラボメンのコミカルな日常やIFの姿が楽しめる。シリアスな本編の裏側に潜むドタバタ劇を鮮やかに活写する。",
+    "reason": "あらすじが空欄であったため、作品の形式（アンソロジー）と岡部倫太郎などの固有名詞を含めて作品の魅力を伝える形で作成しました。"
+  },
+  {
+    "isbn": "9784758006514",
+    "title": "STEINS；GATE コミックアンソロジー タイムトラベラーズテイル（2）",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "「タイムトラベル」をテーマに『シュタインズ・ゲート』の世界を複数の作家が独自の視点で描く短編集。岡部たちラボメンの日常や、本編では語られなかった可能性の世界を魅力的に描き出すアンソロジー。",
+    "reason": "あらすじが空欄であったため、テーマや岡部などの固有名詞を含め、作品のセットアップに焦点を当てて作成しました。"
+  },
+  {
+    "isbn": "9784758007474",
+    "title": "STEINS；GATE コミックアンソロジー タイムトラベラーズテイル（3）",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "「タイムトラベル」をテーマに『シュタインズ・ゲート』の世界を複数の作家が描く短編集。岡部たちラボメンの日常や、時間を巡る複雑な想い、そしてIFの物語が交錯する、読み応え抜群のアンソロジー。",
+    "reason": "あらすじが空欄であったため、シリーズのテーマや岡部などの固有名詞を含めて概要を作成しました。"
+  },
+  {
+    "isbn": "9784047264816",
+    "title": "マジキュー4コマSTEINS；GATE世界線変動率χ．091015％（1）",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "シリアスな原作とは異なる、デフォルメされた岡部たちラボメンの「あったかも知れない」日常を描く。未来ガジェット研究所で巻き起こる、予測不能でハチャメチャなギャグが満載の4コマコミック。",
+    "reason": "あらすじが空欄であったため、岡部などの固有名詞を含め、原作との違いや4コマアンソロジーという形式に焦点を当てて作成しました。"
+  },
+  {
+    "isbn": "9784047265790",
+    "title": "マジキュー4コマSTEINS；GATE世界線変動率χ．091015％（2）",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "岡部倫太郎や未来ガジェット研究所の面々が、本編とは異なる「x」の世界線でドタバタな日常を繰り広げる。まゆりや紅莉栖たちのコミカルな掛け合いが楽しめる、ファン必見の4コマギャグコレクション。",
+    "reason": "Original summary was empty. Wrote a new one focusing on the specific setup and characters."
+  },
+  {
+    "isbn": "9784758006286",
+    "title": "STEINS;GATE コミックアンソロジー（仮）",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "岡部倫太郎や椎名まゆりたち未来ガジェット研究所のメンバーが織りなす、個性豊かなオリジナルストーリーを多数収録。ラボメンたちの隠れた魅力や、日常のひとコマを様々な作家の感性で描き出す。",
+    "reason": "Original summary was empty. Wrote a new one focusing on the specific setup and characters."
+  },
+  {
+    "isbn": "9784047277663",
+    "title": "マジキュー4コマSTEINS；GATE（4）",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "岡部倫太郎をはじめとするラボメンたちが、本編の緊迫感から解放された別の世界線でユーモアあふれる日常を繰り広げる。個性的なキャラクターたちの魅力が凝縮された、笑いと癒やしの4コマ漫画。",
+    "reason": "Original summary was empty. Wrote a new one focusing on the specific setup and characters."
+  },
+  {
+    "isbn": "9784047280083",
+    "title": "マジキュー4コマSTEINS；GATE（5）",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "未来ガジェット研究所の面々が、本編とは異なる平和な世界線でドタバタな騒動を巻き起こす。岡部の厨二病発言や紅莉栖のツッコミなど、お馴染みの掛け合いがテンポ良く描かれる珠玉の4コマ。",
+    "reason": "Original summary was empty. Wrote a new one focusing on the specific setup and characters."
+  },
+  {
+    "isbn": "9784047285798",
+    "title": "マジキュー4コマSTEINS；GATE（6）",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "ラボメンたちの平穏でハチャメチャな日常を、多彩な作家陣が4コマ形式でコミカルに描く。本編のシリアスな展開とは対照的な、キャラクターたちの無邪気な姿や意外な一面を存分に楽しめる一冊。",
+    "reason": "Original summary was empty. Wrote a new one focusing on the specific setup and characters."
+  },
+  {
+    "isbn": "9784047267749",
+    "title": "マジキュー4コマSTEINS；GATE（3）",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "岡部倫太郎や未来ガジェット研究所の仲間たちが、本編とは異なる世界線で笑いあふれる日常を繰り広げる。独特のテンポで展開されるギャグと、ラボメンたちの微笑ましい交流を描いた4コマ漫画。",
+    "reason": "Original summary was empty. Wrote a new one focusing on the specific setup and characters."
+  },
+  {
+    "isbn": "9784832244146",
+    "title": "NEW　GAME！（1）",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "高校卒業後、憧れのゲーム会社イーグルジャンプに入社した涼風青葉。憧れの八神コウら先輩たちに囲まれ、新作『フェアリーズストーリー3』の開発に奮闘する、笑いと涙のお仕事ガールズコメディ。",
+    "reason": "Original summary was empty. Wrote a new one focusing on the specific setup and characters."
+  },
+  {
+    "isbn": "9784832245464",
+    "title": "NEW　GAME！（2）",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "キャラデザイナーとしての初仕事に挑む青葉。メインキャラコンペに向け、師匠である八神コウとのデザイン対決に奮闘する姿を描く。クリエイターとしての情熱と葛藤が交錯する、ゲーム開発の裏側。",
+    "reason": "Original summary was empty. Wrote a new one focusing on the specific setup and characters."
+  },
+  {
+    "isbn": "9784832246560",
+    "title": "NEW　GAME！（3）",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "『フェアリーズストーリー3』のマスターアップに向けてラストスパート。納品直前の過酷なデバッグ作業や徹夜の日々を乗り越え、チーム全員で迎える発売日の感動と達成感をリアルかつ温かく描く。",
+    "reason": "Original summary was empty. Wrote a new one focusing on the specific setup and characters."
+  },
+  {
+    "isbn": "9784832247208",
+    "title": "NEW　GAME！（4）",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "イーグルジャンプに新たな新入社員・望月紅葉と鳴海ツバメが入社。先輩となった青葉は、個性豊かな後輩たちの指導や複雑な人間関係に奮闘しながらも、クリエイターとしてさらなる成長を遂げていく。",
+    "reason": "Original summary was empty. Wrote a new one focusing on the specific setup and characters."
+  },
+  {
+    "isbn": "9784832247215",
+    "title": "NEW　GAME！（5）",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "新作ゲーム『PECO』のメインキャラクターコンペが開催決定。青葉は憧れの先輩・八神コウと同じ土俵で競い合うため、全力を尽くしてデザインに挑む。互いを高め合う熱いクリエイター魂を描く。",
+    "reason": "Original summary was empty. Wrote a new one focusing on the specific setup and characters."
+  },
+  {
+    "isbn": "9784832248472",
+    "title": "NEW　GAME！（6)",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "『PECO』の開発もいよいよ佳境。プログラマーのツバメやねねたちの成長を描きつつ、チーム一丸となってゲームのブラッシュアップに励む。仕事への誇りと仲間への思いやりが溢れる開発現場の日常。",
+    "reason": "Original summary was empty. Wrote a new one focusing on the specific setup and characters."
+  }
+]
