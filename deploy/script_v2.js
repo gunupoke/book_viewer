@@ -698,7 +698,7 @@ function openDetailModal(book, coverUrl, summary) {
     
     let pubInfo = [];
     if (book.Publisher) pubInfo.push(book.Publisher);
-    if (book.Year) pubInfo.push(book.Year);
+    if (book.Year) pubInfo.push(String(book.Year).replace(/年$/, '').trim());
     document.getElementById('detailPublisher').innerText = pubInfo.join(' / ');
     
     document.getElementById('detailType').innerText = book.Type ? `[${book.Type}]` : '';
