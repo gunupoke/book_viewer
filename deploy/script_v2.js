@@ -678,6 +678,10 @@ let currentDetailBook = null;
 const detailModal = document.getElementById('detailModal');
 document.getElementById('closeDetail').addEventListener('click', () => detailModal.classList.remove('show'));
 
+window.addEventListener('click', (e) => {
+    if (e.target === detailModal) detailModal.classList.remove('show');
+});
+
 function openDetailModal(book, coverUrl, summary) {
     currentDetailBook = book;
     const detailCover = document.getElementById('detailCover');
