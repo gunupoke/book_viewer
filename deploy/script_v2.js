@@ -699,7 +699,7 @@ function openDetailModal(book, coverUrl, summary) {
     let pubInfo = [];
     if (book.Publisher) pubInfo.push(String(book.Publisher).trim());
     if (book.Year) {
-        let cleanYear = String(book.Year).replace(/\r/g, '').trim().replace(/年$/g, '').trim();
+        let cleanYear = String(book.Year).replace(/\r/g, '').replace(/年/g, '').trim();
         if (cleanYear) pubInfo.push(cleanYear);
     }
     document.getElementById('detailPublisher').innerText = pubInfo.join(' / ');
