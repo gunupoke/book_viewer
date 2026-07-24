@@ -66,10 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
             scannerModal.classList.remove('show');
             stopScanner();
         }
-        const dModal = document.getElementById('detailModal');
-        if (dModal && e.target === dModal) {
-            dModal.classList.remove('show');
-        }
     });
 });
 
@@ -681,6 +677,10 @@ document.getElementById('viewGridBtn').addEventListener('click', (e) => {
 let currentDetailBook = null;
 const detailModal = document.getElementById('detailModal');
 document.getElementById('closeDetail').addEventListener('click', () => detailModal.classList.remove('show'));
+
+window.addEventListener('click', (e) => {
+    if (e.target === detailModal) detailModal.classList.remove('show');
+});
 
 function openDetailModal(book, coverUrl, summary) {
     currentDetailBook = book;
