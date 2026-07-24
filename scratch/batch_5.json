@@ -1,122 +1,274 @@
 [
   {
-    "isbn": "9784065265482",
-    "title": "",
-    "author": "波よ聞いてくれ（9）",
-    "current_summary": ""
+    "isbn": "9784832248472",
+    "title": "NEW　GAME！（7）",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "『PECO』の開発もいよいよ佳境。プログラマーのツバメやねねたちの成長を描きつつ、チーム一丸となってゲームのブラッシュアップに励む日常を描く。",
+    "reason": "Original summary was empty. Wrote a new one focusing on the specific setup and characters."
   },
   {
-    "isbn": "9784065351406",
-    "title": "",
-    "author": "波よ聞いてくれ（11）",
-    "current_summary": ""
+    "isbn": "9784832249295",
+    "title": "NEW　GAME！（8）",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "『PECO』の発売を経て、イーグルジャンプは新たな一歩を踏み出す。成長した青葉たちがそれぞれの目標に向かって努力を重ねるお仕事4コマ。",
+    "reason": "Original summary was empty. Wrote a new one focusing on the specific setup and characters."
   },
   {
-    "isbn": "9784065396117",
-    "title": "",
-    "author": "波よ聞いてくれ（12）",
-    "current_summary": ""
+    "isbn": "9784832271012",
+    "title": "NEW　GAME！（9）",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "青葉の入社3年目。新プロジェクト『フェアリーズストーリー4』の企画が立ち上がり、青葉はついにディレクター・コンペという大役に挑む。",
+    "reason": "Original summary was empty. Wrote a new one focusing on the specific setup and characters."
   },
   {
-    "isbn": "9784829145937",
-    "title": "",
-    "author": "STEINS；GATE（1）",
-    "current_summary": ""
+    "isbn": "9784832271531",
+    "title": "NEW　GAME！（10）",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "新作『フェアリーズストーリー4』のキャラクターコンペ。青葉と紅葉が切磋琢磨する中、ゲームクリエイターとして互いに高め合う少女たちの姿を描く。",
+    "reason": "Original summary was empty. Wrote a new one focusing on the specific setup and characters."
   },
   {
-    "isbn": "9784789773461",
-    "title": "",
-    "author": "リスアニ！（vol.49.2）",
-    "current_summary": ""
+    "isbn": "9784832272095",
+    "title": "NEW　GAME！（11)",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "『FS4』開発が順調に進む中、青葉と紅葉の共同デザイン作業がスタート。フランスのコウからも刺激を受けつつ、表現の限界に挑む。",
+    "reason": "Original summary was empty. Wrote a new one focusing on the specific setup and characters."
   },
   {
-    "isbn": "9784789772495",
-    "title": "",
-    "author": "リスアニ！（vol.25）",
-    "current_summary": ""
+    "isbn": "9784832272620",
+    "title": "NEW　GAME！（12）",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "『FS4』開発終盤、フランスから八神コウが一時帰国。成長した青葉の姿と、イーグルジャンプの仲間たちが再び一つになって最高のゲームを目指す。",
+    "reason": "Original summary was empty. Wrote a new one focusing on the specific setup and characters."
   },
   {
-    "isbn": "9784789772365",
-    "title": "",
-    "author": "リスアニ！（vol.22）",
-    "current_summary": ""
+    "isbn": "9784832273061",
+    "title": "NEW　GAME！（13）",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "チームで作り上げてきた『フェアリーズストーリー4』の開発もクライマックス。青葉と仲間たちがゲーム制作に捧げた情熱と成長を描き出す感動の第13巻。",
+    "reason": "Original summary was empty. Wrote a new one focusing on the specific setup and characters."
   },
   {
-    "isbn": "9784657258014",
-    "title": "",
-    "author": "ライトノベルのストラテジー",
-    "current_summary": "単行本"
+    "isbn": "9784829146101",
+    "title": "STEINS;GATE : 円環連鎖のウロボロス. 1",
+    "status": "REVISED",
+    "original_summary": "富士見書房",
+    "new_summary": "幾重にも張り巡らされた運命の糸。まゆりと紅莉栖、ふたつの存在の狭間で苦悩する岡部倫太郎が辿り着く、ウロボロスの名を冠したもうひとつの選択。",
+    "reason": "Original summary was generic. Wrote a new one focusing on the specific setup and characters."
   },
   {
-    "isbn": "9784065394212",
-    "title": "",
-    "author": "アニメ人、オレの映画3本",
-    "current_summary": ""
+    "isbn": "9784829146101",
+    "title": "STEINS;GATE : 円環連鎖のウロボロス. 2",
+    "status": "REVISED",
+    "original_summary": "富士見書房",
+    "new_summary": "幾重にも張り巡らされた運命の糸。まゆりと紅莉栖、ふたつの存在の狭間で苦悩する岡部倫太郎が辿り着く、ウロボロスの名を冠したもうひとつの選択。",
+    "reason": "The original summary only contained the publisher name. Revised to provide a proper 60-80 character synopsis focusing on the specific hook."
   },
   {
-    "isbn": "9784797395389",
-    "title": "",
-    "author": "シナリオのためのSF事典",
-    "current_summary": ""
+    "isbn": "9784041003053",
+    "title": "STEINS;GATE 5 (六分儀のイディオム 後編)",
+    "status": "REVISED",
+    "original_summary": "角川グループパブリッシング",
+    "new_summary": "未来ガジェット研究所の面々が開発した、過去へメールを送れるタイムリープマシン「電話レンジ（仮）」。その完成を機に、岡部倫太郎たちの日常は世界の陰謀へと巻き込まれていく。",
+    "reason": "The original summary only contained the publisher name. Revised to provide a proper 60-80 character synopsis focusing on the specific hook."
   },
   {
-    "isbn": "9784834253788",
-    "title": "",
-    "author": "チーム・オルタナティブの冒険",
-    "current_summary": ""
+    "isbn": "9784044748456",
+    "title": "STEINS;GATE : 蝶翼のダイバージェンス:Reverse",
+    "status": "REVISED",
+    "original_summary": "角川グループパブリッシング",
+    "new_summary": "自称狂気のマッドサイエンティスト・岡部倫太郎と出会った天才少女・牧瀬紅莉栖。彼女の視点から描かれる、タイムマシン開発と過酷な世界線変動の物語。",
+    "reason": "The original summary only contained the publisher name. Revised to provide a proper 60-80 character synopsis focusing on the specific hook."
   },
   {
-    "isbn": "9784907108465",
-    "title": "",
-    "author": "アニメの仕事は面白すぎる　絵コンテの鬼・奥田誠治と日本アニメ界のリアル",
-    "current_summary": ""
+    "isbn": "9784044748531",
+    "title": "STEINS;GATE. 2 (形而上のネクローシス:Reverse)",
+    "status": "REVISED",
+    "original_summary": "角川グループパブリッシング ",
+    "new_summary": "過去へメールを送れる「Dメール」の実験を続ける岡部倫太郎と牧瀬紅莉栖たち。だがその軽率な過去改変が、やがて椎名まゆりの命を奪う絶望の未来を引き寄せる。",
+    "reason": "The original summary only contained the publisher name. Revised to provide a proper 60-80 character synopsis focusing on the specific hook."
   },
   {
-    "isbn": "9784800314550",
-    "title": "",
-    "author": "アニメ秘宝発進準備号オールタイム・ベスト・アニメーション",
-    "current_summary": ""
+    "isbn": "9784041001431",
+    "title": "STEINS; GATE 3 (境界面上のシュタインズ・ゲート: Rebirth)",
+    "status": "REVISED",
+    "original_summary": "角川グループパブリッシング",
+    "new_summary": "タイムリープを繰り返しても変えられない運命の壁。岡部倫太郎は愛する者を救うため、絶望的な世界線の分岐に立ち向かう決意を固める。",
+    "reason": "The original summary only contained the publisher name. Revised to provide a proper 60-80 character synopsis focusing on the specific hook."
   },
   {
-    "isbn": "9784822289980",
-    "title": "",
-    "author": "オタク経済圏創世記　GAFAの次は2.5次元コミュニティが世界の主役になる件",
-    "current_summary": "単行本"
+    "isbn": "9784041002636",
+    "title": "STEINS;GATE 4 (六分儀のイディオム 前編)",
+    "status": "REVISED",
+    "original_summary": "角川グループパブリッシング",
+    "new_summary": "未来ガジェット研究所の仲間たち、それぞれの視点から語られるサイドエピソード。メインストーリーの裏側で繰り広げられていた知られざるドラマを描く。",
+    "reason": "The original summary only contained the publisher name. Revised to provide a proper 60-80 character synopsis focusing on the specific hook."
   },
   {
-    "isbn": "9784768312797",
-    "title": "",
-    "author": "アニメーターの仕事がわかる本",
-    "current_summary": "玄光社"
+    "isbn": "9784041003053",
+    "title": "STEINS;GATE 5 (六分儀のイディオム 後編)",
+    "status": "REVISED",
+    "original_summary": "角川グループパブリッシング",
+    "new_summary": "未来ガジェット研究所の面々が開発した、過去へメールを送れるタイムリープマシン「電話レンジ（仮）」。その完成を機に、岡部倫太郎たちの日常は世界の陰謀へと巻き込まれていく。",
+    "reason": "The original summary only contained the publisher name. Revised to provide a proper 60-80 character synopsis focusing on the specific hook."
   },
   {
-    "isbn": "9784905033318",
-    "title": "",
-    "author": "プロジェクト・シン・エヴァンゲリオン　実績・省察・評価・総括",
-    "current_summary": ""
+    "isbn": "9784048661805",
+    "title": "STEINS;GATE : 線形拘束のモザイシズム",
+    "status": "REVISED",
+    "original_summary": "KADOKAWA",
+    "new_summary": "電話レンジ（仮）の存在を秘匿する岡部倫太郎に届いた、未来の自分「鳳凰院凶真」からの指令メール。それに従う岡部だが、やがてまゆりの命を脅かす事態に陥る。",
+    "reason": "The original summary only contained the publisher name. Revised to provide a proper 60-80 character synopsis focusing on the specific hook."
   },
   {
-    "isbn": "9784103549512",
-    "title": "",
-    "author": "成瀬は天下を取りにいく",
-    "current_summary": ""
+    "isbn": "9784047302228",
+    "title": "Steins;Gate永劫回帰のパンドラ. 1",
+    "status": "REVISED",
+    "original_summary": " 林直孝\"",
+    "new_summary": "牧瀬紅莉栖を救えず失意の底に沈む岡部倫太郎。一方、橋田至は阿万音鈴羽のために暗躍し、紅莉栖の遺した中鉢論文の知識を巡って新たな陰謀が動き始めようとする。",
+    "reason": "The original summary contained author information instead of a plot summary. Revised to provide a proper 60-80 character synopsis focusing on the specific hook."
   },
   {
-    "isbn": "9784103549529",
-    "title": "",
-    "author": "成瀬は信じた道をいく",
-    "current_summary": ""
+    "isbn": "9784047290280",
+    "title": "Steins;Gate閉時曲線のエピグラフ",
+    "status": "REVISED",
+    "original_summary": "KADOKAWA ",
+    "new_summary": "牧瀬紅莉栖を救うことを諦め、彼女がいないβ世界線で生きる岡部倫太郎。ある日、彼は紅莉栖の記憶を持つ人工知能「アマデウス」の研究員・比屋定真帆と出会う。",
+    "reason": "The original summary only contained the publisher name. Revised to provide a proper 60-80 character synopsis focusing on the specific hook."
   },
   {
-    "isbn": "9784575237320",
-    "title": "",
-    "author": "王様ゲーム滅亡6．08",
-    "current_summary": ""
+    "isbn": "9784047296831",
+    "title": "Steins;Gate閉時曲線のエピグラフ 2",
+    "status": "REVISED",
+    "original_summary": "KADOKAWA",
+    "new_summary": "牧瀬紅莉栖の記憶を持つAI「アマデウス」と交流し、彼女の面影に心を乱される岡部倫太郎。一方、タイムマシンで来た阿万音鈴羽は悲惨な未来を変えるべく足掻く。",
+    "reason": "The original summary only contained the publisher name. Revised to provide a proper 60-80 character synopsis focusing on the specific hook."
   },
   {
-    "isbn": "9784575236934",
-    "title": "",
-    "author": "王様ゲーム（終極）",
-    "current_summary": ""
+    "isbn": "9784829147238",
+    "title": "STEINS;GATE : 哀心迷図のバベル",
+    "status": "REVISED",
+    "original_summary": "富士見書房",
+    "new_summary": "まゆりを救うため、自分が消える運命を受け入れた牧瀬紅莉栖。残されたわずかな時間の中で、彼女は疎遠だった父・中鉢博士との過去、そして岡部への想いと向き合う。",
+    "reason": "The original summary only contained the publisher name. Revised to provide a proper 60-80 character synopsis focusing on the specific hook."
+  },
+  {
+    "isbn": "9784047157170",
+    "title": "Steins;gate : 史上最強のスライトフィーバー. 1",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "天才少女・牧瀬紅莉栖の視点から紐解かれる「シュタインズ・ゲート」。タイムマシンの謎に挑む研究への情熱と、岡部倫太郎たち未来ガジェット研究所での騒がしい日々。",
+    "reason": "The original summary was empty. Revised to provide a proper 60-80 character synopsis focusing on the specific hook."
+  },
+  {
+    "isbn": "9784041204399",
+    "title": "Steins;gate : 史上最強のスライトフィーバー. 2",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "Dメールによる過去改変の実験を繰り返す岡部倫太郎と牧瀬紅莉栖たち。父・中鉢博士との確執に悩む紅莉栖は、自らの過去へDメールを送るべきか激しく葛藤する。",
+    "reason": "The original summary was empty. Revised to provide a proper 60-80 character synopsis focusing on the specific hook."
+  },
+  {
+    "isbn": "9784861277603",
+    "title": "Steins ; gate : 亡環のリベリオン 1",
+    "status": "REVISED",
+    "original_summary": "マッグガーデン",
+    "new_summary": "絶望的なディストピアと化した2036年の未来。レジスタンス「ワルキューレ」に所属する阿万音鈴羽は、世界を変えるためタイムマシンで過去へ跳ぶ決意を固める。",
+    "reason": "The original summary only contained the publisher name. Revised to provide a proper 60-80 character synopsis focusing on the specific hook."
+  },
+  {
+    "isbn": "9784861278471",
+    "title": "Steins ; gate : 亡環のリベリオン 2",
+    "status": "REVISED",
+    "original_summary": "マッグガーデン",
+    "new_summary": "過去へ跳んだ阿万音鈴羽は、1975年でIBN5100を手に入れる使命を帯びる。2010年の秋葉原で岡部倫太郎たちと交流しながら、彼女は己の過酷な任務と向き合う。",
+    "reason": "The original summary only contained the publisher name. Revised to provide a proper 60-80 character synopsis focusing on the specific hook."
+  },
+  {
+    "isbn": "9784861279034",
+    "title": "Steins;gate : 亡環のリベリオン 3",
+    "status": "REVISED",
+    "original_summary": "マッグガーデン",
+    "new_summary": "IBN5100の探索を続ける阿万音鈴羽は、未来の絶望を知るがゆえに焦りを募らせる。岡部倫太郎や仲間たちとの絆を胸に、彼女は世界線を変えるための最後の賭けに出る。",
+    "reason": "The original summary only contained the publisher name. Revised to provide a proper 60-80 character synopsis focusing on the specific hook."
+  },
+  {
+    "isbn": "9784840133289",
+    "title": "シュタインズ・ゲート 1",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "狂気のマッドサイエンティストを自称する岡部倫太郎。偶然にも過去へメールを送れる「電話レンジ（仮）」を発明した彼は、牧瀬紅莉栖と共に世界の法則に挑む。",
+    "reason": "The original summary was empty. Revised to provide a proper 60-80 character synopsis focusing on the specific hook."
+  },
+  {
+    "isbn": "9784840153201",
+    "title": "シュタインズ・ゲート. 2",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "Dメールによって次々と過去を改変していく岡部倫太郎たち。しかしその代償として歴史は大きく歪み、椎名まゆりの命が奪われるという回避不能の惨劇が幕を開ける。",
+    "reason": "The original summary was empty. Revised to provide a proper 60-80 character synopsis focusing on the specific hook."
+  },
+  {
+    "isbn": "9784840153218",
+    "title": "シュタインズ・ゲート. 3",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "タイムリープを重ね、世界の構造と運命の真実に迫る岡部倫太郎。仲間を守るための過去改変がもたらす過酷な分岐点に対し、彼は覚悟の決断を迫られる。",
+    "reason": "The original summary was empty. Revised to provide a proper 60-80 character synopsis focusing on the specific hook."
+  },
+  {
+    "isbn": "9784759101737",
+    "title": "スケベ大学 : 公式解説&問題集",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "エロゲやBL、百合など全24学科にわたり、「スケベを学問する」というコンセプトで現代のスケベを熱烈に分析・解説した、リップグリップ岩永による公式ガイド兼問題集。",
+    "reason": "あらすじが空欄だったため、内容とコンセプト、著者を明記して作成した。"
+  },
+  {
+    "isbn": "9784840224314",
+    "title": "イリヤの空、UFOの夏 その4",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "伊里野加奈と逃避行に出た浅羽直之。しかし彼女の心は崩壊へ向かっていた。人類の運命か、少女か。過酷な決断を迫られた浅羽が選ぶ道を描く、切ない夏の完結編。",
+    "reason": "あらすじが空欄だったため、逃避行という導入部分と緊迫感のある展開に焦点を当てて作成した。"
+  },
+  {
+    "isbn": "9784840221733",
+    "title": "イリヤの空、UFOの夏 その3",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "園原基地周辺で大規模爆発が発生。平穏な日常が終わりを告げる中、真相を追う水前寺、そして伊里野を救うため浅羽直之の覚悟が試される。非日常の歯車が回り出す第3弾。",
+    "reason": "あらすじが空欄だったため、物語が大きく動く爆発事件をフックにして作成した。"
+  },
+  {
+    "isbn": "9784840219730",
+    "title": "イリヤの空、UFOの夏 その2",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "浅羽直之と謎の少女・伊里野加奈は初めてのデートへ。しかし尾行する不穏な影が忍び寄り、晶穂ら周囲の想いが交錯する中、平穏な日常の裏に潜む非日常が彼らを脅かし始める。",
+    "reason": "あらすじが空欄だったため、デートという日常と忍び寄る非日常の影に焦点を当てて作成した。"
+  },
+  {
+    "isbn": "9784087210149",
+    "title": "改憲的護憲論",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "憲法九条をめぐる改憲派と護憲派の対立構造に危機感を抱いたジャーナリストの松竹伸幸が、「改憲的護憲論」という新たな視点で護憲派の矛盾を突き、新たな論点を提示する一冊。",
+    "reason": "あらすじが空欄だったため、著者の問題提起と本書の核心である「改憲的護憲論」について簡潔にまとめた。"
+  },
+  {
+    "isbn": "9784840219440",
+    "title": "イリヤの空、UFOの夏 その1",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "夏休み最後の夜、浅羽直之は忍び込んだプールで手首に謎の金属球を持つ少女・伊里野加奈と出会う。園原基地のUFO騒動や戦闘機ブラックマンタの影が日常を侵食していく。",
+    "reason": "あらすじが空欄だったため、プールでの出会いという象徴的な導入と非日常的要素を盛り込み作成した。"
   }
 ]

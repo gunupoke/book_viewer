@@ -1,122 +1,306 @@
 [
   {
+    "isbn": "9784152098702",
+    "title": "三体",
+    "status": "REVISED",
+    "original_summary": "本",
+    "new_summary": "物理学者の連続自殺と、迫り来る謎のカウントダウン。ナノマテリアル研究者の汪淼は、真相を追う中で、過酷な世界を生き抜くＶＲゲーム「三体」の存在を知る。",
+    "reason": "The original summary was extremely generic. Rewrote it to focus on the initial hook and specific proper nouns within the 60-80 character limit."
+  },
+  {
+    "isbn": "9784163919096",
+    "title": "西洋の敗北 日本と世界に何が起きるのか",
+    "status": "REVISED",
+    "original_summary": "本",
+    "new_summary": "ウクライナ戦争は西洋の崩壊の始まりに過ぎない。エマニュエル・トッドが、宗教や道徳の喪失から、アメリカを盟主とする西洋社会の自滅的没落を鋭く読み解く。",
+    "reason": "The original summary was extremely generic. Rewrote it to focus on the initial hook and specific proper nouns within the 60-80 character limit."
+  },
+  {
+    "isbn": "9784799330838",
+    "title": "「好き」を言語化する技術 推しの素晴らしさを語りたいのに「やばい!」しかでてこない",
+    "status": "REVISED",
+    "original_summary": "本",
+    "new_summary": "推しへの熱い想いが「やばい！」で終わってしまうあなたへ。書評家の三宅香帆が、自分の感情に向き合い、独自の解像度で「推し語り」を楽しむための文章術を伝授する。",
+    "reason": "The original summary was extremely generic. Rewrote it to focus on the initial hook and specific proper nouns within the 60-80 character limit."
+  },
+  {
+    "isbn": "9784907188672",
+    "title": "平和と愚かさ",
+    "status": "REVISED",
+    "original_summary": "本",
+    "new_summary": "「平和とは戦争について考えない愚かさの別名ではないか」。ウクライナやベトナムなど記憶の地を巡り、SNSの過剰な政治化に警鐘を鳴らす、東浩紀の哲学紀行。",
+    "reason": "The original summary was extremely generic. Rewrote it to focus on the initial hook and specific proper nouns within the 60-80 character limit."
+  },
+  {
+    "isbn": "9784865541120",
+    "title": "Occultic;Nine (3) -オカルティック・ナイン- (オーバーラップ文庫)",
+    "status": "REVISED",
+    "original_summary": "本",
+    "new_summary": "井の頭公園での集団自殺事件に世間が騒然とする中、悠太は死亡者リストの中に自分と仲間たちの名前を発見する。死の真相と世界のあり方に迫る第3巻。",
+    "reason": "The original summary was extremely generic. Rewrote it to focus on the initial hook and specific proper nouns within the 60-80 character limit."
+  },
+  {
+    "isbn": "9784865540208",
+    "title": "Occultic;Nine (2) -オカルティック・ナイン- (オーバーラップ文庫)",
+    "status": "REVISED",
+    "original_summary": "本",
+    "new_summary": "橋上教授の死体発見現場に居合わせた悠太は、容疑を晴らすため教授の息子サライと共に謎を追う。一方、井の頭公園では256人の集団水死事件が発生し……。",
+    "reason": "The original summary was extremely generic. Rewrote it to focus on the initial hook and specific proper nouns within the 60-80 character limit."
+  },
+  {
+    "isbn": "9784906866212",
+    "title": "Occultic;Nine (1) -オカルティック・ナイン- (オーバーラップ文庫)",
+    "status": "REVISED",
+    "original_summary": "本",
+    "new_summary": "吉祥寺を舞台に、まとめブログを運営する我聞悠太を中心に9人の男女が、ある殺人事件をきっかけに不可解な運命の渦に巻き込まれるオカルトサスペンス。",
+    "reason": "The original summary was extremely generic. Rewrote it to focus on the initial hook and specific proper nouns within the 60-80 character limit."
+  },
+  {
+    "isbn": "9784884755744",
+    "title": "アカギ 1 (バンブーコミックス)",
+    "status": "REVISED",
+    "original_summary": "マンガ",
+    "new_summary": "借金に追われ、絶体絶命の窮地に立たされていた南郷の前に現れた13歳の白髪の少年、赤木しげる。裏社会を震撼させる天才雀士の伝説が今、幕を開ける。",
+    "reason": "The original summary was extremely generic. Rewrote it to focus on the initial hook and specific proper nouns within the 60-80 character limit."
+  },
+  {
+    "isbn": "9784884756208",
+    "title": "アカギ (2) (近代麻雀コミックス バンブーコミックス)",
+    "status": "REVISED",
+    "original_summary": "マンガ",
+    "new_summary": "ヤクザとの麻雀勝負で異彩を放つ少年・アカギ。だが彼の前に、盲目ながら恐ろしい打牌精度を誇る老獪な雀士・市川という新たな強敵が立ちはだかる。",
+    "reason": "The original summary was extremely generic. Rewrote it to focus on the initial hook and specific proper nouns within the 60-80 character limit."
+  },
+  {
+    "isbn": "9784884756734",
+    "title": "アカギ (3) (近代麻雀コミックス バンブーコミックス)",
+    "status": "REVISED",
+    "original_summary": "マンガ",
+    "new_summary": "盲目の雀士・市川との壮絶な牌の削り合い。相手の老獪な駆け引きに対し、アカギは常軌を逸した心理戦と直感で、命懸けの勝負に真っ向から挑んでいく。",
+    "reason": "The original summary was extremely generic. Rewrote it to focus on the initial hook and specific proper nouns within the 60-80 character limit."
+  },
+  {
+    "isbn": "9784884757236",
+    "title": "アカギ 4 (バンブーコミックス)",
+    "status": "REVISED",
+    "original_summary": "マンガ",
+    "new_summary": "市川との伝説の対局から5年。不良刑事・安岡によって再びヤクザの代打ちとして裏社会に引き戻されたアカギ。次なる強敵・浦部らが待ち受ける新たな戦いの幕が上がる。",
+    "reason": "The original summary was extremely generic. Rewrote it to focus on the initial hook and specific proper nouns within the 60-80 character limit."
+  },
+  {
+    "isbn": "9784884757991",
+    "title": "アカギ 5 (バンブーコミックス)",
+    "status": "REVISED",
+    "original_summary": "マンガ",
+    "new_summary": "伝説の対局から5年。安岡が連れてきたのは、アカギの名を騙る「ニセアカギ」だった。格上の雀士・浦部に翻弄されるニセアカギを前に、ついに本物のアカギが立ち上がる。",
+    "reason": "The original summary was extremely generic. Rewrote it to focus on the initial hook and specific proper nouns within the 60-80 character limit."
+  },
+  {
+    "isbn": "9784812450055",
+    "title": "アカギ 6 (バンブーコミックス)",
+    "status": "REVISED",
+    "original_summary": "マンガ",
+    "new_summary": "手強い相手・浦部の前に苦戦を強いられる治。窮地に追い込まれた代打ちの席を引き継いだアカギは、圧倒的なブラフと異端の打牌で場の空気を一変させていく。",
+    "reason": "The original summary was extremely generic. Rewrote it to focus on the initial hook and specific proper nouns within the 60-80 character limit."
+  },
+  {
+    "isbn": "9784812451380",
+    "title": "アカギ 7 (バンブーコミックス)",
+    "status": "REVISED",
+    "original_summary": "マンガ",
+    "new_summary": "裏社会を揺るがす波乱のなか、アカギの前にあらわれた闇の帝王・鷲巣巌。自らの血液と莫大な財産を賭けた、狂気のギャンブル「鷲巣麻雀」の火蓋が切って落とされる。",
+    "reason": "The original summary was extremely generic. Rewrote it to focus on the initial hook and specific proper nouns within the 60-80 character limit."
+  },
+  {
+    "isbn": "9784591190135",
+    "title": "「振り仮名」があれば学力は上がるのか (ポプラ新書 286)",
+    "status": "REVISED",
+    "original_summary": "本",
+    "new_summary": "「漢字が読めないから、学ぶことを諦める」。そんな知の格差をなくすため、すべての人に学びの入り口を開くインフラとしての「ルビ」の重要性を説く、総ルビ仕様の提言書。",
+    "reason": "The original summary was extremely generic. Rewrote it to focus on the initial hook and specific proper nouns within the 60-80 character limit."
+  },
+  {
+    "isbn": "9784121508614",
+    "title": "本を読めなくなった人たち コスパとテキストメディアをめぐる現在形 (中公新書ラクレ)",
+    "status": "REVISED",
+    "original_summary": "本",
+    "new_summary": "なぜ私たちは長い文章を読めなくなったのか。タイパ至上主義、情報受容の変容、SNSの普及などを背景に、活字メディアから離れる現代人の心理と構造を鋭く解き明かす。",
+    "reason": "The original summary was extremely generic. Rewrote it to focus on the initial hook and specific proper nouns within the 60-80 character limit."
+  },
+  {
+    "isbn": "9784065399644",
+    "title": "物語化批判の哲学 〈わたしの人生〉を遊びなおすために (講談社現代新書)",
+    "status": "REVISED",
+    "original_summary": "本",
+    "new_summary": "就活のガクチカや推し活など、人生を「物語」として語る圧力に疲れていないか。分析美学の視点から、その枠組みを抜け出し人生を自由に「遊びなおす」方法を提案する。",
+    "reason": "The original summary was extremely generic. Rewrote it to focus on the initial hook and specific proper nouns within the 60-80 character limit."
+  },
+  {
+    "isbn": "9784799331422",
+    "title": "増補改訂版 スマホ時代の哲学 「常時接続の世界」で失われた孤独をめぐる冒険",
+    "status": "REVISED",
+    "original_summary": "本",
+    "new_summary": "「常時接続」が当たり前の現代、私たちは静かに考える時間を奪われている。ネガティブ・ケイパビリティを手がかりに、失われた孤独と集中の時間を取り戻すための哲学書。",
+    "reason": "The original summary was extremely generic. Rewrote it to focus on the initial hook and specific proper nouns within the 60-80 character limit."
+  },
+  {
+    "isbn": "9784909044570",
+    "title": "PLURALITY",
+    "status": "REVISED",
+    "original_summary": "本",
+    "new_summary": "分断や対立が深まる現代社会において、台湾の元デジタル発展部長オードリー・タンらが提唱する「プルラリティ（多元性）」。テクノロジーで人々の声をつなぎ直す未来像。",
+    "reason": "The original summary was extremely generic. Rewrote it to focus on the initial hook and specific proper nouns within the 60-80 character limit."
+  },
+  {
+    "isbn": "9784065274859",
+    "title": "現代思想入門 (講談社現代新書)",
+    "status": "REVISED",
+    "original_summary": "本",
+    "new_summary": "難解な現代思想をかつてないほど平易に解説。デリダ、ドゥルーズ、フーコーを軸に、「秩序と逸脱」というテーマから複雑な世界を読み解くための高い解像度を授ける。",
+    "reason": "The original summary was extremely generic. Rewrote it to focus on the initial hook and specific proper nouns within the 60-80 character limit."
+  },
+  {
     "isbn": "9784480076717",
-    "title": "2026-07-07 0:00:00",
-    "author": "日本経済の死角 収奪的システムを解き明かす (ちくま新書 1840)",
-    "current_summary": "本"
+    "title": "日本経済の死角 収奪的システムを解き明かす (ちくま新書 1840)",
+    "status": "REVISED",
+    "original_summary": "本",
+    "new_summary": "生産性は向上しているのになぜ実質賃金は上がらないのか。河野龍太郎が７つの「死角」から、家計が収奪される日本の経済システムを分析し、長期停滞の真因に迫る。",
+    "reason": "The original summary lacked plot details and specificity. Revised to include the hook."
   },
   {
     "isbn": "9784794974198",
-    "title": "2026-07-07 0:00:00",
-    "author": "男はなぜ孤独死するのか 男たちの成功の代償",
-    "current_summary": "本"
+    "title": "男はなぜ孤独死するのか 男たちの成功の代償",
+    "status": "REVISED",
+    "original_summary": "本",
+    "new_summary": "なぜ男性は孤独に陥りやすいのか。心理学者トーマス・ジョイナーが、仕事やプライドを優先して人間関係を犠牲にする「男らしさ」の危うさを、統計と心理学から解き明かす。",
+    "reason": "The original summary lacked plot details and specificity. Revised to include the hook."
   },
   {
     "isbn": "9784160070646",
-    "title": "2026-07-07 0:00:00",
-    "author": "週刊文春エンタ+ (文春ムック)",
-    "current_summary": "本"
+    "title": "週刊文春エンタ+ (文春ムック)",
+    "status": "REVISED",
+    "original_summary": "本",
+    "new_summary": "映画『シン・仮面ライダー』を大特集。池松壮亮らのキャスト鼎談や庵野秀明監督インタビューを収録。石ノ森章太郎の原作漫画「一文字隼人、登場！」も付録した必読本。",
+    "reason": "The original summary lacked plot details and specificity. Revised to include the hook."
   },
   {
     "isbn": "9784160070837",
-    "title": "2026-07-07 0:00:00",
-    "author": "週刊文春エンタ+ 総力特集 怪獣8号 (文春ムック)",
-    "current_summary": "本"
+    "title": "週刊文春エンタ+ 総力特集 怪獣8号 (文春ムック)",
+    "status": "REVISED",
+    "original_summary": "本",
+    "new_summary": "アニメ『怪獣8号』を大特集。原作者・松本直也やメインキャストらのインタビューのほか、第1話の絵コンテや怪獣イメージボードなどの貴重な設定資料を収録した必読本。",
+    "reason": "The original summary lacked plot details and specificity. Revised to include the hook."
   },
   {
     "isbn": "9784160070509",
-    "title": "2026-07-07 0:00:00",
-    "author": "週刊文春エンタ+ 特集 機動戦士ガンダム (文春MOOK)",
-    "current_summary": "本"
+    "title": "週刊文春エンタ+ 特集 機動戦士ガンダム (文春MOOK)",
+    "status": "REVISED",
+    "original_summary": "本",
+    "new_summary": "『機動戦士ガンダム』の最新作などを網羅。安彦良和と樋口真嗣の豪華対談や、名セリフベスト10、ザク名場面集、宇宙世紀事件史年表など、ファン必見の企画が満載。",
+    "reason": "The original summary lacked plot details and specificity. Revised to include the hook."
   },
   {
     "isbn": "9784160070189",
-    "title": "2026-07-07 0:00:00",
-    "author": "週刊文春エンタ! エンタメが私を救う。 (文春MOOK)",
-    "current_summary": "本"
+    "title": "週刊文春エンタ! エンタメが私を救う。 (文春MOOK)",
+    "status": "REVISED",
+    "original_summary": "本",
+    "new_summary": "広瀬アリスの漫画特集や、宮野真守・三石琴乃のインタビュー、『愛の不時着』など2020年の韓流・アニメトレンドを網羅した、最強の総合エンタメ誌。",
+    "reason": "The original summary lacked plot details and specificity. Revised to include the hook."
   },
   {
     "isbn": "9784160086999",
-    "title": "2026-07-07 0:00:00",
-    "author": "週刊文春エンタ! アニメの力。 (文春MOOK)",
-    "current_summary": "本"
+    "title": "週刊文春エンタ! アニメの力。 (文春MOOK)",
+    "status": "REVISED",
+    "original_summary": "本",
+    "new_summary": "『エヴァンゲリオン』シリーズを総力特集。『シン・エヴァ』に向けた徹底解説や、緒方恵美、林原めぐみ、高橋洋子らのインタビューを収録したファン必読のムック。",
+    "reason": "The original summary lacked plot details and specificity. Revised to include the hook."
   },
   {
     "isbn": "9784160071261",
-    "title": "2026-07-07 0:00:00",
-    "author": "文春ムック 週刊文春エンタ+(プラス) 特集『機動警察パトレイバー』 (文春ムック)",
-    "current_summary": "雑誌"
+    "title": "文春ムック 週刊文春エンタ+(プラス) 特集『機動警察パトレイバー』 (文春ムック)",
+    "status": "REVISED",
+    "original_summary": "雑誌",
+    "new_summary": "『機動警察パトレイバー EZY』を中心に大特集。押井守と出渕裕の対談や、週刊誌風の切り口で劇中の事件を紹介する記事を掲載。特別付録ポスター＆シール付き。",
+    "reason": "The original summary lacked plot details and specificity. Revised to include the hook."
   },
   {
     "isbn": "9784835635859",
-    "title": "2026-07-07 0:00:00",
-    "author": "コードギアス 反逆のルルーシュ ゼロ×ぴあ (ぴあMOOK)",
-    "current_summary": "本"
+    "title": "コードギアス 反逆のルルーシュ ゼロ×ぴあ (ぴあMOOK)",
+    "status": "REVISED",
+    "original_summary": "本",
+    "new_summary": "『コードギアス 復活のルルーシュ』公開記念。仮面の男「ゼロ」を多角的に掘り下げ、人物相関図や名言集のほか、スザク役・櫻井孝宏のスペシャルコメントも収録。",
+    "reason": "The original summary lacked plot details and specificity. Revised to include the hook."
   },
   {
     "isbn": "9784041091043",
-    "title": "",
-    "author": "STEINS;GATE 0 (6) (角川コミックス・エース)",
-    "current_summary": "マンガ"
+    "title": "STEINS;GATE 0 (6) (角川コミックス・エース)",
+    "status": "REVISED",
+    "original_summary": "マンガ",
+    "new_summary": "牧瀬紅莉栖を救うことを諦めたβ世界線。失意の岡部倫太郎は、彼女の記憶を持つAI「アマデウス」と出会い、再び過酷な運命の歯車に巻き込まれていく。",
+    "reason": "The original summary lacked plot details and specificity. Revised to include the hook."
   },
   {
     "isbn": "9784041091036",
-    "title": "",
-    "author": "STEINS;GATE 0 (5) (角川コミックス・エース)",
-    "current_summary": "マンガ"
+    "title": "STEINS;GATE 0 (5) (角川コミックス・エース)",
+    "status": "REVISED",
+    "original_summary": "マンガ",
+    "new_summary": "牧瀬紅莉栖を救えなかったβ世界線を描く正統続編。彼女の記憶を宿すAI「アマデウス」との接触により、岡部倫太郎の周囲で再び異変が起き始める。",
+    "reason": "The original summary lacked plot details and specificity. Revised to include the hook."
   },
   {
     "isbn": "9784041072899",
-    "title": "",
-    "author": "STEINS;GATE 0 (4) (角川コミックス・エース)",
-    "current_summary": "マンガ"
+    "title": "STEINS;GATE 0 (4) (角川コミックス・エース)",
+    "status": "REVISED",
+    "original_summary": "マンガ",
+    "new_summary": "牧瀬紅莉栖の死から立ち直れない岡部倫太郎。β世界線で人工知能「アマデウス」として蘇った彼女の記憶が、タイムマシンを巡る新たな陰謀の扉を開く。",
+    "reason": "The original summary lacked plot details and specificity. Revised to include the hook."
   },
   {
     "isbn": "9784049123197",
-    "title": "2026-07-07 0:00:00",
-    "author": "STEINS;GATE ELITE 公式資料集 Deceive the World",
-    "current_summary": "本"
+    "title": "STEINS;GATE ELITE 公式資料集 Deceive the World",
+    "status": "REVISED",
+    "original_summary": "本",
+    "new_summary": "全編アニメーションで再構築された『STEINS;GATE ELITE』の公式資料集。キャラクター解説やアニメ制作用の表情集、世界線資料など、ラボメン必携の設定が満載。",
+    "reason": "The original summary lacked plot details and specificity. Revised to include the hook."
   },
   {
     "isbn": "9784041072882",
-    "title": "",
-    "author": "STEINS;GATE 0 (3) (角川コミックス・エース)",
-    "current_summary": "マンガ"
+    "title": "STEINS;GATE 0 (3) (角川コミックス・エース)",
+    "status": "REVISED",
+    "original_summary": "マンガ",
+    "new_summary": "紅莉栖を救うことを諦めたβ世界線の物語。彼女の記憶を移植したAI「アマデウス」との邂逅が、失意の底にいる岡部倫太郎を再び時間の迷宮へと誘う。",
+    "reason": "The original summary lacked plot details and specificity. Revised to include the hook."
   },
   {
     "isbn": "9784041065532",
-    "title": "",
-    "author": "STEINS;GATE 0 (2) (角川コミックス・エース)",
-    "current_summary": "マンガ"
+    "title": "STEINS;GATE 0 (2) (角川コミックス・エース)",
+    "status": "REVISED",
+    "original_summary": "マンガ",
+    "new_summary": "牧瀬紅莉栖を失ったβ世界線の岡部倫太郎。人工知能「アマデウス」に搭載された彼女の記憶システムを巡り、再び世界規模のタイムマシン争奪戦が幕を開ける。",
+    "reason": "The original summary lacked plot details and specificity. Revised to include the hook."
   },
   {
     "isbn": "9784041065525",
-    "title": "",
-    "author": "STEINS;GATE 0 (1) (角川コミックス・エース)",
-    "current_summary": "マンガ"
+    "title": "STEINS;GATE 0 (1) (角川コミックス・エース)",
+    "status": "REVISED",
+    "original_summary": "マンガ",
+    "new_summary": "紅莉栖の死を回避できなかったβ世界線。彼女の記憶を受け継ぐAI「アマデウス」との出会いを機に、岡部倫太郎は再び過酷な運命と対峙することになる。",
+    "reason": "The original summary lacked plot details and specificity. Revised to include the hook."
   },
   {
     "isbn": "9784758009010",
-    "title": "",
-    "author": "STEINS;GATE 0 コミックアンソロジー (IDコミックス・DNAメディアコミックス)",
-    "current_summary": "マンガ"
+    "title": "STEINS;GATE 0 コミックアンソロジー (IDコミックス・DNAメディアコミックス)",
+    "status": "REVISED",
+    "original_summary": "マンガ",
+    "new_summary": "『STEINS;GATE 0』のコミックアンソロジー。紅莉栖を救えなかったβ世界線を舞台に、豪華執筆陣がそれぞれの視点から描く、ラボメンたちの日常と珠玉の短編集。",
+    "reason": "The original summary lacked plot details and specificity. Revised to include the hook."
   },
   {
     "isbn": "9784048921039",
-    "title": "",
-    "author": "STEINS;GATE 0 電撃コミックアンソロジー (電撃コミックスEX)",
-    "current_summary": "マンガ"
-  },
-  {
-    "isbn": "9784048657990",
-    "title": "2026-07-07 0:00:00",
-    "author": "STEINS;GATE 0 公式資料集 Amadeus’ Script",
-    "current_summary": "本"
-  },
-  {
-    "isbn": "9784047302228",
-    "title": "2026-07-07 0:00:00",
-    "author": "STEINS;GATE 永劫回帰のパンドラ(1) (ファミ通クリアコミックス)",
-    "current_summary": "マンガ"
+    "title": "STEINS;GATE 0 電撃コミックアンソロジー (電撃コミックスEX)",
+    "status": "REVISED",
+    "original_summary": "マンガ",
+    "new_summary": "『STEINS;GATE 0』の電撃コミックアンソロジー。お馴染みのラボメンに加え、AI「アマデウス」など新キャラクターたちも交え、β世界線のもうひとつの日常を描く。",
+    "reason": "The original summary lacked plot details and specificity. Revised to include the hook."
   }
 ]

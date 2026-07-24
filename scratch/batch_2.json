@@ -1,122 +1,306 @@
 [
   {
+    "isbn": "9784048657990",
+    "title": "STEINS;GATE 0 公式資料集 Amadeus’ Script",
+    "status": "REVISED",
+    "original_summary": "本",
+    "new_summary": "『STEINS;GATE 0』公式資料集。キャラクター設定やイベントCGを網羅。さらに複雑な伏線や世界線構造まで徹底解説し、β世界線の全貌に迫るファン必読の一冊。",
+    "reason": "The original summary lacked plot details and specificity. Revised to include the hook."
+  },
+  {
+    "isbn": "9784047302228",
+    "title": "STEINS;GATE 永劫回帰のパンドラ(1) (ファミ通クリアコミックス)",
+    "status": "REVISED",
+    "original_summary": "マンガ",
+    "new_summary": "牧瀬紅莉栖のいないβ世界線。大学生活を送る岡部倫太郎は、セミナーで彼女の先輩・比屋定真帆と出会う。AI「アマデウス」を巡る、もうひとつの物語の幕開け。",
+    "reason": "The original summary lacked plot details and specificity. Revised to include the hook."
+  },
+  {
     "isbn": "9784088900322",
-    "title": "2026-07-07 0:00:00",
-    "author": "STEINS;GATE 無限遠点のアークライト (ヤングジャンプコミックス)",
-    "current_summary": "マンガ"
+    "title": "STEINS;GATE 無限遠点のアークライト (ヤングジャンプコミックス)",
+    "status": "REVISED",
+    "original_summary": "マンガ",
+    "new_summary": "β世界線での椎名まゆりの視点から描かれる物語。岡部倫太郎を救うため、タイムマシン「C204型」で阿万音鈴羽と共に過去へ跳ぶ彼女の切ない決意を描く。",
+    "reason": "Original summary was too short and generic. Updated to focus on the specific plot and characters."
   },
   {
     "isbn": "9784041100264",
-    "title": "2026-07-07 0:00:00",
-    "author": "TVAnime STEINS;GATE OFFICIAL GUIDEBOOK 記憶補完のモノグラフ",
-    "current_summary": "本"
+    "title": "TVAnime STEINS;GATE OFFICIAL GUIDEBOOK 記憶補完のモノグラフ",
+    "status": "REVISED",
+    "original_summary": "本",
+    "new_summary": "TVアニメ『シュタインズ・ゲート』の公式ガイドブック。全24話のストーリー解説や、岡部倫太郎役の宮野真守ら声優陣のインタビュー、詳細な設定資料を網羅する。",
+    "reason": "Original summary was generic. Updated to include specific contents of the guidebook."
   },
   {
     "isbn": "9784041100257",
-    "title": "2026-07-07 2:02:12",
-    "author": "STEINS;GATE 相思相愛のトゥルーメモリーズ",
-    "current_summary": "本"
+    "title": "STEINS;GATE 相思相愛のトゥルーメモリーズ",
+    "status": "REVISED",
+    "original_summary": "本",
+    "new_summary": "アニメ版『シュタインズ・ゲート』のファンブック。岡部倫太郎と橋田至のナビゲートでラボメンガールズたちを紹介するほか、描き下ろしピンナップやキャスト対談を収録。",
+    "reason": "Original summary was generic. Updated to detail the specific features and characters covered."
   },
   {
     "isbn": "9784047263741",
-    "title": "2026-07-07 2:02:21",
-    "author": "シュタインズ・ゲート 公式資料集",
-    "current_summary": "本"
+    "title": "シュタインズ・ゲート 公式資料集",
+    "status": "REVISED",
+    "original_summary": "本",
+    "new_summary": "ゲーム『STEINS;GATE』の世界設定やキャラクター設定画、シナリオ構成から伏線解析、開発者インタビューまでを網羅した公式資料集。",
+    "reason": "Original summary was generic. Updated with specific contents of the official materials."
   },
   {
     "isbn": "9784098611874",
-    "title": "",
-    "author": "スノウボールアース = SNOW BALL EARTH. 2",
-    "current_summary": "マンガ"
+    "title": "スノウボールアース = SNOW BALL EARTH. 2",
+    "status": "REVISED",
+    "original_summary": "マンガ",
+    "new_summary": "銀河怪獣との戦いを終え帰還した鉄男を待っていたのは、氷河期を迎えた「凍結地球」だった。相棒の自律稼働ロボット・ユキオと共に過酷な運命に立ち向かうSFアクション。",
+    "reason": "Original summary was generic. Added the inciting incident and character names."
   },
   {
     "isbn": "9784098611072",
-    "title": "",
-    "author": "スノウボールアース = SNOW BALL EARTH. 1",
-    "current_summary": "マンガ"
+    "title": "スノウボールアース = SNOW BALL EARTH. 1",
+    "status": "REVISED",
+    "original_summary": "マンガ",
+    "new_summary": "西暦2025年、銀河怪獣と戦うべく自律稼働爆弾ロボット「ユキオ」に乗り込んだ人見知りの少年・鉄男。人類を救った彼が帰還した地球は、雪と氷に覆われていた。",
+    "reason": "Original summary was generic. Focuses on the setup and specific character names."
   },
   {
     "isbn": "9784845924233",
-    "title": "",
-    "author": "アニメーションと国家",
-    "current_summary": ""
+    "title": "アニメーションと国家",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "アニメーションの制度化と国家の関わりを考察する研究書。戦時中のプロパガンダ映画におけるアニメーターの労働環境から『君たちはどう生きるか』までを多角的に論じる。",
+    "reason": "Missing summary. Added a specific overview of the book's research topics."
   },
   {
     "isbn": "9784198615543",
-    "title": "",
-    "author": "ANIMAGE LIBRARY VOL.1 DVD BOOK「ほしのこえ」",
-    "current_summary": ""
+    "title": "ANIMAGE LIBRARY VOL.1 DVD BOOK「ほしのこえ」",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "新海誠監督の商業デビュー作『ほしのこえ』のDVDブック。オリジナル版の映像に加え、新海監督直筆の絵コンテ完全版を収録した貴重な資料集。",
+    "reason": "Missing summary. Added details about the specific contents."
   },
   {
     "isbn": "9784091856821",
-    "title": "",
-    "author": "最終兵器彼女（2）",
-    "current_summary": "マンガ"
+    "title": "最終兵器彼女（2）",
+    "status": "REVISED",
+    "original_summary": "マンガ",
+    "new_summary": "北海道の田舎町で暮らす高校生のシュウジとちせ。不器用な交際を始めた二人だが、空襲の日、シュウジは自衛隊の「最終兵器」に改造されたちせの姿を目撃する。",
+    "reason": "Original summary was generic. Added specific setting, characters, and the central hook."
   },
   {
     "isbn": "9784091856838",
-    "title": "",
-    "author": "最終兵器彼女（3）",
-    "current_summary": "マンガ"
+    "title": "最終兵器彼女（3）",
+    "status": "REVISED",
+    "original_summary": "マンガ",
+    "new_summary": "北海道の田舎町で暮らす高校生のシュウジとちせ。不器用な交際を始めた二人だが、空襲の日、シュウジは自衛隊の「最終兵器」に改造されたちせの姿を目撃する。",
+    "reason": "Original summary was generic. Added specific setting, characters, and the central hook."
   },
   {
     "isbn": "9784091856845",
-    "title": "",
-    "author": "最終兵器彼女（4）",
-    "current_summary": "マンガ"
+    "title": "最終兵器彼女（4）",
+    "status": "REVISED",
+    "original_summary": "マンガ",
+    "new_summary": "北海道の田舎町で暮らす高校生のシュウジとちせ。不器用な交際を始めた二人だが、空襲の日、シュウジは自衛隊の「最終兵器」に改造されたちせの姿を目撃する。",
+    "reason": "Original summary was generic. Added specific setting, characters, and the central hook."
   },
   {
     "isbn": "9784091856852",
-    "title": "",
-    "author": "最終兵器彼女（5）",
-    "current_summary": "マンガ"
+    "title": "最終兵器彼女（5）",
+    "status": "REVISED",
+    "original_summary": "マンガ",
+    "new_summary": "北海道の田舎町で暮らす高校生のシュウジとちせ。不器用な交際を始めた二人だが、空襲の日、シュウジは自衛隊の「最終兵器」に改造されたちせの姿を目撃する。",
+    "reason": "Original summary was generic. Added specific setting, characters, and the central hook."
   },
   {
     "isbn": "9784091856869",
-    "title": "",
-    "author": "最終兵器彼女（6）",
-    "current_summary": "マンガ"
+    "title": "最終兵器彼女（6）",
+    "status": "REVISED",
+    "original_summary": "マンガ",
+    "new_summary": "北海道の田舎町で暮らす高校生のシュウジとちせ。不器用な交際を始めた二人だが、空襲の日、シュウジは自衛隊の「最終兵器」に改造されたちせの姿を目撃する。",
+    "reason": "Original summary was generic. Added specific setting, characters, and the central hook."
   },
   {
     "isbn": "9784091856876",
-    "title": "",
-    "author": "最終兵器彼女（7）",
-    "current_summary": "マンガ"
+    "title": "最終兵器彼女（7）",
+    "status": "REVISED",
+    "original_summary": "マンガ",
+    "new_summary": "北海道の田舎町で暮らす高校生のシュウジとちせ。不器用な交際を始めた二人だが、空襲の日、シュウジは自衛隊の「最終兵器」に改造されたちせの姿を目撃する。",
+    "reason": "Original summary was generic. Added specific setting, characters, and the central hook."
   },
   {
     "isbn": "9784778315924",
-    "title": "",
-    "author": "エロマンガ表現史",
-    "current_summary": "単行本"
+    "title": "エロマンガ表現史",
+    "status": "REVISED",
+    "original_summary": "単行本",
+    "new_summary": "成人向け漫画のデフォルメや記号的表現を体系的に考察する漫画評論書。おっぱい表現の変遷や触手、アヘ顔の系譜など、膨大な資料をもとにエロマンガの歴史を紐解く。",
+    "reason": "Original summary was generic. Added details on the specific topics and scope."
   },
   {
     "isbn": "9784426119812",
-    "title": "",
-    "author": "顔ハメ看板　ハマり道",
-    "current_summary": "単行本"
+    "title": "顔ハメ看板　ハマり道",
+    "status": "REVISED",
+    "original_summary": "単行本",
+    "new_summary": "自称「顔ハメ看板ニスト」の塩谷朋之が、全国各地で撮影した膨大なコレクションを紹介。看板の魅力を引き出す姿勢や、深い考察と愛情が綴られた異色の写真集。",
+    "reason": "Original summary was generic. Added the author's name and specific focus of the book."
   },
   {
     "isbn": "9784087213126",
-    "title": "",
-    "author": "なぜ働いていると本が読めなくなるのか",
-    "current_summary": "新書"
+    "title": "なぜ働いていると本が読めなくなるのか",
+    "status": "REVISED",
+    "original_summary": "新書",
+    "new_summary": "就職した途端に本が読めなくなった著者の体験から、「労働」と「読書」の歴史的変遷を辿る。仕事と趣味の両立に悩む現代の社会構造を紐解き、新たな働き方を提言する。",
+    "reason": "Original summary was generic. Detailed the exact premise and argument of the book."
   },
   {
     "isbn": "9784309617503",
-    "title": "",
-    "author": "ひとりあそびの教科書",
-    "current_summary": "単行本"
+    "title": "ひとりあそびの教科書",
+    "status": "REVISED",
+    "original_summary": "単行本",
+    "new_summary": "他人の目を気にせず、純粋に好きなことに夢中になる「ひとりあそび」の楽しみ方を説く。模型や虫採りなど、孤独にあそぶことで自分の世界を広げる方法を紹介。",
+    "reason": "Original summary was generic. Added the specific themes and examples discussed."
   },
   {
     "isbn": "9784839953690",
-    "title": "",
-    "author": "現代横歩取りのすべて",
-    "current_summary": "単行本"
+    "title": "現代横歩取りのすべて",
+    "status": "REVISED",
+    "original_summary": "単行本",
+    "new_summary": "最新の横歩取り事情をまとめた定跡書。後手番で優秀とされた「△8四飛・5二玉型」に対する先手の対策を詳細に解説。プロ間の複雑な変化を体系的に学べる一冊。",
+    "reason": "Original summary was generic. Added specific chess/shogi strategies like '△8四飛・5二玉型'."
   },
   {
     "isbn": "9784778320515",
-    "title": "",
-    "author": "ブラッドハーレーの馬車",
-    "current_summary": "マンガ"
+    "title": "ブラッドハーレーの馬車",
+    "status": "REVISED",
+    "original_summary": "マンガ",
+    "new_summary": "華やかな歌劇団に憧れる孤児院の少女たち。しかし、ブラッドハーレーの養女として馬車に乗った彼女たちを待っていたのは、囚人の性奴隷となる残酷な運命だった。",
+    "reason": "Original summary was generic. Focuses on the inciting incident and central twist without climax spoilers."
+  },
+  {
+    "isbn": "9784861829345",
+    "title": "新海誠論",
+    "status": "REVISED",
+    "original_summary": "単行本",
+    "new_summary": "「ほしのこえ」から「すずめの戸締まり」まで。ロスジェネ世代の著者が、気候変動や地方と都市といった視点から「思想としての新海誠」を徹底的に読み解く本格的評論集。",
+    "reason": "元のあらすじが「単行本」のみで文字数や内容の条件を満たしていないため新しく作成しました。"
+  },
+  {
+    "isbn": "9784166615070",
+    "title": "西洋の敗北と日本の選択",
+    "status": "REVISED",
+    "original_summary": "新書",
+    "new_summary": "『西洋の敗北』著者が日本へ放つ衝撃的提言。ウクライナ戦争や米国の衰退を分析し、西洋社会の内部崩壊が進む中、日本が米欧のヒステリーを静観し生き残る道を説く。",
+    "reason": "元のあらすじが「新書」のみで文字数や内容の条件を満たしていないため新しく作成しました。"
+  },
+  {
+    "isbn": "9784763141880",
+    "title": "あの国の本当の思惑を見抜く 地政学",
+    "status": "REVISED",
+    "original_summary": "単行本",
+    "new_summary": "地理が「檻」なら国は「囚人」だ。YouTubeチャンネル「社會部部長」の著者が、アメリカやロシアなど大国の弱点や制約を地形の観点から平易に解き明かす入門書。",
+    "reason": "元のあらすじが「単行本」のみで文字数や内容の条件を満たしていないため新しく作成しました。"
+  },
+  {
+    "isbn": "9784863133013",
+    "title": "絶対に行けない世界の非公開区域99",
+    "status": "REVISED",
+    "original_summary": "単行本",
+    "new_summary": "ヒトラーの地下壕からモルモン教の記録保管庫まで。著しく危険な場所や軍事機密など、世界中に存在する一般人が決して入れない99カ所を写真や地図で紹介する一冊。",
+    "reason": "元のあらすじが「単行本」のみで文字数や内容の条件を満たしていないため新しく作成しました。"
+  },
+  {
+    "isbn": "9784778340049",
+    "title": "行方不明展",
+    "status": "REVISED",
+    "original_summary": "太田出版",
+    "new_summary": "「行方不明になりたい」と願う人にだけ現れる異世界への扉。ホラー作家の梨らが手掛けた同名展覧会を基に、架空の失踪者の不穏な“痕跡”を収録。背筋が凍る体験を描く。",
+    "reason": "元のあらすじが出版社名のみで文字数や内容の条件を満たしていないため新しく作成しました。"
+  },
+  {
+    "isbn": "9784787273925",
+    "title": "怪獣から読む戦後ポピュラー・カルチャー",
+    "status": "REVISED",
+    "original_summary": "単行本",
+    "new_summary": "初期『ゴジラ』の社会批評性はなぜ消えたのか。戦後特撮映画から現代のオタク文化まで、ポピュラーカルチャーが「非政治的」なものへと変容した歴史を読み解く研究書。",
+    "reason": "元のあらすじが「単行本」のみで文字数や内容の条件を満たしていないため新しく作成しました。"
+  },
+  {
+    "isbn": "9784868010456",
+    "title": "イルミナティ ニューワールドオーダー裏解説ブック",
+    "status": "REVISED",
+    "original_summary": "単行本",
+    "new_summary": "9.11や疫病を予言したと話題の「イルミナティカード」。全412種の絵柄が象徴する秘密結社や歴史的背景を都市伝説的視点で読み解く、オールカラーの異端の解説本。",
+    "reason": "元のあらすじが「単行本」のみで文字数や内容の条件を満たしていないため新しく作成しました。"
+  },
+  {
+    "isbn": "9784469214000",
+    "title": "知識検定事典",
+    "status": "REVISED",
+    "original_summary": "単行本",
+    "new_summary": "オンライン「知識検定」の計1000問を収録。政治経済からカルチャーまで、大人が教養として知るべき森羅万象をクイズ形式で学べる、事典レベルの詳しい解説付き問題集。",
+    "reason": "元のあらすじが「単行本」のみで文字数や内容の条件を満たしていないため新しく作成しました。"
+  },
+  {
+    "isbn": "9784845910564",
+    "title": "SAVE THE CATの法則 : 本当に売れる脚本術",
+    "status": "REVISED",
+    "original_summary": "単行本",
+    "new_summary": "映画会社が「売れる」と判断する脚本とは。物語を15の展開に分解する「ブレイク・スナイダー・ビート・シート」等を用いた、超実践的なストーリー創作バイブル。",
+    "reason": "元のあらすじが「単行本」のみで文字数や内容の条件を満たしていないため新しく作成しました。"
+  },
+  {
+    "isbn": "9784909474797",
+    "title": "謎検対策問題集2024春",
+    "status": "REVISED",
+    "original_summary": "単行本",
+    "new_summary": "日本唯一の「謎検（謎解き能力検定）」公式対策問題集。2023秋の過去問50問やオリジナル模試など計80問を解説付きで収録。受検者や謎解き好きの実力試しに最適。",
+    "reason": "元のあらすじが「単行本」のみで文字数や内容の条件を満たしていないため新しく作成しました。"
+  },
+  {
+    "isbn": "9784861997600",
+    "title": "真・バトル奥義（9）",
+    "status": "REVISED",
+    "original_summary": "単行本",
+    "new_summary": "『ポケモン オメガルビー・アルファサファイア』シングルバトル攻略本。実力者による戦術解説や有力パーティの育成など、ガチ対戦で勝つための秘訣を網羅。",
+    "reason": "元のあらすじが「単行本」のみで文字数や内容の条件を満たしていないため新しく作成しました。"
+  },
+  {
+    "isbn": "9784832249448",
+    "title": "私を球場に連れてって！　1",
+    "status": "REVISED",
+    "original_summary": "2018/04/26",
+    "new_summary": "野球知識ゼロの女子高生タマは、入学初日から熱狂的ファンの西武レオナの喧嘩に巻き込まれ、無理やり球場へ連行される。波乱万丈な野球観戦ライフを描くコメディ第1巻。",
+    "reason": "元のあらすじが日付のみで文字数や内容の条件を満たしていないため新しく作成しました。"
+  },
+  {
+    "isbn": "9784832270985",
+    "title": "私を球場に連れてって！　2",
+    "status": "REVISED",
+    "original_summary": "2019/05/27",
+    "new_summary": "球場へ連行された野球知識ゼロの女子高生タマ。新たなファン仲間との出会いや「球場飯」の魅力を通して、次第に野球観戦に魅了されていく大人気コメディ第2巻。",
+    "reason": "元のあらすじが日付のみで文字数や内容の条件を満たしていないため新しく作成しました。"
+  },
+  {
+    "isbn": "9784832272040",
+    "title": "私を球場に連れてって！　3",
+    "status": "REVISED",
+    "original_summary": "2020/07/27",
+    "new_summary": "野球観戦にすっかりハマった女子高生タマ。魅力たっぷりの「球場飯」やオールスター観戦など、弱小球団を応援するファンの悲哀と熱狂を描く大人気コメディ第3巻。",
+    "reason": "元のあらすじが日付のみで文字数や内容の条件を満たしていないため新しく作成しました。"
+  },
+  {
+    "isbn": "9784832272910",
+    "title": "私を球場に連れてって！　4",
+    "status": "REVISED",
+    "original_summary": "2021/07/27",
+    "new_summary": "野球観戦に目覚めたタマと熱狂的ファンの仲間たち。変わらぬ野球愛と友情を描き、弱小球団ファンの悲哀が詰まった大人気野球観戦コメディ、いよいよ完結の第4巻。",
+    "reason": "元のあらすじが日付のみで文字数や内容の条件を満たしていないため新しく作成しました。"
+  },
+  {
+    "isbn": "9784065204993",
+    "title": "ぱいどん　AIで挑む手塚治虫の世界",
+    "status": "REVISED",
+    "original_summary": "2020/07/29",
+    "new_summary": "手塚治虫が現代で新作を描いたら。AIに過去作品を学習させ人間と協力し誕生した漫画。記憶を失った主人公ぱいどんが活躍する挑戦的プロジェクトの全貌を収録する一冊。",
+    "reason": "元のあらすじが日付のみで文字数や内容の条件を満たしていないため新しく作成しました。"
   }
 ]
