@@ -66,6 +66,9 @@ document.addEventListener('DOMContentLoaded', () => {
             scannerModal.classList.remove('show');
             stopScanner();
         }
+        if (typeof detailModal !== 'undefined' && e.target === detailModal) {
+            detailModal.classList.remove('show');
+        }
     });
 });
 
