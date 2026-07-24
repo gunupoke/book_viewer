@@ -66,10 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
             scannerModal.classList.remove('show');
             stopScanner();
         }
-        const dModal = document.getElementById('detailModal');
-        if (dModal && e.target === dModal) {
-            dModal.classList.remove('show');
-        }
     });
 });
 
