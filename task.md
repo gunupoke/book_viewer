@@ -1,13 +1,6 @@
-- [ ] Verify 186 unapproved books
-  - [x] Subagent 0 (batch 0)
-  - [x] Subagent 1 (batch 1)
-  - [x] Subagent 2 (batch 2)
-  - [/] Subagent 3 (batch 3)
-  - [x] Subagent 4 (batch 4)
-  - [x] Subagent 5 (batch 5)
-  - [/] Subagent 6 (batch 6)
-  - [x] Subagent 7 (batch 7)
-  - [x] Subagent 8 (batch 8)
-  - [x] Subagent 9 (batch 9)
-- [x] Compile results into verification_report.md
-- [x] Present report to user for morning review
+- [ ] 186冊の書籍データを抽出する
+- [ ] データを複数のバッチに分割する
+- [ ] サブエージェントを複数起動し、各バッチの要約生成を指示する
+- [ ] すべてのサブエージェントの完了を待機し、生成結果を回収する
+- [ ] 結果を統合し、インポート用の新しい CSV ファイルを作成する
+- [ ] ユーザーに CSV ファイルを提供し、スプレッドシートの空欄セル（末尾）へ追加インポートする方法を案内する
