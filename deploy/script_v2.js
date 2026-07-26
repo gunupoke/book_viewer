@@ -217,6 +217,30 @@ function onScanSuccess(decodedText, decodedResult) {
                     }
                 }
 
+                // GAS API Fallback (Rakuten Books Scrape)
+                if (!title) {
+                    const gasUrl = document.getElementById('gasAppUrlInput') ? document.getElementById('gasAppUrlInput').value.trim() : "";
+                    if (gasUrl) {
+                        try {
+                            const gasRes = await fetch(`${gasUrl}?action=search_isbn&isbn=${decodedText}`);
+                            const gasData = await gasRes.json();
+                            if (gasData && gasData.title) {
+                                title = gasData.title;
+                                author = gasData.author || "";
+                                publisher = gasData.publisher || "";
+                            }
+                        } catch (e) {
+                            console.error("GAS fallback failed:", e);
+                        }
+                    }
+                }
+
+                // Title Sanitization (remove = English Title)
+                if (title) {
+                    title = title.replace(/\s*=\s*[A-Za-z\s\.\-&:]+(?=\d+$)/, ' ').trim();
+                    title = title.replace(/\s*=\s*[A-Za-z\s\.\-&:]+$/, '').trim();
+                }
+
                 if (title) {
                     showConfirmDetails(title, author, decodedText, publisher, year, officialDescription);
                 } else {
