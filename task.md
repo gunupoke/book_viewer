@@ -1,5 +1,5 @@
-- [ ] CSVファイル（books_v2_final.csv）内のタイトルを修正する（「= 英語名」の削除）
-- [ ] Webアプリ（script_v2.js）に、タイトルをサニタイズする処理を追加する
-- [ ] Webアプリ（script_v2.js）のISBN検索フォールバックとして、GASへ問い合わせる処理を追加する
-- [ ] GAS（Google Apps Script）のコードに、楽天ブックスのスクレイピング代行機能（action=isbn）を追加する
-- [ ] 修正後のCSVファイルと、新しいGASコードをユーザーへ案内する
+- [x] CSVファイル（books_v2_final.csv）内のタイトルを修正する（「= 英語名」の削除）
+- [x] Webアプリ（script_v2.js）に、タイトルをサニタイズする処理を追加する
+- [x] Webアプリ（script_v2.js）のISBN検索フォールバックとして、GASへ問い合わせる処理を追加する
+- [x] GAS（Google Apps Script）のコードに、スクレイピング/Gemini検索代行機能（action=search_isbn）を追加する
+- [x] 修正後のCSVファイルと、新しいGASコードをユーザーへ案内する
