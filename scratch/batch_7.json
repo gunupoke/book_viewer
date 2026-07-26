@@ -1,122 +1,154 @@
 [
   {
+    "isbn": "9784832272378",
+    "title": "ご注文はうさぎですか？　9",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "都会への旅先で出会った新たな友達フウラやエル。旅行を通じて見つけた新しい視点と、木組みの街へ戻ってきたココアたちの新たな春。",
+    "reason": "あらすじが空欄であったため、進級という9巻のフックとなる展開と具体的なキャラクター名を含めて作成しました。"
+  },
+  {
+    "isbn": "9784832273337",
+    "title": "ご注文はうさぎですか？　10",
+    "status": "REVISED",
+    "original_summary": "マンガ",
+    "new_summary": "木組みの街にやってきたフウラたちとの交流。ココアやチノたちが先輩・後輩として互いを支え合い、さらに広がるカフェ生活の模様を描く。",
+    "reason": "あらすじが「マンガ」とのみ記されていたため、10巻で活躍する新キャラクターの名前などの固有名詞を含めて作成しました。"
+  },
+  {
+    "isbn": "9784832274389",
+    "title": "ご注文はうさぎですか？　11",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "ココアたちの「ラビットハウス」での日々を描く4コマ第11巻。進学した少女たちの成長や、チノが新たな夢を抱くエピソードなど、きらきらした思い出が紡がれる。",
+    "reason": "あらすじが空欄であったため、チノなどの固有名詞を含め、11巻の具体的なフックとなる展開に焦点を当てて作成しました。"
+  },
+  {
+    "isbn": "9784758005760",
+    "title": "STEINS；GATEコミックアンソロジー",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "『シュタインズ・ゲート』の世界を複数の作家が描く短編集。原作とは異なる、岡部倫太郎たちラボメンのコミカルな日常やIFの姿が楽しめるアンソロジーコミック。",
+    "reason": "あらすじが空欄であったため、作品の形式（アンソロジー）と岡部倫太郎などの固有名詞を含めて作品の魅力を伝える形で作成しました。"
+  },
+  {
+    "isbn": "9784758006514",
+    "title": "STEINS；GATE コミックアンソロジー タイムトラベラーズテイル（2）",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "「タイムトラベル」をテーマに『シュタインズ・ゲート』の世界を複数の作家が描く短編集。岡部たちラボメンの日常やIFストーリーが楽しめるアンソロジー第2巻。",
+    "reason": "あらすじが空欄であったため、テーマや岡部などの固有名詞を含め、作品のセットアップに焦点を当てて作成しました。"
+  },
+  {
+    "isbn": "9784758007474",
+    "title": "STEINS；GATE コミックアンソロジー タイムトラベラーズテイル（3）",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "「タイムトラベル」をテーマに『シュタインズ・ゲート』の世界を複数の作家が描く短編集。岡部たちラボメンの日常やIFストーリーが楽しめるアンソロジーシリーズ第3巻。",
+    "reason": "あらすじが空欄であったため、シリーズのテーマや岡部などの固有名詞を含めて概要を作成しました。"
+  },
+  {
+    "isbn": "9784047264816",
+    "title": "マジキュー4コマSTEINS；GATE世界線変動率χ．091015％（1）",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "シリアスな原作とは異なる、デフォルメされた岡部たちラボメンの「あったかも知れない」日常を描く。ハチャメチャなギャグが楽しめるアンソロジー4コマ第1巻。",
+    "reason": "あらすじが空欄であったため、岡部などの固有名詞を含め、原作との違いや4コマアンソロジーという形式に焦点を当てて作成しました。"
+  },
+  {
     "isbn": "9784047265790",
-    "title": "",
-    "author": "マジキュー4コマSTEINS；GATE世界線変動率χ．091015％（2）",
-    "current_summary": ""
+    "title": "マジキュー4コマSTEINS；GATE世界線変動率χ．091015％（2）",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "『STEINS;GATE』の4コマアンソロジー第2巻。岡部倫太郎や未来ガジェット研究所の面々が、本編とは異なる「x」の世界線でドタバタな日常を繰り広げる。",
+    "reason": "Original summary was empty. Wrote a new one focusing on the specific setup and characters."
   },
   {
     "isbn": "9784758006286",
-    "title": "",
-    "author": "STEINS;GATE コミックアンソロジー（仮）",
-    "current_summary": ""
+    "title": "STEINS;GATE コミックアンソロジー（仮）",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "『STEINS;GATE』のコミックアンソロジー。岡部倫太郎や椎名まゆりたち未来ガジェット研究所のメンバーが織りなす、個性豊かなオリジナルストーリーを多数収録。",
+    "reason": "Original summary was empty. Wrote a new one focusing on the specific setup and characters."
   },
   {
     "isbn": "9784047277663",
-    "title": "",
-    "author": "マジキュー4コマSTEINS；GATE（4）",
-    "current_summary": ""
+    "title": "マジキュー4コマSTEINS；GATE（4）",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "『STEINS;GATE』の4コマアンソロジー第4巻。岡部倫太郎や未来ガジェット研究所の面々が、本編とは異なる「x」の世界線でドタバタな日常を繰り広げる。",
+    "reason": "Original summary was empty. Wrote a new one focusing on the specific setup and characters."
   },
   {
     "isbn": "9784047280083",
-    "title": "",
-    "author": "マジキュー4コマSTEINS；GATE（5）",
-    "current_summary": ""
+    "title": "マジキュー4コマSTEINS；GATE（5）",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "『STEINS;GATE』の4コマアンソロジー第5巻。岡部倫太郎や未来ガジェット研究所の面々が、本編とは異なる「x」の世界線でドタバタな日常を繰り広げる。",
+    "reason": "Original summary was empty. Wrote a new one focusing on the specific setup and characters."
   },
   {
     "isbn": "9784047285798",
-    "title": "",
-    "author": "マジキュー4コマSTEINS；GATE（6）",
-    "current_summary": ""
+    "title": "マジキュー4コマSTEINS；GATE（6）",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "『STEINS;GATE』の4コマアンソロジー第6巻。岡部倫太郎や未来ガジェット研究所の面々が、本編とは異なる「x」の世界線でドタバタな日常を繰り広げる。",
+    "reason": "Original summary was empty. Wrote a new one focusing on the specific setup and characters."
   },
   {
     "isbn": "9784047267749",
-    "title": "",
-    "author": "マジキュー4コマSTEINS；GATE（3）",
-    "current_summary": ""
+    "title": "マジキュー4コマSTEINS；GATE（3）",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "『STEINS;GATE』の4コマアンソロジー第3巻。岡部倫太郎や未来ガジェット研究所の面々が、本編とは異なる「x」の世界線でドタバタな日常を繰り広げる。",
+    "reason": "Original summary was empty. Wrote a new one focusing on the specific setup and characters."
   },
   {
     "isbn": "9784832244146",
-    "title": "",
-    "author": "NEW　GAME！（1）",
-    "current_summary": ""
+    "title": "NEW　GAME！（1）",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "高校卒業後、憧れのゲーム会社イーグルジャンプに入社した涼風青葉。憧れの八神コウら先輩たちに囲まれ、新作『フェアリーズストーリー3』の開発が始まる。",
+    "reason": "Original summary was empty. Wrote a new one focusing on the specific setup and characters."
   },
   {
     "isbn": "9784832245464",
-    "title": "",
-    "author": "NEW　GAME！（2）",
-    "current_summary": ""
+    "title": "NEW　GAME！（2）",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "キャラデザイナーとしての初仕事に挑む青葉。メインキャラコンペに向け、師匠である八神コウとのデザイン対決に奮闘する姿を描く第2期開発編。",
+    "reason": "Original summary was empty. Wrote a new one focusing on the specific setup and characters."
   },
   {
     "isbn": "9784832246560",
-    "title": "",
-    "author": "NEW　GAME！（3）",
-    "current_summary": ""
+    "title": "NEW　GAME！（3）",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "『フェアリーズストーリー3』のマスターアップに向けてラストスパート。納品直前のデバッグ作業や、チーム全員で迎える発売日の感動を描く。",
+    "reason": "Original summary was empty. Wrote a new one focusing on the specific setup and characters."
   },
   {
     "isbn": "9784832247208",
-    "title": "",
-    "author": "NEW　GAME！（4）",
-    "current_summary": ""
+    "title": "NEW　GAME！（4）",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "イーグルジャンプに新たな新入社員・望月紅葉と鳴海ツバメが入社！先輩となった青葉は、個性豊かな後輩たちの指導や人間関係に奮闘していく。",
+    "reason": "Original summary was empty. Wrote a new one focusing on the specific setup and characters."
   },
   {
     "isbn": "9784832247215",
-    "title": "",
-    "author": "NEW　GAME！（5）",
-    "current_summary": ""
+    "title": "NEW　GAME！（5）",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "新作ゲーム『PECO』のメインキャラクターコンペが開催決定。青葉は憧れの先輩・八神コウと同じ土俵で競い合うため、全力を尽くしてデザインに挑む。",
+    "reason": "Original summary was empty. Wrote a new one focusing on the specific setup and characters."
   },
   {
     "isbn": "9784832248472",
-    "title": "",
-    "author": "NEW　GAME！（6)",
-    "current_summary": ""
-  },
-  {
-    "isbn": "9784832248472",
-    "title": "",
-    "author": "NEW　GAME！（7）",
-    "current_summary": ""
-  },
-  {
-    "isbn": "9784832249295",
-    "title": "",
-    "author": "NEW　GAME！（8）",
-    "current_summary": ""
-  },
-  {
-    "isbn": "9784832271012",
-    "title": "",
-    "author": "NEW　GAME！（9）",
-    "current_summary": ""
-  },
-  {
-    "isbn": "9784832271531",
-    "title": "",
-    "author": "NEW　GAME！（10）",
-    "current_summary": ""
-  },
-  {
-    "isbn": "9784832272095",
-    "title": "",
-    "author": "NEW　GAME！（11)",
-    "current_summary": ""
-  },
-  {
-    "isbn": "9784832272620",
-    "title": "",
-    "author": "NEW　GAME！（12）",
-    "current_summary": ""
-  },
-  {
-    "isbn": "9784832273061",
-    "title": "",
-    "author": "NEW　GAME！（13）",
-    "current_summary": ""
-  },
-  {
-    "isbn": "9784829146101",
-    "title": "",
-    "author": "STEINS;GATE : 円環連鎖のウロボロス. 1",
-    "current_summary": "富士見書房"
+    "title": "NEW　GAME！（6)",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "『PECO』の開発もいよいよ佳境。プログラマーのツバメやねねたちの成長を描きつつ、チーム一丸となってゲームのブラッシュアップに励む日常を描く。",
+    "reason": "Original summary was empty. Wrote a new one focusing on the specific setup and characters."
   }
 ]

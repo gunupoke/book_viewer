@@ -1,122 +1,154 @@
 [
   {
     "isbn": "9784152098702",
-    "title": "",
-    "author": "三体",
-    "current_summary": "本"
+    "title": "三体",
+    "status": "REVISED",
+    "original_summary": "本",
+    "new_summary": "物理学者の連続自殺と、迫り来る謎のカウントダウン。ナノマテリアル研究者の汪淼は、真相を追う中で、過酷な世界を生き抜くＶＲゲーム「三体」の存在を知る。",
+    "reason": "The original summary was extremely generic. Rewrote it to focus on the initial hook and specific proper nouns within the 60-80 character limit."
   },
   {
     "isbn": "9784163919096",
-    "title": "",
-    "author": "西洋の敗北 日本と世界に何が起きるのか",
-    "current_summary": "本"
+    "title": "西洋の敗北 日本と世界に何が起きるのか",
+    "status": "REVISED",
+    "original_summary": "本",
+    "new_summary": "ウクライナ戦争は西洋の崩壊の始まりに過ぎない。エマニュエル・トッドが、宗教や道徳の喪失から、アメリカを盟主とする西洋社会の自滅的没落を鋭く読み解く。",
+    "reason": "The original summary was extremely generic. Rewrote it to focus on the initial hook and specific proper nouns within the 60-80 character limit."
   },
   {
     "isbn": "9784799330838",
-    "title": "",
-    "author": "「好き」を言語化する技術 推しの素晴らしさを語りたいのに「やばい!」しかでてこない",
-    "current_summary": "本"
+    "title": "「好き」を言語化する技術 推しの素晴らしさを語りたいのに「やばい!」しかでてこない",
+    "status": "REVISED",
+    "original_summary": "本",
+    "new_summary": "推しへの熱い想いが「やばい！」で終わってしまうあなたへ。書評家の三宅香帆が、自分の感情に向き合い、独自の解像度で「推し語り」を楽しむための文章術を伝授する。",
+    "reason": "The original summary was extremely generic. Rewrote it to focus on the initial hook and specific proper nouns within the 60-80 character limit."
   },
   {
     "isbn": "9784907188672",
-    "title": "",
-    "author": "平和と愚かさ",
-    "current_summary": "本"
+    "title": "平和と愚かさ",
+    "status": "REVISED",
+    "original_summary": "本",
+    "new_summary": "「平和とは戦争について考えない愚かさの別名ではないか」。ウクライナやベトナムなど記憶の地を巡り、SNSの過剰な政治化に警鐘を鳴らす、東浩紀の哲学紀行。",
+    "reason": "The original summary was extremely generic. Rewrote it to focus on the initial hook and specific proper nouns within the 60-80 character limit."
   },
   {
     "isbn": "9784865541120",
-    "title": "",
-    "author": "Occultic;Nine (3) -オカルティック・ナイン- (オーバーラップ文庫)",
-    "current_summary": "本"
+    "title": "Occultic;Nine (3) -オカルティック・ナイン- (オーバーラップ文庫)",
+    "status": "REVISED",
+    "original_summary": "本",
+    "new_summary": "井の頭公園での集団自殺事件に世間が騒然とする中、悠太は死亡者リストの中に自分と仲間たちの名前を発見する。死の真相と世界のあり方に迫る第3巻。",
+    "reason": "The original summary was extremely generic. Rewrote it to focus on the initial hook and specific proper nouns within the 60-80 character limit."
   },
   {
     "isbn": "9784865540208",
-    "title": "",
-    "author": "Occultic;Nine (2) -オカルティック・ナイン- (オーバーラップ文庫)",
-    "current_summary": "本"
+    "title": "Occultic;Nine (2) -オカルティック・ナイン- (オーバーラップ文庫)",
+    "status": "REVISED",
+    "original_summary": "本",
+    "new_summary": "橋上教授の死体発見現場に居合わせた悠太は、容疑を晴らすため教授の息子サライと共に謎を追う。一方、井の頭公園では256人の集団水死事件が発生し……。",
+    "reason": "The original summary was extremely generic. Rewrote it to focus on the initial hook and specific proper nouns within the 60-80 character limit."
   },
   {
     "isbn": "9784906866212",
-    "title": "",
-    "author": "Occultic;Nine (1) -オカルティック・ナイン- (オーバーラップ文庫)",
-    "current_summary": "本"
+    "title": "Occultic;Nine (1) -オカルティック・ナイン- (オーバーラップ文庫)",
+    "status": "REVISED",
+    "original_summary": "本",
+    "new_summary": "吉祥寺を舞台に、まとめブログを運営する我聞悠太を中心に9人の男女が、ある殺人事件をきっかけに不可解な運命の渦に巻き込まれるオカルトサスペンス。",
+    "reason": "The original summary was extremely generic. Rewrote it to focus on the initial hook and specific proper nouns within the 60-80 character limit."
   },
   {
     "isbn": "9784884755744",
-    "title": "2026-07-07 0:00:00",
-    "author": "アカギ 1 (バンブーコミックス)",
-    "current_summary": "マンガ"
+    "title": "アカギ 1 (バンブーコミックス)",
+    "status": "REVISED",
+    "original_summary": "マンガ",
+    "new_summary": "借金に追われ、絶体絶命の窮地に立たされていた南郷の前に現れた13歳の白髪の少年、赤木しげる。裏社会を震撼させる天才雀士の伝説が今、幕を開ける。",
+    "reason": "The original summary was extremely generic. Rewrote it to focus on the initial hook and specific proper nouns within the 60-80 character limit."
   },
   {
     "isbn": "9784884756208",
-    "title": "2026-07-07 0:00:00",
-    "author": "アカギ (2) (近代麻雀コミックス バンブーコミックス)",
-    "current_summary": "マンガ"
+    "title": "アカギ (2) (近代麻雀コミックス バンブーコミックス)",
+    "status": "REVISED",
+    "original_summary": "マンガ",
+    "new_summary": "ヤクザとの麻雀勝負で異彩を放つ少年・アカギ。だが彼の前に、盲目ながら恐ろしい打牌精度を誇る老獪な雀士・市川という新たな強敵が立ちはだかる。",
+    "reason": "The original summary was extremely generic. Rewrote it to focus on the initial hook and specific proper nouns within the 60-80 character limit."
   },
   {
     "isbn": "9784884756734",
-    "title": "2026-07-07 0:00:00",
-    "author": "アカギ (3) (近代麻雀コミックス バンブーコミックス)",
-    "current_summary": "マンガ"
+    "title": "アカギ (3) (近代麻雀コミックス バンブーコミックス)",
+    "status": "REVISED",
+    "original_summary": "マンガ",
+    "new_summary": "盲目の雀士・市川との壮絶な牌の削り合い。相手の老獪な駆け引きに対し、アカギは常軌を逸した心理戦と直感で、命懸けの勝負に真っ向から挑んでいく。",
+    "reason": "The original summary was extremely generic. Rewrote it to focus on the initial hook and specific proper nouns within the 60-80 character limit."
   },
   {
     "isbn": "9784884757236",
-    "title": "2026-07-07 0:00:00",
-    "author": "アカギ 4 (バンブーコミックス)",
-    "current_summary": "マンガ"
+    "title": "アカギ 4 (バンブーコミックス)",
+    "status": "REVISED",
+    "original_summary": "マンガ",
+    "new_summary": "市川との伝説の対局から5年。不良刑事・安岡によって再びヤクザの代打ちとして裏社会に引き戻されたアカギ。次なる強敵・浦部らが待ち受ける新たな戦いの幕が上がる。",
+    "reason": "The original summary was extremely generic. Rewrote it to focus on the initial hook and specific proper nouns within the 60-80 character limit."
   },
   {
     "isbn": "9784884757991",
-    "title": "2026-07-07 0:00:00",
-    "author": "アカギ 5 (バンブーコミックス)",
-    "current_summary": "マンガ"
+    "title": "アカギ 5 (バンブーコミックス)",
+    "status": "REVISED",
+    "original_summary": "マンガ",
+    "new_summary": "伝説の対局から5年。安岡が連れてきたのは、アカギの名を騙る「ニセアカギ」だった。格上の雀士・浦部に翻弄されるニセアカギを前に、ついに本物のアカギが立ち上がる。",
+    "reason": "The original summary was extremely generic. Rewrote it to focus on the initial hook and specific proper nouns within the 60-80 character limit."
   },
   {
     "isbn": "9784812450055",
-    "title": "2026-07-07 0:00:00",
-    "author": "アカギ 6 (バンブーコミックス)",
-    "current_summary": "マンガ"
+    "title": "アカギ 6 (バンブーコミックス)",
+    "status": "REVISED",
+    "original_summary": "マンガ",
+    "new_summary": "手強い相手・浦部の前に苦戦を強いられる治。窮地に追い込まれた代打ちの席を引き継いだアカギは、圧倒的なブラフと異端の打牌で場の空気を一変させていく。",
+    "reason": "The original summary was extremely generic. Rewrote it to focus on the initial hook and specific proper nouns within the 60-80 character limit."
   },
   {
     "isbn": "9784812451380",
-    "title": "2026-07-07 0:00:00",
-    "author": "アカギ 7 (バンブーコミックス)",
-    "current_summary": "マンガ"
+    "title": "アカギ 7 (バンブーコミックス)",
+    "status": "REVISED",
+    "original_summary": "マンガ",
+    "new_summary": "裏社会を揺るがす波乱のなか、アカギの前にあらわれた闇の帝王・鷲巣巌。自らの血液と莫大な財産を賭けた、狂気のギャンブル「鷲巣麻雀」の火蓋が切って落とされる。",
+    "reason": "The original summary was extremely generic. Rewrote it to focus on the initial hook and specific proper nouns within the 60-80 character limit."
   },
   {
     "isbn": "9784591190135",
-    "title": "",
-    "author": "「振り仮名」があれば学力は上がるのか (ポプラ新書 286)",
-    "current_summary": "本"
+    "title": "「振り仮名」があれば学力は上がるのか (ポプラ新書 286)",
+    "status": "REVISED",
+    "original_summary": "本",
+    "new_summary": "「漢字が読めないから、学ぶことを諦める」。そんな知の格差をなくすため、すべての人に学びの入り口を開くインフラとしての「ルビ」の重要性を説く、総ルビ仕様の提言書。",
+    "reason": "The original summary was extremely generic. Rewrote it to focus on the initial hook and specific proper nouns within the 60-80 character limit."
   },
   {
     "isbn": "9784121508614",
-    "title": "",
-    "author": "本を読めなくなった人たち コスパとテキストメディアをめぐる現在形 (中公新書ラクレ)",
-    "current_summary": "本"
+    "title": "本を読めなくなった人たち コスパとテキストメディアをめぐる現在形 (中公新書ラクレ)",
+    "status": "REVISED",
+    "original_summary": "本",
+    "new_summary": "なぜ私たちは長い文章を読めなくなったのか。タイパ至上主義、情報受容の変容、SNSの普及などを背景に、活字メディアから離れる現代人の心理と構造を鋭く解き明かす。",
+    "reason": "The original summary was extremely generic. Rewrote it to focus on the initial hook and specific proper nouns within the 60-80 character limit."
   },
   {
     "isbn": "9784065399644",
-    "title": "",
-    "author": "物語化批判の哲学 〈わたしの人生〉を遊びなおすために (講談社現代新書)",
-    "current_summary": "本"
+    "title": "物語化批判の哲学 〈わたしの人生〉を遊びなおすために (講談社現代新書)",
+    "status": "REVISED",
+    "original_summary": "本",
+    "new_summary": "就活のガクチカや推し活など、人生を「物語」として語る圧力に疲れていないか。分析美学の視点から、その枠組みを抜け出し人生を自由に「遊びなおす」方法を提案する。",
+    "reason": "The original summary was extremely generic. Rewrote it to focus on the initial hook and specific proper nouns within the 60-80 character limit."
   },
   {
     "isbn": "9784799331422",
-    "title": "2026-07-07 0:00:00",
-    "author": "増補改訂版 スマホ時代の哲学 「常時接続の世界」で失われた孤独をめぐる冒険",
-    "current_summary": "本"
+    "title": "増補改訂版 スマホ時代の哲学 「常時接続の世界」で失われた孤独をめぐる冒険",
+    "status": "REVISED",
+    "original_summary": "本",
+    "new_summary": "「常時接続」が当たり前の現代、私たちは静かに考える時間を奪われている。ネガティブ・ケイパビリティを手がかりに、失われた孤独と集中の時間を取り戻すための哲学書。",
+    "reason": "The original summary was extremely generic. Rewrote it to focus on the initial hook and specific proper nouns within the 60-80 character limit."
   },
   {
     "isbn": "9784909044570",
-    "title": "",
-    "author": "PLURALITY",
-    "current_summary": "本"
-  },
-  {
-    "isbn": "9784065274859",
-    "title": "",
-    "author": "現代思想入門 (講談社現代新書)",
-    "current_summary": "本"
+    "title": "PLURALITY",
+    "status": "REVISED",
+    "original_summary": "本",
+    "new_summary": "分断や対立が深まる現代社会において、台湾の元デジタル発展部長オードリー・タンらが提唱する「プルラリティ（多元性）」。テクノロジーで人々の声をつなぎ直す未来像。",
+    "reason": "The original summary was extremely generic. Rewrote it to focus on the initial hook and specific proper nouns within the 60-80 character limit."
   }
 ]

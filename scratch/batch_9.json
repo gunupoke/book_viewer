@@ -1,38 +1,122 @@
 [
   {
+    "isbn": "9784829147238",
+    "title": "STEINS;GATE : 哀心迷図のバベル",
+    "status": "REVISED",
+    "original_summary": "富士見書房",
+    "new_summary": "まゆりを救うため、自分が消える運命を受け入れた牧瀬紅莉栖。残されたわずかな時間の中で、彼女は疎遠だった父・中鉢博士との過去、そして岡部への想いと向き合う。",
+    "reason": "The original summary only contained the publisher name. Revised to provide a proper 60-80 character synopsis focusing on the specific hook."
+  },
+  {
+    "isbn": "9784047157170",
+    "title": "Steins;gate : 史上最強のスライトフィーバー. 1",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "天才少女・牧瀬紅莉栖の視点から紐解かれる「シュタインズ・ゲート」。タイムマシンの謎に挑む研究への情熱と、岡部倫太郎たち未来ガジェット研究所での騒がしい日々。",
+    "reason": "The original summary was empty. Revised to provide a proper 60-80 character synopsis focusing on the specific hook."
+  },
+  {
+    "isbn": "9784041204399",
+    "title": "Steins;gate : 史上最強のスライトフィーバー. 2",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "Dメールによる過去改変の実験を繰り返す岡部倫太郎と牧瀬紅莉栖たち。父・中鉢博士との確執に悩む紅莉栖は、自らの過去へDメールを送るべきか激しく葛藤する。",
+    "reason": "The original summary was empty. Revised to provide a proper 60-80 character synopsis focusing on the specific hook."
+  },
+  {
+    "isbn": "9784861277603",
+    "title": "Steins ; gate : 亡環のリベリオン 1",
+    "status": "REVISED",
+    "original_summary": "マッグガーデン",
+    "new_summary": "絶望的なディストピアと化した2036年の未来。レジスタンス「ワルキューレ」に所属する阿万音鈴羽は、世界を変えるためタイムマシンで過去へ跳ぶ決意を固める。",
+    "reason": "The original summary only contained the publisher name. Revised to provide a proper 60-80 character synopsis focusing on the specific hook."
+  },
+  {
+    "isbn": "9784861278471",
+    "title": "Steins ; gate : 亡環のリベリオン 2",
+    "status": "REVISED",
+    "original_summary": "マッグガーデン",
+    "new_summary": "過去へ跳んだ阿万音鈴羽は、1975年でIBN5100を手に入れる使命を帯びる。2010年の秋葉原で岡部倫太郎たちと交流しながら、彼女は己の過酷な任務と向き合う。",
+    "reason": "The original summary only contained the publisher name. Revised to provide a proper 60-80 character synopsis focusing on the specific hook."
+  },
+  {
+    "isbn": "9784861279034",
+    "title": "Steins;gate : 亡環のリベリオン 3",
+    "status": "REVISED",
+    "original_summary": "マッグガーデン",
+    "new_summary": "IBN5100の探索を続ける阿万音鈴羽は、未来の絶望を知るがゆえに焦りを募らせる。岡部倫太郎や仲間たちとの絆を胸に、彼女は世界線を変えるための最後の賭けに出る。",
+    "reason": "The original summary only contained the publisher name. Revised to provide a proper 60-80 character synopsis focusing on the specific hook."
+  },
+  {
+    "isbn": "9784840133289",
+    "title": "シュタインズ・ゲート 1",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "狂気のマッドサイエンティストを自称する岡部倫太郎。偶然にも過去へメールを送れる「電話レンジ（仮）」を発明した彼は、牧瀬紅莉栖と共に世界の法則に挑む。",
+    "reason": "The original summary was empty. Revised to provide a proper 60-80 character synopsis focusing on the specific hook."
+  },
+  {
+    "isbn": "9784840153201",
+    "title": "シュタインズ・ゲート. 2",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "Dメールによって次々と過去を改変していく岡部倫太郎たち。しかしその代償として歴史は大きく歪み、椎名まゆりの命が奪われるという回避不能の惨劇が幕を開ける。",
+    "reason": "The original summary was empty. Revised to provide a proper 60-80 character synopsis focusing on the specific hook."
+  },
+  {
+    "isbn": "9784840153218",
+    "title": "シュタインズ・ゲート. 3",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "タイムリープを重ね、世界の構造と運命の真実に迫る岡部倫太郎。仲間を守るための過去改変がもたらす過酷な分岐点に対し、彼は覚悟の決断を迫られる。",
+    "reason": "The original summary was empty. Revised to provide a proper 60-80 character synopsis focusing on the specific hook."
+  },
+  {
     "isbn": "9784759101737",
-    "title": "",
-    "author": "スケベ大学 : 公式解説&問題集",
-    "current_summary": ""
+    "title": "スケベ大学 : 公式解説&問題集",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "エロゲやBL、百合など全24学科にわたり、「スケベを学問する」というコンセプトで現代のスケベを熱烈に分析・解説した、リップグリップ岩永による公式ガイド兼問題集。",
+    "reason": "あらすじが空欄だったため、内容とコンセプト、著者を明記して作成した。"
   },
   {
     "isbn": "9784840224314",
-    "title": "",
-    "author": "イリヤの空、UFOの夏 その4",
-    "current_summary": ""
+    "title": "イリヤの空、UFOの夏 その4",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "伊里野加奈と逃避行に出た浅羽直之。しかし彼女の心は崩壊へ向かっていた。人類の運命か、少女か。過酷な決断を迫られた浅羽が選ぶ道を描く、切ない夏の完結編。",
+    "reason": "あらすじが空欄だったため、逃避行という導入部分と緊迫感のある展開に焦点を当てて作成した。"
   },
   {
     "isbn": "9784840221733",
-    "title": "",
-    "author": "イリヤの空、UFOの夏 その3",
-    "current_summary": ""
+    "title": "イリヤの空、UFOの夏 その3",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "園原基地周辺で大規模爆発が発生。平穏な日常が終わりを告げる中、真相を追う水前寺、そして伊里野を救うため浅羽直之の覚悟が試される。非日常の歯車が回り出す第3弾。",
+    "reason": "あらすじが空欄だったため、物語が大きく動く爆発事件をフックにして作成した。"
   },
   {
     "isbn": "9784840219730",
-    "title": "",
-    "author": "イリヤの空、UFOの夏 その2",
-    "current_summary": ""
+    "title": "イリヤの空、UFOの夏 その2",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "浅羽直之と謎の少女・伊里野加奈は初めてのデートへ。しかし尾行する不穏な影が忍び寄り、晶穂ら周囲の想いが交錯する中、平穏な日常の裏に潜む非日常が彼らを脅かし始める。",
+    "reason": "あらすじが空欄だったため、デートという日常と忍び寄る非日常の影に焦点を当てて作成した。"
   },
   {
     "isbn": "9784087210149",
-    "title": "",
-    "author": "改憲的護憲論",
-    "current_summary": ""
+    "title": "改憲的護憲論",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "憲法九条をめぐる改憲派と護憲派の対立構造に危機感を抱いたジャーナリストの松竹伸幸が、「改憲的護憲論」という新たな視点で護憲派の矛盾を突き、新たな論点を提示する一冊。",
+    "reason": "あらすじが空欄だったため、著者の問題提起と本書の核心である「改憲的護憲論」について簡潔にまとめた。"
   },
   {
     "isbn": "9784840219440",
-    "title": "",
-    "author": "イリヤの空、UFOの夏 その1",
-    "current_summary": ""
+    "title": "イリヤの空、UFOの夏 その1",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "夏休み最後の夜、浅羽直之は忍び込んだプールで手首に謎の金属球を持つ少女・伊里野加奈と出会う。園原基地のUFO騒動や戦闘機ブラックマンタの影が日常を侵食していく。",
+    "reason": "あらすじが空欄だったため、プールでの出会いという象徴的な導入と非日常的要素を盛り込み作成した。"
   }
 ]

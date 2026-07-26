@@ -1,122 +1,154 @@
 [
   {
+    "isbn": "9784832248472",
+    "title": "NEW　GAME！（7）",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "『PECO』の開発もいよいよ佳境。プログラマーのツバメやねねたちの成長を描きつつ、チーム一丸となってゲームのブラッシュアップに励む日常を描く。",
+    "reason": "Original summary was empty. Wrote a new one focusing on the specific setup and characters."
+  },
+  {
+    "isbn": "9784832249295",
+    "title": "NEW　GAME！（8）",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "『PECO』の発売を経て、イーグルジャンプは新たな一歩を踏み出す。成長した青葉たちがそれぞれの目標に向かって努力を重ねるお仕事4コマ。",
+    "reason": "Original summary was empty. Wrote a new one focusing on the specific setup and characters."
+  },
+  {
+    "isbn": "9784832271012",
+    "title": "NEW　GAME！（9）",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "青葉の入社3年目。新プロジェクト『フェアリーズストーリー4』の企画が立ち上がり、青葉はついにディレクター・コンペという大役に挑む。",
+    "reason": "Original summary was empty. Wrote a new one focusing on the specific setup and characters."
+  },
+  {
+    "isbn": "9784832271531",
+    "title": "NEW　GAME！（10）",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "新作『フェアリーズストーリー4』のキャラクターコンペ。青葉と紅葉が切磋琢磨する中、ゲームクリエイターとして互いに高め合う少女たちの姿を描く。",
+    "reason": "Original summary was empty. Wrote a new one focusing on the specific setup and characters."
+  },
+  {
+    "isbn": "9784832272095",
+    "title": "NEW　GAME！（11)",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "『FS4』開発が順調に進む中、青葉と紅葉の共同デザイン作業がスタート。フランスのコウからも刺激を受けつつ、表現の限界に挑む。",
+    "reason": "Original summary was empty. Wrote a new one focusing on the specific setup and characters."
+  },
+  {
+    "isbn": "9784832272620",
+    "title": "NEW　GAME！（12）",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "『FS4』開発終盤、フランスから八神コウが一時帰国。成長した青葉の姿と、イーグルジャンプの仲間たちが再び一つになって最高のゲームを目指す。",
+    "reason": "Original summary was empty. Wrote a new one focusing on the specific setup and characters."
+  },
+  {
+    "isbn": "9784832273061",
+    "title": "NEW　GAME！（13）",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "チームで作り上げてきた『フェアリーズストーリー4』の開発もクライマックス。青葉と仲間たちがゲーム制作に捧げた情熱と成長を描き出す感動の第13巻。",
+    "reason": "Original summary was empty. Wrote a new one focusing on the specific setup and characters."
+  },
+  {
     "isbn": "9784829146101",
-    "title": "",
-    "author": "STEINS;GATE : 円環連鎖のウロボロス. 2",
-    "current_summary": "富士見書房"
+    "title": "STEINS;GATE : 円環連鎖のウロボロス. 1",
+    "status": "REVISED",
+    "original_summary": "富士見書房",
+    "new_summary": "幾重にも張り巡らされた運命の糸。まゆりと紅莉栖、ふたつの存在の狭間で苦悩する岡部倫太郎が辿り着く、ウロボロスの名を冠したもうひとつの選択。",
+    "reason": "Original summary was generic. Wrote a new one focusing on the specific setup and characters."
+  },
+  {
+    "isbn": "9784829146101",
+    "title": "STEINS;GATE : 円環連鎖のウロボロス. 2",
+    "status": "REVISED",
+    "original_summary": "富士見書房",
+    "new_summary": "幾重にも張り巡らされた運命の糸。まゆりと紅莉栖、ふたつの存在の狭間で苦悩する岡部倫太郎が辿り着く、ウロボロスの名を冠したもうひとつの選択。",
+    "reason": "The original summary only contained the publisher name. Revised to provide a proper 60-80 character synopsis focusing on the specific hook."
   },
   {
     "isbn": "9784041003053",
-    "title": "",
-    "author": "STEINS;GATE 5 (六分儀のイディオム 後編)",
-    "current_summary": "角川グループパブリッシング"
+    "title": "STEINS;GATE 5 (六分儀のイディオム 後編)",
+    "status": "REVISED",
+    "original_summary": "角川グループパブリッシング",
+    "new_summary": "未来ガジェット研究所の面々が開発した、過去へメールを送れるタイムリープマシン「電話レンジ（仮）」。その完成を機に、岡部倫太郎たちの日常は世界の陰謀へと巻き込まれていく。",
+    "reason": "The original summary only contained the publisher name. Revised to provide a proper 60-80 character synopsis focusing on the specific hook."
   },
   {
     "isbn": "9784044748456",
-    "title": "",
-    "author": "STEINS;GATE : 蝶翼のダイバージェンス:Reverse",
-    "current_summary": "角川グループパブリッシング"
+    "title": "STEINS;GATE : 蝶翼のダイバージェンス:Reverse",
+    "status": "REVISED",
+    "original_summary": "角川グループパブリッシング",
+    "new_summary": "自称狂気のマッドサイエンティスト・岡部倫太郎と出会った天才少女・牧瀬紅莉栖。彼女の視点から描かれる、タイムマシン開発と過酷な世界線変動の物語。",
+    "reason": "The original summary only contained the publisher name. Revised to provide a proper 60-80 character synopsis focusing on the specific hook."
   },
   {
     "isbn": "9784044748531",
-    "title": "",
-    "author": "STEINS;GATE. 2 (形而上のネクローシス:Reverse)",
-    "current_summary": "角川グループパブリッシング "
+    "title": "STEINS;GATE. 2 (形而上のネクローシス:Reverse)",
+    "status": "REVISED",
+    "original_summary": "角川グループパブリッシング ",
+    "new_summary": "過去へメールを送れる「Dメール」の実験を続ける岡部倫太郎と牧瀬紅莉栖たち。だがその軽率な過去改変が、やがて椎名まゆりの命を奪う絶望の未来を引き寄せる。",
+    "reason": "The original summary only contained the publisher name. Revised to provide a proper 60-80 character synopsis focusing on the specific hook."
   },
   {
     "isbn": "9784041001431",
-    "title": "",
-    "author": "STEINS; GATE 3 (境界面上のシュタインズ・ゲート: Rebirth)",
-    "current_summary": "角川グループパブリッシング"
+    "title": "STEINS; GATE 3 (境界面上のシュタインズ・ゲート: Rebirth)",
+    "status": "REVISED",
+    "original_summary": "角川グループパブリッシング",
+    "new_summary": "タイムリープを繰り返しても変えられない運命の壁。岡部倫太郎は愛する者を救うため、絶望的な世界線の分岐に立ち向かう決意を固める。",
+    "reason": "The original summary only contained the publisher name. Revised to provide a proper 60-80 character synopsis focusing on the specific hook."
   },
   {
     "isbn": "9784041002636",
-    "title": "",
-    "author": "STEINS;GATE 4 (六分儀のイディオム 前編)",
-    "current_summary": "角川グループパブリッシング"
+    "title": "STEINS;GATE 4 (六分儀のイディオム 前編)",
+    "status": "REVISED",
+    "original_summary": "角川グループパブリッシング",
+    "new_summary": "未来ガジェット研究所の仲間たち、それぞれの視点から語られるサイドエピソード。メインストーリーの裏側で繰り広げられていた知られざるドラマを描く。",
+    "reason": "The original summary only contained the publisher name. Revised to provide a proper 60-80 character synopsis focusing on the specific hook."
   },
   {
     "isbn": "9784041003053",
-    "title": "",
-    "author": "STEINS;GATE 5 (六分儀のイディオム 後編)",
-    "current_summary": "角川グループパブリッシング"
+    "title": "STEINS;GATE 5 (六分儀のイディオム 後編)",
+    "status": "REVISED",
+    "original_summary": "角川グループパブリッシング",
+    "new_summary": "未来ガジェット研究所の面々が開発した、過去へメールを送れるタイムリープマシン「電話レンジ（仮）」。その完成を機に、岡部倫太郎たちの日常は世界の陰謀へと巻き込まれていく。",
+    "reason": "The original summary only contained the publisher name. Revised to provide a proper 60-80 character synopsis focusing on the specific hook."
   },
   {
     "isbn": "9784048661805",
-    "title": "",
-    "author": "STEINS;GATE : 線形拘束のモザイシズム",
-    "current_summary": "KADOKAWA"
+    "title": "STEINS;GATE : 線形拘束のモザイシズム",
+    "status": "REVISED",
+    "original_summary": "KADOKAWA",
+    "new_summary": "電話レンジ（仮）の存在を秘匿する岡部倫太郎に届いた、未来の自分「鳳凰院凶真」からの指令メール。それに従う岡部だが、やがてまゆりの命を脅かす事態に陥る。",
+    "reason": "The original summary only contained the publisher name. Revised to provide a proper 60-80 character synopsis focusing on the specific hook."
   },
   {
     "isbn": "9784047302228",
-    "title": "",
-    "author": "Steins;Gate永劫回帰のパンドラ. 1",
-    "current_summary": " 林直孝\""
+    "title": "Steins;Gate永劫回帰のパンドラ. 1",
+    "status": "REVISED",
+    "original_summary": " 林直孝\"",
+    "new_summary": "牧瀬紅莉栖を救えず失意の底に沈む岡部倫太郎。一方、橋田至は阿万音鈴羽のために暗躍し、紅莉栖の遺した中鉢論文の知識を巡って新たな陰謀が動き始めようとする。",
+    "reason": "The original summary contained author information instead of a plot summary. Revised to provide a proper 60-80 character synopsis focusing on the specific hook."
   },
   {
     "isbn": "9784047290280",
-    "title": "",
-    "author": "Steins;Gate閉時曲線のエピグラフ",
-    "current_summary": "KADOKAWA "
+    "title": "Steins;Gate閉時曲線のエピグラフ",
+    "status": "REVISED",
+    "original_summary": "KADOKAWA ",
+    "new_summary": "牧瀬紅莉栖を救うことを諦め、彼女がいないβ世界線で生きる岡部倫太郎。ある日、彼は紅莉栖の記憶を持つ人工知能「アマデウス」の研究員・比屋定真帆と出会う。",
+    "reason": "The original summary only contained the publisher name. Revised to provide a proper 60-80 character synopsis focusing on the specific hook."
   },
   {
     "isbn": "9784047296831",
-    "title": "",
-    "author": "Steins;Gate閉時曲線のエピグラフ 2",
-    "current_summary": "KADOKAWA"
-  },
-  {
-    "isbn": "9784829147238",
-    "title": "",
-    "author": "STEINS;GATE : 哀心迷図のバベル",
-    "current_summary": "富士見書房"
-  },
-  {
-    "isbn": "9784047157170",
-    "title": "",
-    "author": "Steins;gate : 史上最強のスライトフィーバー. 1",
-    "current_summary": ""
-  },
-  {
-    "isbn": "9784041204399",
-    "title": "",
-    "author": "Steins;gate : 史上最強のスライトフィーバー. 2",
-    "current_summary": ""
-  },
-  {
-    "isbn": "9784861277603",
-    "title": "",
-    "author": "Steins ; gate : 亡環のリベリオン 1",
-    "current_summary": "マッグガーデン"
-  },
-  {
-    "isbn": "9784861278471",
-    "title": "",
-    "author": "Steins ; gate : 亡環のリベリオン 2",
-    "current_summary": "マッグガーデン"
-  },
-  {
-    "isbn": "9784861279034",
-    "title": "",
-    "author": "Steins;gate : 亡環のリベリオン 3",
-    "current_summary": "マッグガーデン"
-  },
-  {
-    "isbn": "9784840133289",
-    "title": "",
-    "author": "シュタインズ・ゲート 1",
-    "current_summary": ""
-  },
-  {
-    "isbn": "9784840153201",
-    "title": "",
-    "author": "シュタインズ・ゲート. 2",
-    "current_summary": ""
-  },
-  {
-    "isbn": "9784840153218",
-    "title": "",
-    "author": "シュタインズ・ゲート. 3",
-    "current_summary": ""
+    "title": "Steins;Gate閉時曲線のエピグラフ 2",
+    "status": "REVISED",
+    "original_summary": "KADOKAWA",
+    "new_summary": "牧瀬紅莉栖の記憶を持つAI「アマデウス」と交流し、彼女の面影に心を乱される岡部倫太郎。一方、タイムマシンで来た阿万音鈴羽は悲惨な未来を変えるべく足掻く。",
+    "reason": "The original summary only contained the publisher name. Revised to provide a proper 60-80 character synopsis focusing on the specific hook."
   }
 ]

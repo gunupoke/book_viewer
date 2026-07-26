@@ -1,122 +1,154 @@
 [
   {
+    "isbn": "9784768312797",
+    "title": "アニメーターの仕事がわかる本",
+    "status": "REVISED",
+    "original_summary": "玄光社",
+    "new_summary": "作画監督・西位輝実が、アニメ業界のリアルな現状や働き方を解説する入門書。労働環境やお金といったシビアな現実を直視しつつ、プロとしての生存戦略を指南する。",
+    "reason": "Original summary was just the publisher ('玄光社'). Created a new summary."
+  },
+  {
+    "isbn": "9784905033318",
+    "title": "プロジェクト・シン・エヴァンゲリオン　実績・省察・評価・総括",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "『シン・エヴァンゲリオン劇場版』の制作過程を、プロジェクトマネジメントの観点から振り返る公式報告書。前代未聞の巨大プロジェクトの全貌と裏側を詳細に記録する。",
+    "reason": "Original summary was empty. Created a new summary focusing on the setup."
+  },
+  {
+    "isbn": "9784103549512",
+    "title": "成瀬は天下を取りにいく",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "我が道を突き進む中学生・成瀬あかり。「この夏を西武に捧げる」と宣言し、毎日ローカルテレビに映り込もうと奮闘する。滋賀県大津市を舞台に描かれる爽快な青春小説。",
+    "reason": "Original summary was empty. Created a new summary focusing on the setup."
+  },
+  {
+    "isbn": "9784103549529",
+    "title": "成瀬は信じた道をいく",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "前作『成瀬は天下を取りにいく』の続編。高校3年生になった成瀬あかりが、大学受験や街の騒動の中でも相変わらず我が道を突き進む姿を、周囲の人々の視点から描く短編集。",
+    "reason": "Original summary was empty. Created a new summary focusing on the setup."
+  },
+  {
+    "isbn": "9784575237320",
+    "title": "王様ゲーム滅亡6．08",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "ある日、日本中の高校生全員に謎の「王様」から「広島にいる者は岡山へ移動しろ」という命令が届く。スケールが全国へと拡大し、日本を滅亡へ導く悲劇が幕を開ける。",
+    "reason": "Original summary was empty. Created a new summary focusing on the setup."
+  },
+  {
+    "isbn": "9784575236934",
+    "title": "王様ゲーム（終極）",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "前作の唯一の生存者・金沢伸明は、転校先の呉広高校で平穏な生活を送ろうとしていた。だが再び「王様」からの命令メールが届き、新たな命懸けのゲームが始まってしまう。",
+    "reason": "Original summary was empty. Created a new summary focusing on the setup."
+  },
+  {
     "isbn": "9784575237115",
-    "title": "",
-    "author": "王様ゲーム（臨場）",
-    "current_summary": ""
+    "title": "王様ゲーム（臨場）",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "事件を追う児玉葉月が廃校で見つけたノート。そこには、のちに伸明と出会う本多奈津子が過去に経験した、もう一つの凄惨な「王様ゲーム」の全貌が克明に記されていた。",
+    "reason": "あらすじが空欄であったため、フックとなる展開と固有名詞を含めて新規作成しました。"
   },
   {
     "isbn": "9784309029160",
-    "title": "",
-    "author": "推し、燃ゆ",
-    "current_summary": "2020/09/11"
+    "title": "推し、燃ゆ",
+    "status": "REVISED",
+    "original_summary": "2020/09/11",
+    "new_summary": "アイドル「まざま座」の上野真幸を推すことだけを生きがいとする高校生・あかり。しかしある日、推しがファンを殴って大炎上し、彼女の日常に狂いが生じていく。",
+    "reason": "あらすじが日付になっていたため、あかりや上野真幸などの固有名詞を含め、物語のフックに焦点を当てて新規作成しました。"
   },
   {
     "isbn": "9784768458402",
-    "title": "",
-    "author": "アニメ研究入門【応用編】",
-    "current_summary": "2018/11/20"
+    "title": "アニメ研究入門【応用編】",
+    "status": "REVISED",
+    "original_summary": "2018/11/20",
+    "new_summary": "映像心理論や声優論、『まどマギ』のマルチモーダル分析など、アニメを学術的な研究対象として多角的に分析・考察するための11の実践的なメソッドを提示する研究書。",
+    "reason": "あらすじが日付になっていたため、書籍のコンセプトや具体的な研究手法の例を含めて内容を伝えるあらすじを作成しました。"
   },
   {
     "isbn": "9784768457399",
-    "title": "",
-    "author": "アニメ研究入門増補改訂版",
-    "current_summary": "2014/09/01"
+    "title": "アニメ研究入門増補改訂版",
+    "status": "REVISED",
+    "original_summary": "2014/09/01",
+    "new_summary": "文学理論からジェンダー論まで、アニメを学術的に分析するための9つの視点を解説。「海外アニメ」や「批評と研究」の章を新たに追加し、より実践的になった研究入門書。",
+    "reason": "あらすじが日付になっていたため、増補改訂版の特徴や具体的な内容を含めてあらすじを作成しました。"
   },
   {
     "isbn": "9784344035768",
-    "title": "",
-    "author": "遅いインターネット",
-    "current_summary": ""
+    "title": "遅いインターネット",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "SNS等の「速すぎる」情報消費が思考力を奪う現代。吉本隆明の思想などを交え、「読む」と「書く」の往復を通じて自ら考える力を取り戻すための生存戦略を提唱する。",
+    "reason": "あらすじが空欄であったため、書籍のフックとなるテーマや具体的なキーワードを含めて新規作成しました。"
   },
   {
     "isbn": "9784832241190",
-    "title": "",
-    "author": "ご注文はうさぎですか？（1）",
-    "current_summary": ""
+    "title": "ご注文はうさぎですか？（1）",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "木組みの街にやってきた高校生ココア。下宿先を探して入った喫茶「ラビットハウス」で、看板娘のチノやクールなリゼと出会い、賑やかな日常が始まる。",
+    "reason": "あらすじが空欄であったため、ココアやチノなどのキャラクター名と作品の舞台を含め、セットアップに焦点を当てて作成しました。"
   },
   {
     "isbn": "9784832242692",
-    "title": "",
-    "author": "ご注文はうさぎですか？（2）",
-    "current_summary": ""
+    "title": "ご注文はうさぎですか？（2）",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "ラビットハウスでの仕事にも慣れてきたココア。和風喫茶「甘兎庵」の千夜やシャロも加わり、海水浴や夏祭りなど四季折々のイベントを楽しむ。",
+    "reason": "あらすじが空欄であったため、2巻から登場するキャラクター名を含め、物語の展開に焦点を当てて作成しました。"
   },
   {
     "isbn": "9784832244207",
-    "title": "",
-    "author": "ご注文はうさぎですか？（3）",
-    "current_summary": ""
+    "title": "ご注文はうさぎですか？（3）",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "ココアたちの高校生ライフ。文化祭やプール遊びのほか、チノたちの妹ユニット「チマメ隊」の成長や、ラビットハウスの夜のBARタイムを描く。",
+    "reason": "あらすじが空欄であったため、具体的なキャラクター名を含めて3巻の展開に焦点を当てて作成しました。"
   },
   {
     "isbn": "9784832246171",
-    "title": "",
-    "author": "ご注文はうさぎですか？　4",
-    "current_summary": ""
+    "title": "ご注文はうさぎですか？　4",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "チノの父親タカヒロの昔の仲間や青山ブルーマウンテン先生との交流。すれ違いから始まるプチ家出騒動など、少しずつ変化する人間関係を描く。",
+    "reason": "あらすじが空欄であったため、主要キャラクターたちの名前を含め、作品のセットアップと内容を伝える形で作成しました。"
   },
   {
     "isbn": "9784832247345",
-    "title": "",
-    "author": "ご注文はうさぎですか？（5）",
-    "current_summary": ""
+    "title": "ご注文はうさぎですか？（5）",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "ココアの実家から姉のモカがラビットハウスにやってきた！「お姉ちゃん」の座を巡るココアとモカの攻防や、紅葉狩り、クリスマスなど秋〜冬の日常。",
+    "reason": "あらすじが空欄であったため、5巻のフックとなる季節のイベントや里帰りなどの具体的なエピソードを含めて作成しました。"
   },
   {
     "isbn": "9784832248946",
-    "title": "",
-    "author": "ご注文はうさぎですか？（6）",
-    "current_summary": ""
+    "title": "ご注文はうさぎですか？（6）",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "高校生活も折り返し地点。リゼの大学推薦入試や、チノ・マヤ・メグの進路相談など、将来を見据えた選択と変わらない温かな日々を描く。",
+    "reason": "あらすじが空欄であったため、6巻の具体的な展開（推薦試験など）とキャラクター名を含めて作成しました。"
   },
   {
     "isbn": "9784832249905",
-    "title": "",
-    "author": "ご注文はうさぎですか？　7",
-    "current_summary": ""
+    "title": "ご注文はうさぎですか？　7",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "チマメ隊の中学卒業が近づく冬。高校受験に向けた勉強会や卒業旅行の計画、そして卒業式を迎える少女たちの感動と成長の物語。",
+    "reason": "あらすじが空欄であったため、7巻の大きな展開である中学生組の卒業・受験というフックを含めて作成しました。"
   },
   {
     "isbn": "9784832271197",
-    "title": "",
-    "author": "ご注文はうさぎですか？　8",
-    "current_summary": ""
-  },
-  {
-    "isbn": "9784832272378",
-    "title": "",
-    "author": "ご注文はうさぎですか？　9",
-    "current_summary": ""
-  },
-  {
-    "isbn": "9784832273337",
-    "title": "",
-    "author": "ご注文はうさぎですか？　10",
-    "current_summary": "マンガ"
-  },
-  {
-    "isbn": "9784832274389",
-    "title": "",
-    "author": "ご注文はうさぎですか？　11",
-    "current_summary": ""
-  },
-  {
-    "isbn": "9784758005760",
-    "title": "",
-    "author": "STEINS；GATEコミックアンソロジー",
-    "current_summary": ""
-  },
-  {
-    "isbn": "9784758006514",
-    "title": "",
-    "author": "STEINS；GATE コミックアンソロジー タイムトラベラーズテイル（2）",
-    "current_summary": ""
-  },
-  {
-    "isbn": "9784758007474",
-    "title": "",
-    "author": "STEINS；GATE コミックアンソロジー タイムトラベラーズテイル（3）",
-    "current_summary": ""
-  },
-  {
-    "isbn": "9784047264816",
-    "title": "",
-    "author": "マジキュー4コマSTEINS；GATE世界線変動率χ．091015％（1）",
-    "current_summary": ""
+    "title": "ご注文はうさぎですか？　8",
+    "status": "REVISED",
+    "original_summary": "",
+    "new_summary": "チノ、マヤ、メグの3人が無事に高校へ合格。新たな制服をまとったチマメ隊の高校生活スタートと、お祝いを兼ねた「旅行」へ出発する。",
+    "reason": "あらすじが空欄であったため、8巻の主要な展開である「卒業旅行」やキャラクター名を含めて作成しました。"
   }
 ]
