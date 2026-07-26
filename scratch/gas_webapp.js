@@ -7,6 +7,74 @@ const GEMINI_API_KEY = '【あなたのGemini APIキー】';
 // ==========================================
 // 1. Webアプリの受け口 (スマホからスキャンしたデータを受け取る)
 // ==========================================
+
+function doGet(e) {
+  try {
+    const action = e.parameter.action || "";
+    if (action === "search_isbn") {
+      const isbn = e.parameter.isbn;
+      if (!isbn) throw new Error("No ISBN provided");
+      
+      let title = "";
+      let author = "";
+      let publisher = "";
+      
+      // Google Books API (general search fallback)
+      try {
+        const gbRes = UrlFetchApp.fetch('https://www.googleapis.com/books/v1/volumes?q=' + isbn, {muteHttpExceptions: true});
+        if (gbRes.getResponseCode() === 200) {
+          const gbData = JSON.parse(gbRes.getContentText());
+          if (gbData.items && gbData.items.length > 0) {
+            title = gbData.items[0].volumeInfo.title || "";
+            if (gbData.items[0].volumeInfo.authors) author = gbData.items[0].volumeInfo.authors.join(", ");
+            publisher = gbData.items[0].volumeInfo.publisher || "";
+          }
+        }
+      } catch (err) {}
+      
+      // Gemini API Fallback (if Google Books fails)
+      if (!title) {
+        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key=${GEMINI_API_KEY}`;
+        const prompt = `ISBN "${isbn}" の本のタイトルと著者を抽出してJSONで返してください。\nキーは "title", "author", "publisher" としてください。\n見つからない場合は "title": "" としてください。`;
+        const payload = { "contents": [{"parts":[{"text": prompt}]}] };
+        const options = { "method": "post", "contentType": "application/json", "payload": JSON.stringify(payload), "muteHttpExceptions": true };
+        
+        try {
+          const response = UrlFetchApp.fetch(url, options);
+          const json = JSON.parse(response.getContentText());
+          if (json.candidates && json.candidates[0]) {
+            let text = json.candidates[0].content.parts[0].text;
+            if (text.startsWith('```json')) text = text.slice(7, -3);
+            else if (text.startsWith('```')) text = text.slice(3, -3);
+            const parsed = JSON.parse(text);
+            title = parsed.title || "";
+            author = parsed.author || "";
+            publisher = parsed.publisher || "";
+          }
+        } catch(e) {}
+      }
+
+      if (!title) {
+          return ContentService.createTextOutput(JSON.stringify({error: "Not found"}))
+            .setMimeType(ContentService.MimeType.JSON);
+      }
+      
+      // Remove "= English Title" if Gemini or GB returns it
+      title = title.replace(/\s*=\s*[A-Za-z\s\.\-&:]+(?=\d+$)/, ' ').trim();
+      title = title.replace(/\s*=\s*[A-Za-z\s\.\-&:]+$/, '').trim();
+
+      return ContentService.createTextOutput(JSON.stringify({title: title, author: author, publisher: publisher}))
+        .setMimeType(ContentService.MimeType.JSON);
+    }
+    
+    return ContentService.createTextOutput(JSON.stringify({status: "ok"}))
+      .setMimeType(ContentService.MimeType.JSON);
+  } catch(err) {
+    return ContentService.createTextOutput(JSON.stringify({error: err.toString()}))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+}
+
 function doPost(e) {
   try {
     const action = e.parameter.action || "";
