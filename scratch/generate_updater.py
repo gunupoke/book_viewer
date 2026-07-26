@@ -1,7 +1,7 @@
 import csv
 import json
 
-path = r'C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\deploy\books_v2_final.csv'
+path = r'C:\Users\senji\Desktop\ツール\Antigravity_workspaces用\自作\あなたには万屋になってもらいます\yorozuya ver3.5 - books_v2_final_k.csv'
 out_path = r'C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\deploy\gas_updater.js'
 
 update_map = {}
