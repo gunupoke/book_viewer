@@ -631,7 +631,7 @@ function renderBooks(books) {
             tagsHtml += `<span class="tag" style="background: ${bg}; color: ${color};">${displayStatus}</span>`;
         }
 
-        const summary = book.Gemini_Summary || "（要約未生成）";
+        const summary = book.Gemini_Summary || "";
         
         // 書影のURL。精度の高いAmazon(ASIN)をメインにし、失敗したらOpenBDにフォールバック
         const amazonUrl = getAmazonCoverUrl(book.ISBN13);
