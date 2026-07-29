@@ -1,8 +1,8 @@
-- `[/]` Objective 2: Retroactive date fixing & removing deprecated Gemini features
-  - `[ ]` Update `BackgroundGeminiScript.js`
-    - `[ ]` Remove `processMissingSummaries`, `callGeminiAPI`, `updateBookSummary`, `fixDuplicateTriggers`
-    - `[ ]` Update `doPost` to remove `updateSummary` branch and summary logic
-    - `[ ]` Add `fixRetroactiveDates` with 2-second sleep for API safety
-  - `[ ]` Update `deploy/script_v2.js`
-    - `[ ]` Remove Gemini Summary placeholder text from new book addition
+- `[x]` Objective 2: Retroactive date fixing & removing deprecated Gemini features
+  - `[x]` Update `BackgroundGeminiScript.js`
+    - `[x]` Remove `processMissingSummaries`, `callGeminiAPI`, `updateBookSummary`, `fixDuplicateTriggers`
+    - `[x]` Update `doPost` to remove `updateSummary` branch and summary logic
+    - `[x]` Add `fixRetroactiveDates` with 1-second sleep for API safety
+  - `[x]` Update `deploy/script_v2.js`
+    - `[x]` Remove Gemini Summary placeholder text from new book addition
   - `[ ]` Update `walkthrough.md`
