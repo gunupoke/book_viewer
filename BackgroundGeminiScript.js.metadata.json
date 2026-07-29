@@ -1,5 +1,5 @@
 {
-  "summary": "Updated Google Apps Script to remove Gemini summary functions and add retroactive date fixing functionality",
-  "updatedAt": "2026-07-29T18:27:08.081545500Z",
+  "summary": "Updated Google Apps Script to restore Gemini summary generation while removing genre/recommendation, and keeping retroactive date fixes.",
+  "updatedAt": "2026-07-29T18:33:14.950234400Z",
   "userFacing": true
 }
