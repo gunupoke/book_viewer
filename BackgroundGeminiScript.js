@@ -229,16 +229,35 @@ function fixRetroactiveDates() {
           newDate = normalizeDateGAS(rData.Items[0].Item.salesDate);
         }
       }
-      
-      if (!newDate && !isMagazine) {
+    } catch (e) {
+      console.warn(`行 ${i + 1} Rakuten APIエラー: ${e.message}`);
+    }
+    
+    // 2. OpenBD APIから検索 (楽天で見つからなかった場合、またはエラーだった場合)
+    if (!newDate && !isMagazine) {
+      try {
          let res = UrlFetchApp.fetch(`https://api.openbd.jp/v1/get?isbn=${isbn}`, {muteHttpExceptions: true});
          let oData = JSON.parse(res.getContentText());
          if (oData && oData.length > 0 && oData[0] && oData[0].summary && oData[0].summary.pubdate) {
             newDate = normalizeDateGAS(oData[0].summary.pubdate);
          }
+      } catch (e) {
+         console.warn(`行 ${i + 1} OpenBD APIエラー: ${e.message}`);
       }
-    } catch (e) {
-      console.error(`行 ${i + 1} のAPI取得エラー: ${e.message}`);
+    }
+    
+    // 3. 国立国会図書館(NDL)から検索 (それでも見つからなかった場合)
+    if (!newDate && !isMagazine) {
+       try {
+         let res = UrlFetchApp.fetch(`https://iss.ndl.go.jp/api/opensearch?isbn=${isbn}`, {muteHttpExceptions: true});
+         let text = res.getContentText();
+         let match = text.match(/<dc:date>([^<]+)<\/dc:date>/);
+         if (match && match[1]) {
+             newDate = normalizeDateGAS(match[1]);
+         }
+       } catch (e) {
+         console.warn(`行 ${i + 1} NDL APIエラー: ${e.message}`);
+       }
     }
     
     if (newDate && newDate.length > 4 && currentYear !== newDate) {
