@@ -211,7 +211,7 @@ function onScanSuccess(decodedText, decodedResult) {
                             title = info.title || "";
                             author = info.authors ? info.authors.join(", ") : "";
                             publisher = info.publisher || "";
-                            year = normalizeDate(info.publishedDate || "");
+                            // Google Booksの日付は不正確なため取得しない（Gemini等に任せる）
                             officialDescription = info.description || "";
                         }
                     }
