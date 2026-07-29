@@ -327,12 +327,23 @@ function cleanAuthorName(authorStr) {
 function normalizeDate(dateStr) {
     if (!dateStr) return "";
     let s = dateStr.replace(/[^\d\-]/g, '');
+    
+    if (/^\d{4}-\d{2}-\d{2}$/.test(s)) {
+        return s;
+    }
+    if (/^\d{4}-\d{2}$/.test(s)) {
+        return s.substring(0, 4);
+    }
     if (/^\d{8}$/.test(s)) {
         return `${s.substring(0,4)}-${s.substring(4,6)}-${s.substring(6,8)}`;
     }
     if (/^\d{6}$/.test(s)) {
-        return `${s.substring(0,4)}-${s.substring(4,6)}`;
+        return s.substring(0, 4);
     }
+    
+    let m = s.match(/\d{4}/);
+    if (m) return m[0];
+    
     return s;
 }
 
