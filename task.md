@@ -1,5 +1,4 @@
-- [x] CSVファイル（books_v2_final.csv）内のタイトルを修正する（「= 英語名」の削除）
-- [x] Webアプリ（script_v2.js）に、タイトルをサニタイズする処理を追加する
-- [x] Webアプリ（script_v2.js）のISBN検索フォールバックとして、GASへ問い合わせる処理を追加する
-- [x] GAS（Google Apps Script）のコードに、スクレイピング/Gemini検索代行機能（action=search_isbn）を追加する
-- [x] 修正後のCSVファイルと、新しいGASコードをユーザーへ案内する
+- [ ] 1. `deploy/script_v2.js` から一時的な要約テキスト（「AIが要約を作成中です...」）を削除する
+- [ ] 2. `BackgroundGeminiScript.js` を改修し、要約自動生成機能を完全削除する
+- [ ] 3. `BackgroundGeminiScript.js` に、223行目以降の既存データの一括修正関数 `fixRetroactiveDates()` を安全設計で追加する
+- [ ] 4. ユーザーへ新しい `BackgroundGeminiScript.js` を提供し、手順を案内する
