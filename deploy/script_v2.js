@@ -461,7 +461,7 @@ function sendToGas(title, author, isbn, publisher, year, status, officialDescrip
     document.body.removeChild(form);
     
     // 送信は一瞬で終わるので完了メッセージを表示
-    document.getElementById('scanResult').innerText = `追加完了: ${title}\n\n※Geminiが要約を生成して追記しました。\n(画面を更新します)`;
+    document.getElementById('scanResult').innerText = `追加完了: ${title}\n(画面を更新します)`;
     
     // Googleスプレッドシートの「ウェブに公開(CSV)」は、Google側のサーバー仕様で
     // 反映までに最大5分ほどのタイムラグが発生します。
