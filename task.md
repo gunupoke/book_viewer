@@ -1,5 +1,8 @@
-- [x] CSVファイル（books_v2_final.csv）内のタイトルを修正する（「= 英語名」の削除）
-- [x] Webアプリ（script_v2.js）に、タイトルをサニタイズする処理を追加する
-- [x] Webアプリ（script_v2.js）のISBN検索フォールバックとして、GASへ問い合わせる処理を追加する
-- [x] GAS（Google Apps Script）のコードに、スクレイピング/Gemini検索代行機能（action=search_isbn）を追加する
-- [x] 修正後のCSVファイルと、新しいGASコードをユーザーへ案内する
+- `[/]` Objective 2: Retroactive date fixing & removing deprecated Gemini features
+  - `[ ]` Update `BackgroundGeminiScript.js`
+    - `[ ]` Remove `processMissingSummaries`, `callGeminiAPI`, `updateBookSummary`, `fixDuplicateTriggers`
+    - `[ ]` Update `doPost` to remove `updateSummary` branch and summary logic
+    - `[ ]` Add `fixRetroactiveDates` with 2-second sleep for API safety
+  - `[ ]` Update `deploy/script_v2.js`
+    - `[ ]` Remove Gemini Summary placeholder text from new book addition
+  - `[ ]` Update `walkthrough.md`
