@@ -470,7 +470,7 @@ function sendToGas(title, author, isbn, publisher, year, status, officialDescrip
         Title: title,
         Author: author,
         Status: status,
-        Gemini_Summary: "（AIが要約を作成中です。数分後にリロードすると表示されます）",
+        Gemini_Summary: "",
         Tags: ""
     };
     
