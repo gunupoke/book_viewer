@@ -211,7 +211,7 @@ function onScanSuccess(decodedText, decodedResult) {
                             title = info.title || "";
                             author = info.authors ? info.authors.join(", ") : "";
                             publisher = info.publisher || "";
-                            // Google Booksの日付は不正確なため取得しない（Gemini等に任せる）
+                            year = normalizeDate(info.publishedDate || "");
                             officialDescription = info.description || "";
                         }
                     }
@@ -331,7 +331,18 @@ function normalizeDate(dateStr) {
         return `${s.substring(0,4)}-${s.substring(4,6)}-${s.substring(6,8)}`;
     }
     if (/^\d{6}$/.test(s)) {
-        return `${s.substring(0,4)}-${s.substring(4,6)}`;
+        // 月までしかない不完全なデータは「1日」にならないよう年(4桁)のみ抽出
+        return s.substring(0,4);
+    }
+    if (/^\d{4}-\d{2}-\d{2}$/.test(s)) {
+        return s;
+    }
+    if (/^\d{4}-\d{2}$/.test(s)) {
+        // 月までしかない不完全なデータは「1日」にならないよう年(4桁)のみ抽出
+        return s.substring(0,4);
+    }
+    if (/^\d{4}$/.test(s)) {
+        return s;
     }
     return s;
 }
