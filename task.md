@@ -1,4 +1,4 @@
 - [x] 1. `deploy/script_v2.js` から一時的な要約テキスト（「AIが要約を作成中です...」）を削除する
 - [x] 2. `BackgroundGeminiScript.js` を改修し、要約自動生成機能を完全削除する
 - [x] 3. `BackgroundGeminiScript.js` に、223行目以降の既存データの一括修正関数 `fixRetroactiveDates()` を安全設計で追加する
-- [/] 4. ユーザーへ新しい `BackgroundGeminiScript.js` を提供し、手順を案内する
+- [x] 4. ユーザーへ新しい `BackgroundGeminiScript.js` を提供し、手順を案内する
