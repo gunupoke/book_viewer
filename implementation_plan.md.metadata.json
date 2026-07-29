@@ -1,6 +1,6 @@
 {
-  "summary": "Revised implementation plan addressing edge cases for Magazine Rakuten search",
-  "updatedAt": "2026-07-29T17:42:42.249404700Z",
+  "summary": "Implementation plan for Objective 2 (retroactive date fix) and removal of the deprecated summary auto-generation feature.",
+  "updatedAt": "2026-07-29T18:14:58.604292800Z",
   "requestFeedback": true,
   "userFacing": true
 }
