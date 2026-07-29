@@ -8,7 +8,7 @@ with open(path, 'r', encoding='utf-8') as f:
             data = json.loads(line)
             if data.get('type') in ('USER_INPUT', 'PLANNER_RESPONSE'):
                 content = data.get('content', '')
-                if '発行日' in content or 'Google Books' in content or 'Google books' in content:
-                    print(f"[{i}] [{data.get('type')}] {content[:300]}...")
+                if 'イリヤの空' in content or '発行日' in content or '工夫' in content:
+                    print(f"[{i}] [{data.get('type')}] {content[:500]}...")
         except Exception as e:
             pass
