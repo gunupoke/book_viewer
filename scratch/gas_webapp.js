@@ -189,8 +189,6 @@ function processAndAppendBook(title, author, isbn, statusStr, publisherStr, year
   newRow[16] = geminiData.pages || ""; // Pages
   
   newRow[17] = geminiData.summary || ""; // Gemini_Summary
-  newRow[18] = geminiData.genre || ""; // Gemini_Genre
-  newRow[19] = geminiData.recommendation || ""; // Gemini_Recommendation
   
   sheet.appendRow(newRow);
 }
@@ -198,11 +196,9 @@ function processAndAppendBook(title, author, isbn, statusStr, publisherStr, year
 function getGeminiMetadata(title, author, officialDescription) {
   const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key=${GEMINI_API_KEY}`;
   
-  let prompt = `以下の本について、情報を抽出しJSONで返してください。
+  let prompt = `以下の本について、抽出をJSONで返してください。
 キーは以下の通りです。
-"summary": 100字程度の要約。※もし「公式のあらすじ」が提供されている場合は、それを最優先でそのまま利用（または要約）してください。
-"genre": ジャンル
-"recommendation": おすすめポイント（一言）
+"summary": 100文字程度の要約。「おすすめ」などの主観的・販促的な修飾語は一切排除し、客観的なあらすじやテーマのみを記載してください。
 "publisher": 出版社名（不明なら空白）
 "year": 出版年（西暦4桁の数字のみ。不明なら空白）
 "type": 本の種類（例: 単行本、文庫、新書、雑誌、マンガ、写真集、画集、図鑑など。最も適切なものを記述）
@@ -224,8 +220,6 @@ function getGeminiMetadata(title, author, officialDescription) {
       const parsed = JSON.parse(text);
       return { 
         summary: parsed.summary || "", 
-        genre: parsed.genre || "", 
-        recommendation: parsed.recommendation || "",
         publisher: String(parsed.publisher || ""),
         year: String(parsed.year || ""),
         type: String(parsed.type || ""),
@@ -233,7 +227,7 @@ function getGeminiMetadata(title, author, officialDescription) {
       };
     }
   } catch(e) { console.error("Gemini Error: " + e); }
-  return {summary: "", genre: "", recommendation: "", publisher: "", year: "", type: "", pages: ""};
+  return {summary: "", publisher: "", year: "", type: "", pages: ""};
 }
 
 // ==========================================
@@ -261,16 +255,10 @@ function fillMissingSummaries() {
         // R列 (Gemini_Summary)
         sheet.getRange(i + 1, 18).setValue(geminiData.summary);
         
-        // S列 (Gemini_Genre)
-        if (!row[18] && geminiData.genre) sheet.getRange(i + 1, 19).setValue(geminiData.genre);
-        
-        // T列 (Gemini_Recommendation)
-        if (!row[19] && geminiData.recommendation) sheet.getRange(i + 1, 20).setValue(geminiData.recommendation);
-        
         // P列 (Type)
         if (!row[15] && geminiData.type) sheet.getRange(i + 1, 16).setValue(geminiData.type);
         
-        // 連続でAPIを叩きすぎないよう、1.5秒待機
+        // 次のAPI呼び出しのため、1.5秒待機
         Utilities.sleep(1500);
       }
     }
