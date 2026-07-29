@@ -201,6 +201,48 @@ function onScanSuccess(decodedText, decodedResult) {
                     }
                 }
                 
+                // 楽天ブックスAPI (正確な発売日の取得、および不足情報の補完)
+                if (!title || !year || year.length < 8) {
+                    const appId = 'eaf0a411-9192-4746-b9ed-ac0364bc6426';
+                    const accKey = 'pk_bQ411n2T0mvoKWg7KI3n4MVac0tEnuRifC6SPakJDyZ';
+                    try {
+                        let rakutenRes;
+                        let rData;
+                        if (isMagazine) {
+                            // まずJANで雑誌検索
+                            rakutenRes = await fetch(`https://openapi.rakuten.co.jp/services/api/BooksMagazine/Search/20170404?applicationId=${appId}&accessKey=${accKey}&jan=${decodedText}&outOfStockFlag=1`);
+                            rData = await rakutenRes.json();
+                            // JANで見つからず、NDL等で取得したタイトルがある場合はタイトル検索
+                            if ((!rData.Items || rData.Items.length === 0) && title) {
+                                let encTitle = encodeURIComponent(title);
+                                rakutenRes = await fetch(`https://openapi.rakuten.co.jp/services/api/BooksMagazine/Search/20170404?applicationId=${appId}&accessKey=${accKey}&title=${encTitle}&outOfStockFlag=1`);
+                                rData = await rakutenRes.json();
+                            }
+                        } else {
+                            // 書籍検索
+                            rakutenRes = await fetch(`https://openapi.rakuten.co.jp/services/api/BooksBook/Search/20170404?applicationId=${appId}&accessKey=${accKey}&isbn=${decodedText}&outOfStockFlag=1`);
+                            rData = await rakutenRes.json();
+                        }
+
+                        if (rData && rData.Items && rData.Items.length > 0) {
+                            const item = rData.Items[0].Item;
+                            if (!title) title = item.title || "";
+                            if (!author && item.author) author = item.author;
+                            if (!publisher && item.publisherName) publisher = item.publisherName;
+                            if (item.salesDate) {
+                                const rDate = normalizeDate(item.salesDate);
+                                // 楽天の日付のほうが既存のものより長ければ（詳細であれば）上書き
+                                if (!year || (rDate && rDate.length > year.length)) {
+                                    year = rDate;
+                                }
+                            }
+                            if (!officialDescription && item.itemCaption) officialDescription = item.itemCaption;
+                        }
+                    } catch (e) {
+                        console.error("Rakuten API fallback failed:", e);
+                    }
+                }
+                
                 // Google Books API Fallback
                 if (!title && !isMagazine) {
                     const gbRes = await fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn:${decodedText}`);
@@ -215,6 +257,30 @@ function onScanSuccess(decodedText, decodedResult) {
                             officialDescription = info.description || "";
                         }
                     }
+                }
+
+                // GAS API Fallback (Rakuten Books Scrape)
+                if (!title) {
+                    const gasUrl = document.getElementById('gasAppUrlInput') ? document.getElementById('gasAppUrlInput').value.trim() : "";
+                    if (gasUrl) {
+                        try {
+                            const gasRes = await fetch(`${gasUrl}?action=search_isbn&isbn=${decodedText}`);
+                            const gasData = await gasRes.json();
+                            if (gasData && gasData.title) {
+                                title = gasData.title;
+                                author = gasData.author || "";
+                                publisher = gasData.publisher || "";
+                            }
+                        } catch (e) {
+                            console.error("GAS fallback failed:", e);
+                        }
+                    }
+                }
+
+                // Title Sanitization (remove = English Title)
+                if (title) {
+                    title = title.replace(/\s*=\s*[A-Za-z\s\.\-&:]+(?=\d+$)/, ' ').trim();
+                    title = title.replace(/\s*=\s*[A-Za-z\s\.\-&:]+$/, '').trim();
                 }
 
                 if (title) {
@@ -307,7 +373,18 @@ function normalizeDate(dateStr) {
         return `${s.substring(0,4)}-${s.substring(4,6)}-${s.substring(6,8)}`;
     }
     if (/^\d{6}$/.test(s)) {
-        return `${s.substring(0,4)}-${s.substring(4,6)}`;
+        // 月までしかない不完全なデータは「1日」にならないよう年(4桁)のみ抽出
+        return s.substring(0,4);
+    }
+    if (/^\d{4}-\d{2}-\d{2}$/.test(s)) {
+        return s;
+    }
+    if (/^\d{4}-\d{2}$/.test(s)) {
+        // 月までしかない不完全なデータは「1日」にならないよう年(4桁)のみ抽出
+        return s.substring(0,4);
+    }
+    if (/^\d{4}$/.test(s)) {
+        return s;
     }
     return s;
 }
