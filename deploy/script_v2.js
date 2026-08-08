@@ -660,9 +660,15 @@ function renderBooks(books) {
                 ${imgTag}
             </div>
             <div style="flex-grow: 1; min-width: 0; display: flex; flex-direction: column;" class="book-details">
-                <div class="book-title">${escapeHtml(book.Title)}</div>
-                <div class="book-author">${escapeHtml(book.Author || '著者不明')}</div>
-                <div class="book-publisher" style="font-size: 0.8em; color: #94a3b8; margin-top: 4px;">${escapeHtml(pubInfoText)}</div>
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px;">
+                    <div style="flex-grow: 1; min-width: 0;">
+                        <div class="book-title">${escapeHtml(book.Title)}</div>
+                        <div class="book-author">${escapeHtml(book.Author || '著者不明')}</div>
+                    </div>
+                    <div class="book-publisher" style="flex-shrink: 0; font-size: 0.75em; color: #94a3b8; text-align: right; line-height: 1.4;">
+                        ${escapeHtml(pubInfo.join('__BR__')).replace('__BR__', '<br>')}
+                    </div>
+                </div>
                 <div style="flex-grow: 1;"></div>
                 <div class="book-tags" style="margin-top: 8px;">${tagsHtml}</div>
             </div>
