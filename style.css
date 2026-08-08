@@ -141,7 +141,8 @@ h1 {
     transition: all 0.3s ease;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    gap: 15px;
 }
 
 .book-card:hover {
@@ -336,7 +337,7 @@ h1 {
     border-radius: 2px 4px 4px 2px;
 }
 .book-grid.grid-view .book-details {
-    display: none; /* Hide text in grid view */
+    display: none !important; /* Hide text in grid view */
 }
 
 /* Detail Modal */

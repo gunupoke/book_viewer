@@ -643,8 +643,6 @@ function renderBooks(books) {
         const imgTag = book.ISBN13 ? `<img src="${amazonUrl}" alt="書影" style="width: 100%; height: 100%; object-fit: cover; box-shadow: 0 4px 6px rgba(0,0,0,0.3); position: relative; z-index: 1; background: transparent;" onload="${onloadScript}" onerror="${fallbackScript}">` : '';
 
         // 書影を表示するためのフレックスレイアウトを追加
-        card.style.display = 'flex';
-        card.style.gap = '15px';
         
         let pubInfo = [];
         if (book.Publisher) pubInfo.push(String(book.Publisher).trim());
