@@ -650,7 +650,17 @@ function renderBooks(books) {
         if (book.Publisher) pubInfo.push(String(book.Publisher).trim());
         if (book.Year) {
             let cleanYear = String(book.Year).replace(/\r/g, '').replace(/年/g, '').trim();
-            if (cleanYear) pubInfo.push(cleanYear);
+            if (cleanYear) {
+                let parts = cleanYear.split('-');
+                if (parts.length === 3) {
+                    cleanYear = `${parseInt(parts[0], 10)}年${parseInt(parts[1], 10)}月${parseInt(parts[2], 10)}日`;
+                } else if (parts.length === 2) {
+                    cleanYear = `${parseInt(parts[0], 10)}年${parseInt(parts[1], 10)}月`;
+                } else if (parts.length === 1 && cleanYear.match(/^\d{4}$/)) {
+                    cleanYear = `${cleanYear}年`;
+                }
+                pubInfo.push(cleanYear);
+            }
         }
         let pubInfoText = pubInfo.join(' / ');
 
@@ -660,15 +670,9 @@ function renderBooks(books) {
                 ${imgTag}
             </div>
             <div style="flex-grow: 1; min-width: 0; display: flex; flex-direction: column;" class="book-details">
-                <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px;">
-                    <div style="flex-grow: 1; min-width: 0;">
-                        <div class="book-title">${escapeHtml(book.Title)}</div>
-                        <div class="book-author">${escapeHtml(book.Author || '著者不明')}</div>
-                    </div>
-                    <div class="book-publisher" style="flex-shrink: 0; font-size: 0.75em; color: #94a3b8; text-align: right; line-height: 1.4;">
-                        ${escapeHtml(pubInfo.join('__BR__')).replace('__BR__', '<br>')}
-                    </div>
-                </div>
+                <div class="book-title">${escapeHtml(book.Title)}</div>
+                <div class="book-author">${escapeHtml(book.Author || '著者不明')}</div>
+                <div class="book-publisher" style="font-size: 0.8em; color: #94a3b8; margin-top: 4px;">${escapeHtml(pubInfoText)}</div>
                 <div style="flex-grow: 1;"></div>
                 <div class="book-tags" style="margin-top: 8px;">${tagsHtml}</div>
             </div>
@@ -795,7 +799,17 @@ function openDetailModal(book, coverUrl) {
     if (book.Publisher) pubInfo.push(String(book.Publisher).trim());
     if (book.Year) {
         let cleanYear = String(book.Year).replace(/\r/g, '').replace(/年/g, '').trim();
-        if (cleanYear) pubInfo.push(cleanYear);
+        if (cleanYear) {
+            let parts = cleanYear.split('-');
+            if (parts.length === 3) {
+                cleanYear = `${parseInt(parts[0], 10)}年${parseInt(parts[1], 10)}月${parseInt(parts[2], 10)}日`;
+            } else if (parts.length === 2) {
+                cleanYear = `${parseInt(parts[0], 10)}年${parseInt(parts[1], 10)}月`;
+            } else if (parts.length === 1 && cleanYear.match(/^\d{4}$/)) {
+                cleanYear = `${cleanYear}年`;
+            }
+            pubInfo.push(cleanYear);
+        }
     }
     document.getElementById('detailPublisher').innerHTML = pubInfo.join('<br>');
     
