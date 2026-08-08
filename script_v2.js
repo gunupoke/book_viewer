@@ -631,8 +631,6 @@ function renderBooks(books) {
             tagsHtml += `<span class="tag" style="background: ${bg}; color: ${color};">${displayStatus}</span>`;
         }
 
-        const summary = book.Gemini_Summary || "（要約未生成）";
-        
         // 書影のURL。精度の高いAmazon(ASIN)をメインにし、失敗したらOpenBDにフォールバック
         const amazonUrl = getAmazonCoverUrl(book.ISBN13);
         const openbdUrl = `https://cover.openbd.jp/${book.ISBN13}.jpg`;
@@ -648,21 +646,37 @@ function renderBooks(books) {
         card.style.display = 'flex';
         card.style.gap = '15px';
         
+        let pubInfo = [];
+        if (book.Publisher) pubInfo.push(String(book.Publisher).trim());
+        if (book.Year) {
+            let cleanYear = String(book.Year).replace(/\r/g, '').replace(/年/g, '').trim();
+            if (cleanYear) pubInfo.push(cleanYear);
+        }
+        let pubInfoText = pubInfo.join(' / ');
+
         card.innerHTML = `
             <div style="flex-shrink: 0; width: 80px; position: relative; background: #1e293b; border-radius: 4px; overflow: hidden; display: flex; align-items: center; justify-content: center; min-height: 115px;" class="cover-wrapper">
                 <span style="position: absolute; font-size: 0.65em; color: #cbd5e1; text-align: center; padding: 4px; line-height: 1.3; word-break: break-all; z-index: 0;">${escapeHtml(book.Title)}</span>
                 ${imgTag}
             </div>
-            <div style="flex-grow: 1; min-width: 0;" class="book-details">
-                <div class="book-title">${escapeHtml(book.Title)}</div>
-                <div class="book-author">${escapeHtml(book.Author || '著者不明')}</div>
-                <div class="book-tags">${tagsHtml}</div>
+            <div style="flex-grow: 1; min-width: 0; display: flex; flex-direction: column;" class="book-details">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px;">
+                    <div style="flex-grow: 1; min-width: 0;">
+                        <div class="book-title">${escapeHtml(book.Title)}</div>
+                        <div class="book-author">${escapeHtml(book.Author || '著者不明')}</div>
+                    </div>
+                    <div class="book-publisher" style="flex-shrink: 0; font-size: 0.75em; color: #94a3b8; text-align: right; line-height: 1.4;">
+                        ${escapeHtml(pubInfo.join('__BR__')).replace('__BR__', '<br>')}
+                    </div>
+                </div>
+                <div style="flex-grow: 1;"></div>
+                <div class="book-tags" style="margin-top: 8px;">${tagsHtml}</div>
             </div>
         `;
         
         // カードクリックで詳細モーダルを開く
         card.addEventListener('click', () => {
-            openDetailModal(book, coverUrl, summary);
+            openDetailModal(book, coverUrl);
         });
 
         grid.appendChild(card);
@@ -759,7 +773,7 @@ window.addEventListener('click', (e) => {
     if (e.target === detailModal) detailModal.classList.remove('show');
 });
 
-function openDetailModal(book, coverUrl, summary) {
+function openDetailModal(book, coverUrl) {
     currentDetailBook = book;
     const detailCover = document.getElementById('detailCover');
     detailCover.src = coverUrl;
@@ -783,14 +797,12 @@ function openDetailModal(book, coverUrl, summary) {
         let cleanYear = String(book.Year).replace(/\r/g, '').replace(/年/g, '').trim();
         if (cleanYear) pubInfo.push(cleanYear);
     }
-    document.getElementById('detailPublisher').innerText = pubInfo.join(' / ');
+    document.getElementById('detailPublisher').innerHTML = pubInfo.join('<br>');
     
     document.getElementById('detailType').innerText = book.Type ? `[${book.Type}]` : '';
     let currentStatus = book.Status || '積読';
     if (currentStatus === '読書中') currentStatus = 'いま読んでる';
     document.getElementById('detailStatus').value = currentStatus;
-    
-    document.getElementById('detailSummary').innerText = summary;
     
     detailModal.classList.add('show');
 }
