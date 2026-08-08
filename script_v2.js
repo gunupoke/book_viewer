@@ -662,7 +662,7 @@ function renderBooks(books) {
                 pubInfo.push(cleanYear);
             }
         }
-        let pubInfoText = pubInfo.join(' / ');
+        let pubInfoHtml = pubInfo.map(escapeHtml).join('<br>');
 
         card.innerHTML = `
             <div style="flex-shrink: 0; width: 80px; position: relative; background: #1e293b; border-radius: 4px; overflow: hidden; display: flex; align-items: center; justify-content: center; min-height: 115px;" class="cover-wrapper">
@@ -671,8 +671,8 @@ function renderBooks(books) {
             </div>
             <div style="flex-grow: 1; min-width: 0; display: flex; flex-direction: column;" class="book-details">
                 <div class="book-title">${escapeHtml(book.Title)}</div>
-                <div class="book-author">${escapeHtml(book.Author || '著者不明')}</div>
-                <div class="book-publisher" style="font-size: 0.8em; color: #94a3b8; margin-top: 4px;">${escapeHtml(pubInfoText)}</div>
+                <div class="book-author" style="margin-bottom: 4px;">${escapeHtml(book.Author || '著者不明')}</div>
+                <div class="book-publisher" style="font-size: 0.8em; color: #94a3b8; line-height: 1.4;">${pubInfoHtml}</div>
                 <div style="flex-grow: 1;"></div>
                 <div class="book-tags" style="margin-top: 8px;">${tagsHtml}</div>
             </div>
