@@ -437,6 +437,12 @@ function normalizeDate(dateStr) {
     }
     
     let s = dateStr.replace(/[^\d\-]/g, '');
+    
+    // API等からISBN（978始まりの13桁）が誤って日付として渡ってきた場合は無視する
+    if (s.length === 13 && s.startsWith('978')) {
+        return "";
+    }
+    
     if (/^\d{8}$/.test(s)) {
         return `${s.substring(0,4)}-${s.substring(4,6)}-${s.substring(6,8)}`;
     }
