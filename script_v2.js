@@ -231,8 +231,8 @@ function onScanSuccess(decodedText, decodedResult) {
                             if (!publisher && item.publisherName) publisher = item.publisherName;
                             if (item.salesDate) {
                                 const rDate = normalizeDate(item.salesDate);
-                                // 楽天の日付のほうが既存のものより長ければ（詳細であれば）上書き
-                                if (!year || (rDate && rDate.length > year.length)) {
+                                // 既存のyearが空であるか、楽天で取得した日付の方が桁数が多い（より詳細な日付である）、または同等詳細な場合は上書きする
+                                if (!year || (rDate && rDate.length >= year.length && rDate !== year)) {
                                     year = rDate;
                                 }
                             }
@@ -368,24 +368,98 @@ function cleanAuthorName(authorStr) {
 
 function normalizeDate(dateStr) {
     if (!dateStr) return "";
+    
+    // YYYY年MM月DD日
+    let match = dateStr.match(/(19\d{2}|20\d{2})年(\d{1,2})月(\d{1,2})日/);
+    if (match) {
+        return `${match[1]}-${match[2].padStart(2, '0')}-${match[3].padStart(2, '0')}`;
+    }
+    match = dateStr.match(/(19\d{2}|20\d{2})年(\d{1,2})月/);
+    if (match) {
+        return `${match[1]}-${match[2].padStart(2, '0')}`;
+    }
+    match = dateStr.match(/(19\d{2}|20\d{2})年/);
+    if (match) {
+        return match[1];
+    }
+    
+    // YYYY/MM/DD or YYYY.MM.DD or YYYY-MM-DD
+    match = dateStr.match(/(19\d{2}|20\d{2})[\/\.\-](\d{1,2})[\/\.\-](\d{1,2})/);
+    if (match) {
+        return `${match[1]}-${match[2].padStart(2, '0')}-${match[3].padStart(2, '0')}`;
+    }
+    
+    // YYYY/MM or YYYY.MM or YYYY-MM
+    match = dateStr.match(/(19\d{2}|20\d{2})[\/\.\-](\d{1,2})/);
+    if (match) {
+        return `${match[1]}-${match[2].padStart(2, '0')}`;
+    }
+    
+    // YY/MM/DD or YY.MM.DD
+    match = dateStr.match(/^(\d{2})[\/\.\-](\d{1,2})[\/\.\-](\d{1,2})/);
+    if (match) {
+        let yy = parseInt(match[1], 10);
+        let year = yy < 50 ? 2000 + yy : 1900 + yy;
+        return `${year}-${match[2].padStart(2, '0')}-${match[3].padStart(2, '0')}`;
+    }
+
+    // YY/MM or YY.MM (e.g. 19.05, 19/05)
+    match = dateStr.match(/^(\d{2})[\/\.\-](\d{1,2})$/);
+    if (match) {
+        let yy = parseInt(match[1], 10);
+        let year = yy < 50 ? 2000 + yy : 1900 + yy;
+        return `${year}-${match[2].padStart(2, '0')}`;
+    }
+
+    // 和暦対応
+    const eras = { '令和': 2018, '平成': 1988, '昭和': 1925 };
+    for (let era in eras) {
+        let regex = new RegExp(era + '(\\d+|元)年(\\d{1,2})月(\\d{1,2})日');
+        let m = dateStr.match(regex);
+        if (m) {
+            let yy = m[1] === '元' ? 1 : parseInt(m[1], 10);
+            return `${eras[era] + yy}-${m[2].padStart(2, '0')}-${m[3].padStart(2, '0')}`;
+        }
+        
+        regex = new RegExp(era + '(\\d+|元)年(\\d{1,2})月');
+        m = dateStr.match(regex);
+        if (m) {
+            let yy = m[1] === '元' ? 1 : parseInt(m[1], 10);
+            return `${eras[era] + yy}-${m[2].padStart(2, '0')}`;
+        }
+        
+        regex = new RegExp(era + '(\\d+|元)年');
+        m = dateStr.match(regex);
+        if (m) {
+            let yy = m[1] === '元' ? 1 : parseInt(m[1], 10);
+            return `${eras[era] + yy}`;
+        }
+    }
+    
     let s = dateStr.replace(/[^\d\-]/g, '');
     if (/^\d{8}$/.test(s)) {
         return `${s.substring(0,4)}-${s.substring(4,6)}-${s.substring(6,8)}`;
     }
     if (/^\d{6}$/.test(s)) {
-        // 月までしかない不完全なデータは「1日」にならないよう年(4桁)のみ抽出
-        return s.substring(0,4);
+        let yyyy = s.substring(0,4);
+        let mm = parseInt(s.substring(4,6), 10);
+        if (mm >= 1 && mm <= 12) {
+            return yyyy; // Prefer YYYYMM
+        } else {
+            let yy = parseInt(s.substring(0,2), 10);
+            let m2 = parseInt(s.substring(2,4), 10);
+            let d2 = parseInt(s.substring(4,6), 10);
+            if (m2 >= 1 && m2 <= 12 && d2 >= 1 && d2 <= 31) {
+                let year = yy < 50 ? 2000 + yy : 1900 + yy;
+                return `${year}-${s.substring(2,4)}-${s.substring(4,6)}`;
+            }
+        }
+        return yyyy;
     }
-    if (/^\d{4}-\d{2}-\d{2}$/.test(s)) {
-        return s;
-    }
-    if (/^\d{4}-\d{2}$/.test(s)) {
-        // 月までしかない不完全なデータは「1日」にならないよう年(4桁)のみ抽出
-        return s.substring(0,4);
-    }
-    if (/^\d{4}$/.test(s)) {
-        return s;
-    }
+    if (/^\d{4}-\d{2}-\d{2}$/.test(s)) return s;
+    if (/^\d{4}-\d{2}$/.test(s)) return s.substring(0,4);
+    if (/^\d{4}$/.test(s)) return s;
+    
     return s;
 }
 
