@@ -1,0 +1,17 @@
+Successfully scheduled cron job.
+Cron Expression: 0 20 * * *
+Next fire time: 2026-07-17T20:00:00+09:00
+Prompt: 【超・全自動定期パトロールタスク】
+ユーザーの蔵書データ（yorozuya CSV）の要約精度をチェックし、直接修正するお時間です。
+
+以下の手順でタスクを進行してください：
+1. 次の公開用URLから最新の蔵書CSVデータを直接ダウンロードする。
+URL: https://docs.google.com/spreadsheets/d/e/2PACX-1vTJp0asMsir4WgvvvyAZinKeenvFuWWUI0vzErDL0aMKOytRRxUX_A_e5_PFeT4v4bxqumBwfMPKZ4q/pub?gid=723728300&single=true&output=csv
+2. `artifacts/approved_isbns.json` を読み込み、すでに承認済みのISBNリストを取得する。
+3. 承認済みリストに含まれない未チェックのISBNについて、要約文の内容に嘘（ハルシネーション）がないかWeb検索ツールで検証する。
+4. 不適切な要約の「修正案（短く体言止め）」を作成し、チャットでユーザーに提案する。
+5. ユーザーが修正案を「OK」と承認した場合、以下のWebアプリURLに対して `run_command` ツール（PowerShellの Invoke-RestMethod 等）を用いてPOSTリクエスト（action='updateSummary', isbn='対象のISBN', summary='修正後の要約'）を送信し、スプレッドシートの要約を直接上書き更新する。
+WebアプリURL: https://script.google.com/macros/s/AKfycbyd-kRJlOt3OspawnT8ejEwX34kuNcg4KjwAwpOLfLZEVNZcD-EDvYPK17G98BZDww/exec
+6. 更新に成功したISBNを `approved_isbns.json` に追記して保存する。
+
+[2026-07-16T22:26:57+09:00] Cron schedule cancelled after 0 iterations.

@@ -494,8 +494,8 @@ function showConfirmDetails(title, author, isbn, publisher, year, officialDescri
     document.getElementById('confirmLoading').style.display = 'none';
     document.getElementById('confirmDetails').style.display = 'block';
     
-    document.getElementById('confirmTitle').innerText = title;
-    document.getElementById('confirmAuthor').innerText = cleanedAuthor || "著者不明";
+    document.getElementById('confirmTitle').value = title || "";
+    document.getElementById('confirmAuthor').value = cleanedAuthor || "";
     document.getElementById('confirmDesc').innerText = officialDescription || "あらすじがありません。";
     document.getElementById('confirmDesc').style.display = officialDescription ? 'block' : 'none';
     
@@ -610,9 +610,11 @@ function onScanFailure(error) {
 document.getElementById('confirmAddBtn').addEventListener('click', () => {
     if (pendingBookData) {
         const status = document.getElementById('statusSelect').value;
+        const editedTitle = document.getElementById('confirmTitle').value.trim();
+        const editedAuthor = document.getElementById('confirmAuthor').value.trim();
         const editedPublisher = document.getElementById('confirmPublisher').value.trim();
         const editedDate = document.getElementById('confirmDate').value;
-        sendToGas(pendingBookData.title, pendingBookData.author, pendingBookData.isbn, editedPublisher, editedDate, status, pendingBookData.officialDescription);
+        sendToGas(editedTitle, editedAuthor, pendingBookData.isbn, editedPublisher, editedDate, status, pendingBookData.officialDescription);
     }
 });
 

@@ -1,0 +1,7 @@
+
+C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:25:    document.getElem
+entById('settingsBtn').addEventListener('click', () => settingsModal.classList.add('show'));
+C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:28:    document.getElem
+entById('saveSettingsBtn').addEventListener('click', () => {
+
+

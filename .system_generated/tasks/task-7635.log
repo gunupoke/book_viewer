@@ -1,0 +1,5 @@
+0de551c HEAD@{0}: revert: Revert "Fix UI bugs, remove Gemini_Summary, update API fallback"
+9070da7 HEAD@{1}: commit: Fix UI bugs, remove Gemini_Summary, update API fallback
+79dadfa HEAD@{2}: commit: chore: bump script_v2.js version to v33 to bust browser cache
+218c966 HEAD@{3}: commit: Fix normalizeDate logic to correctly handle ISBN misidentification
+b62bc30 HEAD@{4}: commit: Fix normalizeDate logic for Reiwa and YYMMDD

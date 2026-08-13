@@ -1,0 +1,40 @@
+                        const decodeHtml = (html) => {
+                            const txt = document.createElement("textarea");
+                            txt.innerHTML = html;
+                            return txt.value;
+                        };
+                        
+                        title = decodeHtml(titleMatch[1]);
+                        author = creatorMatch ? decodeHtml(creatorMatch[1]) : "";
+                        publisher = pubMatch ? decodeHtml(pubMatch[1]) : "";
+                        year = dateMatch ? normalizeDate(dateMatch[1]) : "";
+                    }
+                }
+                
+                // 讌ｽ螟ｩ繝悶ャ繧ｯ繧ｹAPI (豁｣遒ｺ縺ｪ逋ｺ螢ｲ譌･縺ｮ蜿門ｾ励√♀繧医・荳崎ｶｳ諠・ｱ縺ｮ陬懷ｮ・
+                if (!title || !year || year.length < 8) {
+                    const appId = 'eaf0a411-9192-4746-b9ed-ac0364bc6426';
+                    const accKey = 'pk_bQ411n2T0mvoKWg7KI3n4MVac0tEnuRifC6SPakJDyZ';
+                    try {
+                        let rakutenRes;
+                        let rData;
+                        if (isMagazine) {
+                            // 縺ｾ縺哽AN縺ｧ髮題ｪ梧､懃ｴ｢
+                            rakutenRes = await fetch(`https://openapi.rakuten.co.jp/services/api/BooksMagazine/Search/20170404?applicationId=${appId}&accessKey=${accKey}&jan=${decodedText}&outOfStockFlag=1`);
+                            rData = await rakutenRes.json();
+                            // JAN縺ｧ隕九▽縺九ｉ縺壹¨DL遲峨〒蜿門ｾ励＠縺溘ち繧､繝医Ν縺後≠繧句ｴ蜷医・繧ｿ繧､繝医Ν讀懃ｴ｢
+                            if ((!rData.Items || rData.Items.length === 0) && title) {
+                                let encTitle = encodeURIComponent(title);
+                                rakutenRes = await fetch(`https://openapi.rakuten.co.jp/services/api/BooksMagazine/Search/20170404?applicationId=${appId}&accessKey=${accKey}&title=${encTitle}&outOfStockFlag=1`);
+                                rData = await rakutenRes.json();
+                            }
+                        } else {
+                            // 譖ｸ邀肴､懃ｴ｢
+                            rakutenRes = await fetch(`https://openapi.rakuten.co.jp/services/api/BooksBook/Search/20170404?applicationId=${appId}&accessKey=${accKey}&isbn=${decodedText}&outOfStockFlag=1`);
+                            rData = await rakutenRes.json();
+                        }
+
+                        if (rData && rData.Items && rData.Items.length > 0) {
+                            const item = rData.Items[0].Item;
+                            if (!title) title = item.title || "";
+                            if (!author && item.author) author = item.author;

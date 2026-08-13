@@ -1,0 +1,28 @@
+127.0.0.1 - - [14/Aug/2026 02:57:54] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [14/Aug/2026 02:57:54] "GET /style.css?v=4 HTTP/1.1" 200 -
+127.0.0.1 - - [14/Aug/2026 02:57:54] "GET /script_v2.js?v=33 HTTP/1.1" 200 -
+127.0.0.1 - - [14/Aug/2026 02:57:54] code 404, message File not found
+127.0.0.1 - - [14/Aug/2026 02:57:54] "GET /favicon.ico HTTP/1.1" 404 -
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 65469)
+Traceback (most recent call last):
+  File "C:\Users\senji\AppData\Local\Programs\Python\Python310\lib\socketserver.py", line 316, in _handle_request_noblock
+    self.process_request(request, client_address)
+  File "C:\Users\senji\AppData\Local\Programs\Python\Python310\lib\socketserver.py", line 347, in process_request
+    self.finish_request(request, client_address)
+  File "C:\Users\senji\AppData\Local\Programs\Python\Python310\lib\socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "C:\Users\senji\AppData\Local\Programs\Python\Python310\lib\http\server.py", line 668, in __init__
+    super().__init__(*args, **kwargs)
+  File "C:\Users\senji\AppData\Local\Programs\Python\Python310\lib\socketserver.py", line 747, in __init__
+    self.handle()
+  File "C:\Users\senji\AppData\Local\Programs\Python\Python310\lib\http\server.py", line 433, in handle
+    self.handle_one_request()
+  File "C:\Users\senji\AppData\Local\Programs\Python\Python310\lib\http\server.py", line 401, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+  File "C:\Users\senji\AppData\Local\Programs\Python\Python310\lib\socket.py", line 705, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [WinError 10054] �̐ڑ�̓�[�g �z�X�g�ɋ�I�ɐؒf�܂�B
+----------------------------------------
+Server started on port 8086
+Screenshots taken successfully!

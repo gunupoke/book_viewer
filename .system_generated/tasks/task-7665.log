@@ -1,0 +1,15 @@
+* 0de551c Revert "Fix UI bugs, remove Gemini_Summary, update API fallback"
+* 9070da7 Fix UI bugs, remove Gemini_Summary, update API fallback
+* 79dadfa chore: bump script_v2.js version to v33 to bust browser cache
+* 218c966 Fix normalizeDate logic to correctly handle ISBN misidentification
+* b62bc30 Fix normalizeDate logic for Reiwa and YYMMDD
+* 85737e4 UI: prevent book cover from stretching vertically in list view
+* b29f934 UI: fix grid view layout bug caused by inline styles
+* a7fd4b5 UI: fix spacing and use multiline format for publisher and date
+* 30f0a2b UI: revert layout to title-bottom and format date to Japanese style
+* f564e4b fix: remove Gemini summary notification from scan result
+* 806295a Update UI: layout fix and remove summary (merged from master)
+* 358c702 Revert removal of AI summary temporary text
+* 8647dc2 Remove AI summary temporary text from script_v2.js
+* a49ce36 Remove Gemini_Summary placeholder from frontend
+* 90f466d Update Rakuten API logic in script_v2.js and update_dates.html

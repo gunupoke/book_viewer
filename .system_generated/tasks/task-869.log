@@ -1,0 +1,20 @@
+
+        document.getElementById('step2Confirm').style.display = 'none';
+        document.getElementById('step2Confirm').style.display = 'block';
+        document.getElementById('confirmLoading').style.display = 'block';
+        document.getElementById('confirmDetails').style.display = 'none';
+                    showConfirmDetails(title, author, decodedText, publisher, year, officialDescription);
+                                showConfirmDetails(title, author, decodedText, pub, yr);
+                                document.getElementById('confirmLoading').style.display = 'none';
+                            document.getElementById('confirmLoading').style.display = 'none';
+                document.getElementById('confirmLoading').style.display = 'none';
+function showConfirmDetails(title, author, isbn, publisher, year, officialDescription = "") {
+    document.getElementById('confirmLoading').style.display = 'none';
+    document.getElementById('confirmDetails').style.display = 'block';
+    document.getElementById('confirmTitle').innerText = title;
+    document.getElementById('confirmAuthor').innerText = cleanedAuthor || "著老E�E";
+    document.getElementById('confirmDetails').style.display = 'none';
+document.getElementById('confirmAddBtn').addEventListener('click', () => {
+    document.getElementById('step2Confirm').style.display = 'none';
+
+

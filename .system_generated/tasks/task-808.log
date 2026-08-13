@@ -1,0 +1,30 @@
+// 新しいアーキチE�チャ用の Google Apps Script (GAS) コーチE// ① WebアプリとしてチE�Eロイし、スキャン機�EからのチE�Eタを受け取めE// ② Gmailを定期監視し、Amazonの購入履歴を�E動追加する
+
+const GEMINI_API_KEY = '【あなた�EGemini APIキー、E;
+
+// ==========================================
+// 1. Webアプリの受け口 (スマ�EからスキャンしたチE�Eタを受け取めE
+// ==========================================
+function doPost(e) {
+  try {
+    const title = e.parameter.title || "";
+    const author = e.parameter.author || "";
+    const isbn = e.parameter.isbn || "";
+    const status = e.parameter.status || "積読";
+    const publisher = e.parameter.publisher || "";
+    const year = e.parameter.year || "";
+    const description = e.parameter.description || "";
+    
+    // スプレチE�シートへ追加処琁E    processAndAppendBook(title, author, isbn, status, publisher, year, description);
+    
+    return ContentService.createTextOutput(JSON.stringify({status: "success"}))
+      .setMimeType(ContentService.MimeType.JSON);
+  } catch(err) {
+    return ContentService.createTextOutput(JSON.stringify({status: "error", message: err.toString()}))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+}
+
+// OPTIONSリクエストへの対応！EORSエラー回避用�E�Efunction doOptions(e) {
+  return ContentService.createTextOutput("")
+    .setMimeType(ContentService.MimeType.TEXT);

@@ -1,0 +1,5 @@
+warning: in the working copy of 'index.html', LF will be replaced by CRLF the next time Git touches it
+[main 79dadfa] chore: bump script_v2.js version to v33 to bust browser cache
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+To https://github.com/gunupoke/book_viewer.git
+   218c966..79dadfa  main -> main

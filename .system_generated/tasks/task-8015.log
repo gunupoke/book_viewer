@@ -1,0 +1,4 @@
+[main a775df1] Fix step2Confirm not showing and remove mojibake
+ 3 files changed, 67 insertions(+), 5 deletions(-)
+To https://github.com/gunupoke/book_viewer.git
+   349d015..a775df1  main -> main

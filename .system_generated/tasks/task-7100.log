@@ -1,0 +1,64 @@
+OpenBD: null
+NDL: <searchRetrieveResponse xmlns="http://www.loc.gov/zing/srw/">
+  <version>1.2</version>
+  <numberOfRecords>1</numberOfRecords>
+  <extraResponseData>
+    <facets>
+      <lst name="REPOSITORY_NO">
+        <int name="R100000002">1</int>
+      </lst>
+      <lst name="NDC">
+      </lst>
+      <lst name="ISSUED_DATE">
+        <int name="2011">1</int>
+      </lst>
+      <lst name="LIBRARY">
+        <int name="�܎s�}�">1</int>
+        <int name="�O�d�}�">1</int>
+        <int name="�ꌧ�}�">1</int>
+        <int name="�k�C�}�">1</int>
+        <int name="�t�}�">1</int>
+        <int name="�É�s�}�">1</int>
+        <int name="�a�̎R�}�">1</int>
+        <int name="�}�">1</int>
+        <int name="�{�}�">1</int>
+        <int name="�{�}�ٍ�ێ�w�">1</int>
+        <int name="�ޗǌ�}�">1</int>
+        <int name="�R�}�">1</int>
+        <int name="�򕌌�}�">1</int>
+        <int name="�R�}�">1</int>
+        <int name="�L�s�}�">1</int>
+        <int name="�Q�}�">1</int>
+        <int name="�m�}�">1</int>
+        <int name="�D�y�s�}�">1</int>
+        <int name="�l�s�}�">1</int>
+        <int name="�ꌧ�}�">1</int>
+        <int name="�ΐ쌧�}�">1</int>
+        <int name="�䌧�}�">1</int>
+        <int name="�s�}�">1</int>
+        <int name="�}�">1</int>
+        <int name="�}�">1</int>
+        <int name="�H�c�}�">1</int>
+        <int name="�錧�}�">1</int>
+        <int name="�É�s�}�">1</int>
+        <int name="�É�}�">1</int>
+        <int name="�m�}�">1</int>
+      </lst>
+    </facets>
+  </extraResponseData>
+  <records>
+    <record>
+      <recordSchema>info:srw/schema/1/dc-v1.1</recordSchema>
+      <recordPacking>xml</recordPacking>
+      <recordData>
+        <srw_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:srw_dc="info:srw/schema/1/dc-v1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="info:srw/schema/1/dc-v1.1 http://www.loc.gov/standards/sru/dc-schema.xsd">
+          <dc:title>�f�̌� : �r�M�i�[�v�܂ł̃R�e�`</dc:title>
+          <dc:creator>�x�R�I�G �</dc:creator>
+          <dc:publisher>�L�l�}�{�</dc:publisher>
+          <dc:language>jpn</dc:language>
+        </srw_dc:dc>
+      </recordData>
+      <recordPosition>1</recordPosition>
+    </record>
+  </records>
+</searchRetrieveResponse>

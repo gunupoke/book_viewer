@@ -1,0 +1,6 @@
+{
+  "summary": "A debug GAS script to dump URLs from Amazon emails to fix the ASIN regex.",
+  "updatedAt": "2026-08-10T18:41:07.331125600Z",
+  "requestFeedback": true,
+  "userFacing": true
+}

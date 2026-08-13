@@ -1,0 +1,4 @@
+[main 30f0a2b] UI: revert layout to title-bottom and format date to Japanese style
+ 2 files changed, 26 insertions(+), 12 deletions(-)
+To https://github.com/gunupoke/book_viewer.git
+   f564e4b..30f0a2b  main -> main

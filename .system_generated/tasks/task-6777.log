@@ -1,0 +1,4 @@
+[main 85737e4] UI: prevent book cover from stretching vertically in list view
+ 2 files changed, 2 insertions(+), 1 deletion(-)
+To https://github.com/gunupoke/book_viewer.git
+   b29f934..85737e4  main -> main

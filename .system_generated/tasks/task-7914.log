@@ -1,0 +1,8 @@
+warning: in the working copy of 'test_script.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test_ui.html', LF will be replaced by CRLF the next time Git touches it
+[main 710521e] Add test UI for modal feature
+ 2 files changed, 1169 insertions(+)
+ create mode 100644 test_script.js
+ create mode 100644 test_ui.html
+To https://github.com/gunupoke/book_viewer.git
+   8764a92..710521e  main -> main

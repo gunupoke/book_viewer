@@ -1,0 +1,34 @@
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   update_dates.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	.system_generated/
+	.user_uploaded/
+	artifacts/
+	debug_amazon_urls.js
+	debug_amazon_urls.js.metadata.json
+	deploy/
+	email_parser_script.js
+	email_parser_script.js.metadata.json
+	gas_test_script.js
+	gas_test_script_advanced.js
+	gas_test_script_advanced_no_gb.js
+	gas_test_script_verbose.js
+	github_urls.txt
+	implementation_plan_email_sync.md
+	implementation_plan_email_sync.md.metadata.json
+	memory_dict.txt
+	memory_dict_utf8.txt
+	scratch/
+	task.md
+	task.md.metadata.json
+	temp_script_218.js
+	temp_script_857.js
+
+no changes added to commit (use "git add" and/or "git commit -a")

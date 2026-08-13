@@ -1,0 +1,114 @@
+
+> C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:8:        fetchDataFr
+omUrl(savedUrl);
+  C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:9:    }
+  C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:10:    const savedGas
+Url = localStorage.getItem('gasWebAppUrl');
+  C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:11:    if (savedGasUr
+l) {
+  C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:12:        document.g
+etElementById('gasAppUrlInput').value = savedGasUrl;
+  C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:13:    }
+> C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:35:            fetchD
+ataFromUrl(url);
+  C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:36:        }
+  C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:37:        if (gasUrl
+) {
+  C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:38:            localS
+torage.setItem('gasWebAppUrl', gasUrl);
+  C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:39:        }
+  C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:40:        if (editUr
+l) {
+> C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:149:        fetch(`ht
+tps://api.openbd.jp/v1/get?isbn=${decodedText}`)
+  C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:150:            .then
+(res => res.json())
+  C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:151:            .then
+(data => {
+  C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:152:                l
+et title = "";
+  C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:153:                l
+et author = "";
+  C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:154:                l
+et publisher = "";
+> C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:183:                 
+   fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn:${decodedText}`)
+  C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:184:                 
+       .then(res => res.json())
+  C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:185:                 
+       .then(gData => {
+  C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:186:                 
+           if (gData.items && gData.items.length > 0) {
+  C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:187:                 
+               title = gData.items[0].volumeInfo.title;
+  C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:188:                 
+               const authors = gData.items[0].volumeInfo.authors;
+> C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:248:    // fetch�ł�
+�Ȃ�Ȃ�t�H�[�iiframe�j�g�POST�M�
+  C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:249:    if (!document
+.getElementById('hidden_iframe')) {
+  C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:250:        const ifr
+ame = document.createElement('iframe');
+  C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:251:        iframe.na
+me = 'hidden_iframe';
+  C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:252:        iframe.id
+ = 'hidden_iframe';
+  C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:253:        iframe.st
+yle.display = 'none';
+> C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:301:        if (sheet
+Url) fetchDataFromUrl(sheetUrl);
+  C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:302:    }, 3000);
+  C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:303:}
+  C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:304:
+  C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:305:function onScanFa
+ilure(error) {
+  C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:306:    // ignore
+> C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:349:function fetchDat
+aFromUrl(url) {
+  C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:350:    document.getE
+lementById('bookGrid').innerHTML = '<div class="empty-state"><p>�f�[�^�ǂݍ�ݒ�...</p></div>';
+  C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:351:    
+  C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:352:    if (url.inclu
+des('/edit')) {
+  C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:353:        document.
+getElementById('bookGrid').innerHTML = '<div class="empty-state" style="color: #fca5a5;"><p>?? �G�[: URL�Ԉ�Ă�
+�</p><p class="sub-text">�u�E�U�̏�URL�i/edit...�j�ł͂Ȃ�A�u�t�@�C�v�u�L�v�u�E�F�u�Ɍ�J�v�Ŕ�s�ꂽ <strong>
+/pub?output=csv</strong> �ŏI�URL�͂�Ă�B</p></div>';
+  C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:354:        return;
+> C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:365:    const fetchUr
+l = url + (url.includes('?') ? '&' : '?') + 't=' + new Date().getTime();
+  C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:366:
+> C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:367:    fetch(fetchUr
+l, { cache: 'no-store' })
+  C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:368:        .then(res
+ponse => {
+  C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:369:            if (!
+response.ok) throw new Error(`HTTP�G�[ ${response.status}`);
+  C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:370:            retur
+n response.text();
+  C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:371:        })
+  C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:372:        .then(csv
+Text => {
+> C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:392:            if (e
+rrorMsg === 'Failed to fetch' || errorMsg.includes('NetworkError')) {
+  C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:393:                e
+rrorMsg = '�l�b�g�[�N�G�[�܂�BURL�A�Z�L�e�B�Ńu�b�N�Ă�Ȃ�m�F�Ă�B';
+  C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:394:            }
+  C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:395:            docum
+ent.getElementById('bookGrid').innerHTML = `<div class="empty-state" style="color: #fca5a5;"><p>?? �G�[�܂�:
+ ${errorMsg}</p></div>`;
+  C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:396:        });
+  C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:397:}
+> C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:613:        const res
+ponse = await fetch(gasUrl, {
+  C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:614:            metho
+d: 'POST',
+  C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:615:            body:
+ formData,
+  C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:616:            mode:
+ 'no-cors' // Google Apps Script�̎d�l� no-cors
+  C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:617:        });
+  C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\script.js:618:        console.l
+og("Status update request sent.");
+
+

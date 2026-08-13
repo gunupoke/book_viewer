@@ -1,0 +1,22 @@
+=== Testing Audit Logic on 186 Rows ===
+Row 2 [�O�...]: RETAINED/SKIPPED (Incomplete date ignored)
+Row 3 [�m�̔s�k �{�Ɛ�E�...]: RETAINED/SKIPPED (Incomplete date ignored)
+Row 4 [�u�D�v�ꉻ�Z�p...]: RETAINED/SKIPPED (Incomplete date ignored)
+Row 5 [�a�Ƌ�...]: RETAINED/SKIPPED (Incomplete date ignored)
+Row 6 [Occultic;Nin...]: RETAINED/SKIPPED (Incomplete date ignored)
+Row 7 [Occultic;Nin...]: RETAINED/SKIPPED (Incomplete date ignored)
+Row 8 [Occultic;Nin...]: RETAINED/SKIPPED (Incomplete date ignored)
+Row 9 [�A�J�M 1 (�o�u�[�R...]: RETAINED/SKIPPED (Incomplete date ignored)
+Row 10 [�A�J�M (2) (�ߑ㖃...]: RETAINED/SKIPPED (Incomplete date ignored)
+Row 11 [�A�J�M (3) (�ߑ㖃...]: RETAINED/SKIPPED (Incomplete date ignored)
+Row 183 [�C�̋�AUFO�̉� ...]: RETAINED/SKIPPED (Incomplete date ignored)
+Row 184 [�C�̋�AUFO�̉� ...]: RETAINED/SKIPPED (Incomplete date ignored)
+Row 185 [�C�̋�AUFO�̉� ...]: RETAINED/SKIPPED (Incomplete date ignored)
+Row 186 [�I�쌛�_...]: RETAINED/SKIPPED (Incomplete date ignored)
+Row 187 [�C�̋�AUFO�̉� ...]: RETAINED/SKIPPED (Incomplete date ignored)
+
+=== AUDIT TEST RESULTS SUMMARY ===
+Total Books Tested: 186
+Already Exact (YYYY-MM-DD): 0
+Successfully Fixed to Exact Date: 0
+Retained/Skipped (Prevented Incomplete Update): 186

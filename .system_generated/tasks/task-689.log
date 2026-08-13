@@ -1,0 +1,8 @@
+Invoke-RestMethod : �[�g �T�[�o�[�G�[�Ԃ�܂�: (403) �g�p�s�\
+�ꏊ �s:1 �:1
++ Invoke-RestMethod -Uri 'https://ndlsearch.ndl.go.jp/thumbnail/9784065 ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (System.Net.HttpWebRequest:HttpWebRequest) [Invoke-RestMethod]�AWebExce 
+   ption
+    + FullyQualifiedErrorId : WebCmdletWebResponseException,Microsoft.PowerShell.Commands.InvokeRestMethodCommand
+ 

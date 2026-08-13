@@ -1,0 +1,4 @@
+[main fea92d5] Fix text encoding for test ui
+ 2 files changed, 34 insertions(+), 35 deletions(-)
+To https://github.com/gunupoke/book_viewer.git
+   710521e..fea92d5  main -> main

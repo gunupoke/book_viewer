@@ -1,0 +1,2 @@
+HTTPError: 400
+{"error_description":"specify valid applicationId","error":"wrong_parameter"}
