@@ -612,7 +612,6 @@ document.getElementById('confirmAddBtn').addEventListener('click', () => {
         const status = document.getElementById('statusSelect').value;
         const editedPublisher = document.getElementById('confirmPublisher').value.trim();
         const editedDate = document.getElementById('confirmDate').value;
-        
         sendToGas(pendingBookData.title, pendingBookData.author, pendingBookData.isbn, editedPublisher, editedDate, status, pendingBookData.officialDescription);
     }
 });
@@ -620,7 +619,7 @@ document.getElementById('confirmAddBtn').addEventListener('click', () => {
 document.getElementById('searchDateBtn').addEventListener('click', () => {
     if (pendingBookData && pendingBookData.title) {
         const query = pendingBookData.title + " 発売日";
-        window.open(`https://www.google.com/search?q=${encodeURIComponent(query)}`, '_blank');
+        window.open(`https://www.google.com/search?q=${query}`, '_blank');
     }
 });
 
