@@ -985,5 +985,6 @@ document.getElementById('detailStatus').addEventListener('change', async (e) => 
 document.getElementById('testTriggerBtn').addEventListener('click', () => {
     document.getElementById('scannerModal').classList.add('show');
     document.getElementById('step1Scanning').style.display = 'none';
+    document.getElementById('step2Confirm').style.display = 'block';
     showConfirmDetails('映像の原則', '富野由悠季', '9784873767369', 'キネマ旬報社', '2011-09', '映像の原則についての詳細な解説...');
 });
