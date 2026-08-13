@@ -1,8 +1,0 @@
-Successfully scheduled one-shot timer.
-Expected to fire at: 2026-07-14T03:53:23+09:00
-Prompt: Wait for 220 books research
-
-[2026-07-14T03:52:33+09:00] Still waiting. Remaining time: 50s
-[2026-07-14T03:52:43+09:00] Still waiting. Remaining time: 40s
-[2026-07-14T03:52:53+09:00] Still waiting. Remaining time: 30s
-[2026-07-14T03:52:58+09:00] Timer cancelled: agent received a message during wait.

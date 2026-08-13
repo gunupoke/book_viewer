@@ -1,9 +1,0 @@
-Get-Content : �p�X 'C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41ea-87b2-a80db5024466\scratch\enriched_book
-s.csv' �݂�Ȃ�ߌ�o�ł�܂�B
-�ꏊ �s:1 �:1
-+ Get-Content C:\Users\senji\.gemini\antigravity\brain\c834d4b8-56eb-41 ...
-+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : ObjectNotFound: (C:\Users\senji\...iched_books.csv:String) [Get-Content], ItemNotFoundEx 
-   ception
-    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetContentCommand
- 

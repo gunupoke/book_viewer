@@ -1,4 +1,0 @@
-[main b62bc30] Fix normalizeDate logic for Reiwa and YYMMDD
- 1 file changed, 88 insertions(+), 14 deletions(-)
-To https://github.com/gunupoke/book_viewer.git
-   85737e4..b62bc30  main -> main

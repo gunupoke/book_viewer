@@ -1,7 +1,0 @@
-HTTPError: 403
-{
-  "errors": {
-    "errorCode": 403,
-    "errorMessage": "REQUEST_CONTEXT_BODY_HTTP_REFERRER_MISSING"
-  }
-}

@@ -1,6 +1,0 @@
-Successfully scheduled one-shot timer.
-Expected to fire at: 2026-07-12T18:38:29+09:00
-Prompt: Wait for last 3 subagents
-
-[2026-07-12T18:37:39+09:00] Still waiting. Remaining time: 50s
-[2026-07-12T18:37:49+09:00] Timer cancelled: agent received a message during wait.

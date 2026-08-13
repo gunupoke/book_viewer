@@ -1,4 +1,0 @@
-[main 218c966] Fix normalizeDate logic to correctly handle ISBN misidentification
- 1 file changed, 6 insertions(+)
-To https://github.com/gunupoke/book_viewer.git
-   b62bc30..218c966  main -> main

@@ -1,4 +1,0 @@
-[main b29f934] UI: fix grid view layout bug caused by inline styles
- 3 files changed, 6 insertions(+), 6 deletions(-)
-To https://github.com/gunupoke/book_viewer.git
-   a7fd4b5..b29f934  main -> main

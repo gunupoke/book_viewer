@@ -1,5 +1,0 @@
-[main (root-commit) 70dd029] Initial commit
- 3 files changed, 1156 insertions(+)
- create mode 100644 index.html
- create mode 100644 script.js
- create mode 100644 style.css
