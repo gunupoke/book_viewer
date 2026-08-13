@@ -777,14 +777,21 @@ function renderBooks(books) {
                 if (parts.length === 3) {
                     cleanYear = `${parseInt(parts[0], 10)}年${parseInt(parts[1], 10)}月${parseInt(parts[2], 10)}日`;
                 } else if (parts.length === 2) {
-                    cleanYear = `${parseInt(parts[0], 10)}年${parseInt(parts[1], 10)}月`;
+                    cleanYear = `${parseInt(parts[0], 10)}年${parseInt(parts[1], 10)}月 <span title="発行日が不完全です" style="color: #fbbf24; font-size: 0.9em; cursor: help;">⚠️</span>`;
                 } else if (parts.length === 1 && cleanYear.match(/^\d{4}$/)) {
-                    cleanYear = `${cleanYear}年`;
+                    cleanYear = `${cleanYear}年 <span title="発行日が不完全です" style="color: #fbbf24; font-size: 0.9em; cursor: help;">⚠️</span>`;
                 }
                 pubInfo.push(cleanYear);
             }
         }
-        let pubInfoHtml = pubInfo.map(escapeHtml).join('<br>');
+        let pubInfoHtml = pubInfo.map(info => {
+            // If info contains our span, we escape the rest but keep the span
+            if (info.includes('<span title="発行日が不完全です"')) {
+                let text = info.split(' <span')[0];
+                return escapeHtml(text) + ' <span title="発行日が不完全です" style="color: #fbbf24; font-size: 0.9em; cursor: help;">⚠️</span>';
+            }
+            return escapeHtml(info);
+        }).join('<br>');
 
         card.innerHTML = `
             <div style="flex-shrink: 0; width: 80px; position: relative; background: #1e293b; border-radius: 4px; overflow: hidden; display: flex; align-items: center; justify-content: center; min-height: 115px;" class="cover-wrapper">
