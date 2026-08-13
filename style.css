@@ -24,7 +24,7 @@ body {
 }
 
 .app-container {
-    max-width: 1200px;
+    max-width: 1600px;
     margin: 0 auto;
     padding: 2rem;
 }
@@ -111,7 +111,7 @@ h1 {
 /* Grid Layout */
 .book-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 2rem;
 }
 
@@ -141,7 +141,9 @@ h1 {
     transition: all 0.3s ease;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    gap: 15px;
+    align-items: flex-start;
 }
 
 .book-card:hover {
@@ -330,14 +332,13 @@ h1 {
     transform: translateY(-5px) scale(1.05);
 }
 .book-grid.grid-view .book-card img {
-    height: 100%;
-    width: 100%;
-    object-fit: contain;
+    max-height: 100%;
+    max-width: 100%;
     box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
     border-radius: 2px 4px 4px 2px;
 }
 .book-grid.grid-view .book-details {
-    display: none; /* Hide text in grid view */
+    display: none !important; /* Hide text in grid view */
 }
 
 /* Detail Modal */
@@ -365,7 +366,16 @@ h1 {
     font-size: 0.9em;
     color: var(--text-secondary);
 }
-
+.detail-summary {
+    background: rgba(0,0,0,0.2);
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 0.9em;
+    line-height: 1.6;
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 15px;
+}
 .status-select {
     padding: 8px;
     border-radius: 4px;
