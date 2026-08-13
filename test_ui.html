@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>丁E���E書庫</title>
+    <title>万屋の書庫</title>
     <link rel="stylesheet" href="style.css?v=4">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
@@ -13,32 +13,32 @@
 </head>
 <body>
     <div style="background: #ef4444; color: white; padding: 15px; text-align: center; font-weight: bold; cursor: pointer; position: sticky; top: 0; z-index: 9999;" id="testTriggerBtn">
-        ?? �y�e�X�g�p�z�������^�b�v����ƃX�L�������ʉ�ʁi���t�s���S�p�^�[���j���J���܂� ??
+        🚨 【テスト用】ここをタップするとスキャン結果画面（日付不完全パターン）が開きます 🚨
     </div>
     <div class="app-container">
         <header>
-            <h1>丁E���E書庫</h1>
+            <h1>万屋の書庫</h1>
             <div class="search-container" style="display: flex; gap: 10px;">
-                <input type="text" id="searchInput" placeholder="タイトル、著老E��検索..." style="flex: 1;">
+                <input type="text" id="searchInput" placeholder="タイトル、著者で検索..." style="flex: 1;">
                 <select id="sortSelect" style="padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: #e2e8f0; font-size: 0.9em; cursor: pointer;">
-                    <option value="newest" style="background: #1e293b; color: white;">新着頁E/option>
-                    <option value="oldest" style="background: #1e293b; color: white;">古ぁE��E/option>
-                    <option value="release_newest" style="background: #1e293b; color: white;">発売が新しい頁E/option>
-                    <option value="release_oldest" style="background: #1e293b; color: white;">発売が古ぁE��E/option>
-                    <option value="title" style="background: #1e293b; color: white;">タイトル頁EあいぁE��ぁE</option>
-                    <option value="author" style="background: #1e293b; color: white;">著老E��頁EあいぁE��ぁE</option>
+                    <option value="newest" style="background: #1e293b; color: white;">新着順</option>
+                    <option value="oldest" style="background: #1e293b; color: white;">古い順</option>
+                    <option value="release_newest" style="background: #1e293b; color: white;">発売が新しい順</option>
+                    <option value="release_oldest" style="background: #1e293b; color: white;">発売が古い順</option>
+                    <option value="title" style="background: #1e293b; color: white;">タイトル順(あいうえお)</option>
+                    <option value="author" style="background: #1e293b; color: white;">著者名順(あいうえお)</option>
                 </select>
             </div>
             <div class="actions">
                 <button id="scanBtn" class="btn btn-primary" style="background: linear-gradient(135deg, #10b981, #059669); border: none;">📷 本を追加(スキャン)</button>
                 <label for="csvFileInput" class="btn">ローカルCSV読込</label>
                 <input type="file" id="csvFileInput" accept=".csv" style="display: none;">
-                <button id="exportCsvBtn" class="btn btn-outline" style="border-color: #38bdf8; color: #38bdf8;">📥 エクスポ�EチE/button>
+                <button id="exportCsvBtn" class="btn btn-outline" style="border-color: #38bdf8; color: #38bdf8;">📥 エクスポート</button>
                 <button id="openSheetBtn" class="btn btn-outline" style="border-color: #10b981; color: #10b981; display: none;">🔗 シートを開く</button>
-                <button id="settingsBtn" class="btn btn-outline">設宁E/button>
+                <button id="settingsBtn" class="btn btn-outline">設定</button>
                 <div class="view-toggle">
                     <button id="viewListBtn" class="active">詳細</button>
-                    <button id="viewGridBtn">本棁E/button>
+                    <button id="viewGridBtn">本棚</button>
                 </div>
             </div>
         </header>
@@ -46,7 +46,7 @@
         <main id="bookGrid" class="book-grid">
             <div class="empty-state">
                 <p>CSVファイルを読み込んでください</p>
-                <p class="sub-text">また�E設定からGoogleスプレチE��シート�EURLを連携してください</p>
+                <p class="sub-text">または設定からGoogleスプレッドシートのURLを連携してください</p>
             </div>
         </main>
     </div>
@@ -60,10 +60,10 @@
             <!-- Step 1: Scanning UI -->
             <div id="step1Scanning">
                 <p style="font-size: 0.85em; margin-bottom: 10px; color: #94a3b8;">
-                    上�Eバ�Eコード！E78...�E�を赤枠に合わせてください
+                    上のバーコード（978...）を赤枠に合わせてください
                 </p>
                 
-                <!-- カメラ枠の高さを制限してレイアウト崩れを防ぁE-->
+                <!-- カメラ枠の高さを制限してレイアウト崩れを防ぐ -->
                 <div style="position: relative; width: 100%; max-width: 400px; height: 250px; margin: 0 auto 15px auto; border-radius: 8px; overflow: hidden; background: #0f172a;">
                     <video id="nativeVideo" autoplay playsinline style="width: 100%; height: 100%; object-fit: cover;"></video>
                     <!-- 読み取り枠のUI -->
@@ -72,7 +72,7 @@
                     </div>
                 </div>
                 
-                <p style="font-size: 0.85em; margin-bottom: 15px;">また�EISBNを手動�E力！E/p>
+                <p style="font-size: 0.85em; margin-bottom: 15px;">またはISBNを手動入力：</p>
                 <input type="number" id="manualIsbnInput" placeholder="978..." style="padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: white; margin-bottom: 10px;">
                 <button id="manualIsbnBtn" class="btn btn-outline">検索</button>
             </div>
@@ -80,7 +80,7 @@
             <!-- Step 2: Confirm UI -->
             <div id="step2Confirm" style="display: none;">
                 <div id="confirmLoading" style="display: none; padding: 20px; color: #38bdf8;">
-                    <p>本の惁E��を検索中...</p>
+                    <p>本の情報を検索中...</p>
                 </div>
                 <div id="confirmDetails" style="display: none;">
                     <div id="confirmCover" style="margin-bottom: 20px; height: 200px; display: flex; justify-content: center; align-items: center;"></div>
@@ -94,7 +94,7 @@
                             <input type="text" id="confirmPublisher" style="width: 100%; padding: 8px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; border-radius: 4px; font-size: 0.95em;">
                         </div>
                         <div>
-                            <label style="display: block; color: #94a3b8; font-size: 0.85em; margin-bottom: 5px;">発行日 <span id="confirmDateWarning" style="color: #fbbf24; display: none; font-size: 0.9em; margin-left: 10px;"><i class="fas fa-exclamation-triangle"></i> 不完�Eな日付でぁE/span></label>
+                            <label style="display: block; color: #94a3b8; font-size: 0.85em; margin-bottom: 5px;">発行日 <span id="confirmDateWarning" style="color: #fbbf24; display: none; font-size: 0.9em; margin-left: 10px;"><i class="fas fa-exclamation-triangle"></i> 不完全な日付です</span></label>
                             <div style="display: flex; gap: 10px;">
                                 <input type="date" id="confirmDate" style="flex: 1; padding: 8px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; border-radius: 4px; font-size: 0.95em; color-scheme: dark;">
                                 <button id="searchDateBtn" title="Webで発売日を検索" style="background: #3b82f6; border: none; border-radius: 4px; width: 42px; cursor: pointer; color: white; display: flex; align-items: center; justify-content: center; font-size: 1.1em;">
@@ -107,10 +107,10 @@
                     <p id="confirmDesc" style="font-size: 0.9em; color: #cbd5e1; background: rgba(0,0,0,0.2); padding: 15px; border-radius: 8px; text-align: left; line-height: 1.6; max-height: 150px; overflow-y: auto; margin-bottom: 20px;"></p>
                     
                     <div style="margin: 15px 0; padding: 15px; background: rgba(0,0,0,0.3); border-radius: 8px;">
-                        <label style="display: block; color: #e2e8f0; font-size: 0.9em; margin-bottom: 8px;">こ�E本のスチE�Eタスは�E�E/label>
+                        <label style="display: block; color: #e2e8f0; font-size: 0.9em; margin-bottom: 8px;">この本のステータスは？</label>
                         <select id="statusSelect" style="width: 100%; max-width: 200px; padding: 10px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.2); background: #1e293b; color: white; cursor: pointer; font-size: 16px;">
-                            <option value="読み終わっぁE>読み終わっぁE/option>
-                            <option value="ぁE��読んでめE>ぁE��読んでめE/option>
+                            <option value="読み終わった">読み終わった</option>
+                            <option value="いま読んでる">いま読んでる</option>
                             <option value="積読">積読</option>
                             <option value="読みたい">読みたい</option>
                             <option value="手放した">手放した</option>
@@ -136,12 +136,12 @@
                 <img id="detailCover" class="detail-cover" src="" alt="書影" onerror="this.style.display='none'">
                 <div class="detail-info">
                     <h2 id="detailTitle">タイトル</h2>
-                    <p id="detailAuthor">著老E/p>
+                    <p id="detailAuthor">著者</p>
                     <p id="detailPublisher">出版社 / 発売日</p>
-                    <p id="detailType">刁E��E/p>
+                    <p id="detailType">分類</p>
                     <select id="detailStatus" class="status-select">
-                        <option value="読み終わっぁE>読み終わっぁE/option>
-                        <option value="ぁE��読んでめE>ぁE��読んでめE/option>
+                        <option value="読み終わった">読み終わった</option>
+                        <option value="いま読んでる">いま読んでる</option>
                         <option value="積読">積読</option>
                         <option value="読みたい">読みたい</option>
                         <option value="手放した">手放した</option>
@@ -156,18 +156,18 @@
     <div id="settingsModal" class="modal">
         <div class="modal-content glass-panel">
             <span class="close" id="closeSettings">&times;</span>
-            <h2>チE�Eタ連携設宁E/h2>
+            <h2>データ連携設定</h2>
             
-            <h3 style="font-size: 1em; margin-top: 15px; color: #e2e8f0;">① チE�Eタ読み込み用 (CSV)</h3>
-            <p style="font-size: 0.85em;">スプレチE��シート�E「ウェブに公開」で取得したCSVのURL</p>
+            <h3 style="font-size: 1em; margin-top: 15px; color: #e2e8f0;">① データ読み込み用 (CSV)</h3>
+            <p style="font-size: 0.85em;">スプレッドシートの「ウェブに公開」で取得したCSVのURL</p>
             <input type="url" id="sheetUrlInput" placeholder="https://docs.google.com/spreadsheets/d/.../pub?output=csv" style="margin-bottom: 15px;">
             
-            <h3 style="font-size: 1em; margin-top: 10px; color: #e2e8f0;">② チE�Eタ書き込み用 (GAS Web App)</h3>
-            <p style="font-size: 0.85em;">スマ�Eからバ�Eコードで本を追加するためのチE�EロイURL</p>
+            <h3 style="font-size: 1em; margin-top: 10px; color: #e2e8f0;">② データ書き込み用 (GAS Web App)</h3>
+            <p style="font-size: 0.85em;">スマホからバーコードで本を追加するためのデプロイURL</p>
             <input type="url" id="gasAppUrlInput" placeholder="https://script.google.com/macros/s/.../exec">
             
-            <h3 style="font-size: 1em; margin-top: 10px; color: #e2e8f0;">③ スプレチE��シート編雁E��URL (任愁E</h3>
-            <p style="font-size: 0.85em;">「シートを開く」�Eタン用のURL�E�ブラウザのURLバ�EのURL�E�E/p>
+            <h3 style="font-size: 1em; margin-top: 10px; color: #e2e8f0;">③ スプレッドシート編集用URL (任意)</h3>
+            <p style="font-size: 0.85em;">「シートを開く」ボタン用のURL（ブラウザのURLバーのURL）</p>
             <input type="url" id="sheetEditUrlInput" placeholder="https://docs.google.com/spreadsheets/d/.../edit">
             
             <button id="saveSettingsBtn" class="btn btn-primary" style="margin-top: 20px;">保存して読み込む</button>

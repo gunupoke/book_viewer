@@ -985,6 +985,5 @@ document.getElementById('detailStatus').addEventListener('change', async (e) => 
 document.getElementById('testTriggerBtn').addEventListener('click', () => {
     document.getElementById('scannerModal').classList.add('show');
     document.getElementById('step1Scanning').style.display = 'none';
-    showConfirmDetails('‰f‘œ‚ÌŒ´‘¥', '•x–ì—R—I‹G', '9784873767369', 'ƒLƒlƒ}{•ñĞ', '2011-09', '‰f‘œ‚ÌŒ´‘¥‚É‚Â‚¢‚Ä‚ÌÚ×‚È‰ğà...');
+    showConfirmDetails('æ˜ åƒã®åŸå‰‡', 'å¯Œé‡ç”±æ‚ å­£', '9784873767369', 'ã‚­ãƒãƒæ—¬å ±ç¤¾', '2011-09', 'æ˜ åƒã®åŸå‰‡ã«ã¤ã„ã¦ã®è©³ç´°ãªè§£èª¬...');
 });
-
