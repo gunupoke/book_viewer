@@ -496,8 +496,7 @@ function showConfirmDetails(title, author, isbn, publisher, year, officialDescri
     
     document.getElementById('confirmTitle').value = title || "";
     document.getElementById('confirmAuthor').value = cleanedAuthor || "";
-    document.getElementById('confirmDesc').innerText = officialDescription || "あらすじがありません。";
-    document.getElementById('confirmDesc').style.display = officialDescription ? 'block' : 'none';
+
     
     // 出版社
     document.getElementById('confirmPublisher').value = publisher || "";
