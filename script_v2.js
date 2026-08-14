@@ -594,10 +594,6 @@ function sendToGas(title, author, isbn, publisher, year, status, officialDescrip
         // メモリ上の配列の先頭（新着順）に追加して再描画
         allBooks.unshift(newBook);
         renderBooks(allBooks);
-        
-        // 裏で一応CSVの再取得もリクエストしておく
-        const sheetUrl = localStorage.getItem('sheetCsvUrl');
-        if (sheetUrl) fetchDataFromUrl(sheetUrl);
     }, 3000);
 }
 
@@ -1088,9 +1084,5 @@ function saveBookEdits(book) {
         
         document.getElementById('detailModal').classList.remove('show');
         renderBooks(allBooks); // 一覧を再描画
-        
-        // 裏で一応CSVの再取得もリクエストしておく
-        const sheetUrl = localStorage.getItem('sheetCsvUrl');
-        if (sheetUrl) fetchDataFromUrl(sheetUrl);
     }, 2000);
 }
