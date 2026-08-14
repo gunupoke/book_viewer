@@ -998,7 +998,7 @@ document.getElementById('detailStatus').addEventListener('change', async (e) => 
     const formData = new FormData();
     formData.append('action', 'updateStatus');
     formData.append('isbn', currentDetailBook.ISBN13 || '');
-    formData.append('title', currentDetailBook.Title || '');
+    formData.append('original_title', currentDetailBook.Title || '');
     formData.append('status', newStatus);
     
     try {
@@ -1050,6 +1050,7 @@ function saveBookEdits(book) {
     const fields = { 
         action: 'update_book',
         isbn: book.ISBN13,
+        original_title: book.Title,
         title: newTitle, 
         author: newAuthor, 
         publisher: newPublisher, 
