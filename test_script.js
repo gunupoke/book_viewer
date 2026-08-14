@@ -988,3 +988,78 @@ document.getElementById('testTriggerBtn').addEventListener('click', () => {
     document.getElementById('step2Confirm').style.display = 'block';
     showConfirmDetails('映像の原則', '富野由悠季', '9784873767369', 'キネマ旬報社', '2011-09', '映像の原則についての詳細な解説...');
 });
+
+function saveBookEdits(book) {
+    const gasUrl = localStorage.getItem('gasWebAppUrl');
+    if(!gasUrl) {
+        alert('エラー: 設定画面から「GAS WebアプリのURL」を保存してください！');
+        return;
+    }
+
+    const newTitle = document.getElementById('editTitle').value.trim();
+    const newAuthor = document.getElementById('editAuthor').value.trim();
+    const newPublisher = document.getElementById('editPublisher').value.trim();
+    const newYear = normalizeDate(document.getElementById('editYear').value.trim());
+    const newStatus = document.getElementById('detailStatus').value;
+
+    const btn = document.getElementById('saveEditBtn');
+    btn.innerText = "💾 保存中...";
+    btn.disabled = true;
+
+    // hidden_iframeを使ったPOST
+    if (!document.getElementById('hidden_iframe')) {
+        const iframe = document.createElement('iframe');
+        iframe.name = 'hidden_iframe';
+        iframe.id = 'hidden_iframe';
+        iframe.style.display = 'none';
+        document.body.appendChild(iframe);
+    }
+    
+    const form = document.createElement('form');
+    form.method = 'POST';
+    form.action = gasUrl;
+    form.target = 'hidden_iframe';
+    
+    const fields = { 
+        action: 'update_book',
+        isbn: book.ISBN13,
+        title: newTitle, 
+        author: newAuthor, 
+        publisher: newPublisher, 
+        year: newYear,
+        status: newStatus 
+    };
+    
+    for (let key in fields) {
+        if (fields[key] !== undefined && fields[key] !== null) {
+            const input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = key;
+            input.value = fields[key];
+            form.appendChild(input);
+        }
+    }
+    
+    document.body.appendChild(form);
+    form.submit();
+    document.body.removeChild(form);
+
+    setTimeout(() => {
+        // メモリ上のデータを更新
+        book.Title = newTitle;
+        book.Author = newAuthor;
+        book.Publisher = newPublisher;
+        book.Year = newYear;
+        book.Status = newStatus;
+        
+        btn.innerText = "💾 保存";
+        btn.disabled = false;
+        
+        document.getElementById('detailModal').classList.remove('show');
+        renderBooks(allBooks); // 一覧を再描画
+        
+        // 裏で一応CSVの再取得もリクエストしておく
+        const sheetUrl = localStorage.getItem('sheetCsvUrl');
+        if (sheetUrl) fetchDataFromUrl(sheetUrl);
+    }, 2000);
+}
