@@ -947,6 +947,37 @@ function openDetailModal(book, coverUrl) {
     if (currentStatus === '読書中') currentStatus = 'いま読んでる';
     document.getElementById('detailStatus').value = currentStatus;
     
+    // Reset Edit Mode
+    document.getElementById('detailViewMode').style.display = 'block';
+    document.getElementById('detailEditMode').style.display = 'none';
+    document.getElementById('detailTitle').style.display = 'block';
+    document.getElementById('detailAuthor').style.display = 'block';
+    
+    // Bind Edit Button
+    document.getElementById('editBookBtn').onclick = () => {
+        document.getElementById('detailViewMode').style.display = 'none';
+        document.getElementById('detailTitle').style.display = 'none';
+        document.getElementById('detailAuthor').style.display = 'none';
+        document.getElementById('detailEditMode').style.display = 'flex';
+        
+        // Populate inputs
+        document.getElementById('editTitle').value = book.Title || '';
+        document.getElementById('editAuthor').value = book.Author || '';
+        document.getElementById('editPublisher').value = book.Publisher || '';
+        document.getElementById('editYear').value = String(book.Year || '').replace(/年|月|日/g, '-').replace(/-$/, '') || '';
+    };
+
+    document.getElementById('cancelEditBtn').onclick = () => {
+        document.getElementById('detailViewMode').style.display = 'block';
+        document.getElementById('detailTitle').style.display = 'block';
+        document.getElementById('detailAuthor').style.display = 'block';
+        document.getElementById('detailEditMode').style.display = 'none';
+    };
+
+    document.getElementById('saveEditBtn').onclick = () => {
+        saveBookEdits(book);
+    };
+
     detailModal.classList.add('show');
 }
 
@@ -988,3 +1019,78 @@ document.getElementById('detailStatus').addEventListener('change', async (e) => 
         renderBooks(allBooks);
     }
 });
+
+function saveBookEdits(book) {
+    const gasUrl = localStorage.getItem('gasWebAppUrl');
+    if(!gasUrl) {
+        alert('エラー: 設定画面から「GAS WebアプリのURL」を保存してください！');
+        return;
+    }
+
+    const newTitle = document.getElementById('editTitle').value.trim();
+    const newAuthor = document.getElementById('editAuthor').value.trim();
+    const newPublisher = document.getElementById('editPublisher').value.trim();
+    const newYear = normalizeDate(document.getElementById('editYear').value.trim());
+    const newStatus = document.getElementById('detailStatus').value;
+
+    const btn = document.getElementById('saveEditBtn');
+    btn.innerText = "💾 保存中...";
+    btn.disabled = true;
+
+    // hidden_iframeを使ったPOST
+    if (!document.getElementById('hidden_iframe')) {
+        const iframe = document.createElement('iframe');
+        iframe.name = 'hidden_iframe';
+        iframe.id = 'hidden_iframe';
+        iframe.style.display = 'none';
+        document.body.appendChild(iframe);
+    }
+    
+    const form = document.createElement('form');
+    form.method = 'POST';
+    form.action = gasUrl;
+    form.target = 'hidden_iframe';
+    
+    const fields = { 
+        action: 'update_book',
+        isbn: book.ISBN13,
+        title: newTitle, 
+        author: newAuthor, 
+        publisher: newPublisher, 
+        year: newYear,
+        status: newStatus 
+    };
+    
+    for (let key in fields) {
+        if (fields[key] !== undefined && fields[key] !== null) {
+            const input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = key;
+            input.value = fields[key];
+            form.appendChild(input);
+        }
+    }
+    
+    document.body.appendChild(form);
+    form.submit();
+    document.body.removeChild(form);
+
+    setTimeout(() => {
+        // メモリ上のデータを更新
+        book.Title = newTitle;
+        book.Author = newAuthor;
+        book.Publisher = newPublisher;
+        book.Year = newYear;
+        book.Status = newStatus;
+        
+        btn.innerText = "💾 保存";
+        btn.disabled = false;
+        
+        document.getElementById('detailModal').classList.remove('show');
+        renderBooks(allBooks); // 一覧を再描画
+        
+        // 裏で一応CSVの再取得もリクエストしておく
+        const sheetUrl = localStorage.getItem('sheetCsvUrl');
+        if (sheetUrl) fetchDataFromUrl(sheetUrl);
+    }, 2000);
+}

@@ -140,9 +140,27 @@
                 <div class="detail-info">
                     <h2 id="detailTitle">タイトル</h2>
                     <p id="detailAuthor">著者</p>
-                    <p id="detailPublisher">出版社 / 発売日</p>
-                    <p id="detailType">分類</p>
-                    <select id="detailStatus" class="status-select">
+                    <div id="detailViewMode">
+                        <p id="detailPublisher">出版社 / 発売日</p>
+                        <p id="detailType">分類</p>
+                        <div style="margin-top: 10px;">
+                            <button id="editBookBtn" class="btn btn-outline" style="padding: 4px 12px; font-size: 0.9em;">✏️ 編集する</button>
+                        </div>
+                    </div>
+                    
+                    <div id="detailEditMode" style="display: none; margin-top: 10px; flex-direction: column; gap: 8px;">
+                        <input type="text" id="editTitle" class="form-input" placeholder="タイトル" style="font-size: 0.9em; padding: 4px;">
+                        <input type="text" id="editAuthor" class="form-input" placeholder="著者" style="font-size: 0.9em; padding: 4px;">
+                        <input type="text" id="editPublisher" class="form-input" placeholder="出版社" style="font-size: 0.9em; padding: 4px;">
+                        <input type="text" id="editYear" class="form-input" placeholder="発行日 (YYYY-MM-DD)" style="font-size: 0.9em; padding: 4px;">
+                        
+                        <div style="display: flex; gap: 8px; margin-top: 5px;">
+                            <button id="saveEditBtn" class="btn" style="flex: 1; padding: 6px;">💾 保存</button>
+                            <button id="cancelEditBtn" class="btn btn-outline" style="flex: 1; padding: 6px;">キャンセル</button>
+                        </div>
+                    </div>
+                    
+                    <select id="detailStatus" class="status-select" style="margin-top: 15px;">
                         <option value="読み終わった">読み終わった</option>
                         <option value="いま読んでる">いま読んでる</option>
                         <option value="積読">積読</option>
@@ -177,6 +195,6 @@
         </div>
     </div>
 
-    <script src="script_v2.js?v=34"></script>
+    <script src="script_v2.js?v=42"></script>
 </body>
 </html>
